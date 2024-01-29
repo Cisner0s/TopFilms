@@ -11,6 +11,6 @@ El proyecto TopFilms es un sistema de gestión de información sobre películas,
 
 ## Tecnologías Utilizadas
 - Java
-- Base de datos SQLite
+- Base de datos MySQL
 - Maven (para la gestión de dependencias)
 - Otros... (Incluir otras tecnologías utilizadas en el proyecto)
