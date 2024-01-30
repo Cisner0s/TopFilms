@@ -7,25 +7,24 @@ package view;
 
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.sql.*;
 import javax.swing.JOptionPane;
-
 import dao.Conexion;
 /**
  *
- * @author Ernesto
+ * @author Cisneros
  */
 public class LoginWindow extends javax.swing.JFrame {
 
     public static String user = ""; //Se declara así para enviar datos entre interfaces
     String pass = "";
-
+    
     /**
      * Creates new form Login
      */
+    
     public LoginWindow() {
         initComponents();
         setSize(400, 550);
@@ -33,13 +32,13 @@ public class LoginWindow extends javax.swing.JFrame {
         setTitle("Acceso al sistema");
         setLocationRelativeTo(null);
 
-        ImageIcon wallpaper = new ImageIcon("src/images/wallpaperPrincipal.jpg");
+        ImageIcon wallpaper = new ImageIcon("src/main/java/images/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(),
                 jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
 
-        ImageIcon wallapper_logo = new ImageIcon("src/images/DS.png");
+        ImageIcon wallapper_logo = new ImageIcon("src/images/logo.png");
         Icon icono_logo = new ImageIcon(wallapper_logo.getImage().getScaledInstance(jLabel_Logo.getWidth(),
                 jLabel_Logo.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Logo.setIcon(icono_logo);
@@ -51,7 +50,7 @@ public class LoginWindow extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
         return retValue;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,12 +76,19 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txt_user.setForeground(new java.awt.Color(255, 255, 255));
         txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_userActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
 
         txt_password.setBackground(new java.awt.Color(153, 153, 255));
         txt_password.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txt_password.setForeground(new java.awt.Color(255, 255, 255));
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
 
         jButton_Acceder.setBackground(new java.awt.Color(153, 153, 255));
@@ -103,7 +109,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton_AccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AccederActionPerformed
 
         user = txt_user.getText().trim();
@@ -148,6 +154,10 @@ public class LoginWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
         }
     }//GEN-LAST:event_jButton_AccederActionPerformed
+
+    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
+
+    }//GEN-LAST:event_txt_userActionPerformed
 
     /**
      * @param args the command line arguments
