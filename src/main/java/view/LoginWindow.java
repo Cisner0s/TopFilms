@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import dao.Conexion;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -91,11 +92,6 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_userActionPerformed(evt);
-            }
-        });
         getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
 
         txt_password.setBackground(new java.awt.Color(204, 204, 204));
@@ -115,10 +111,21 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         getContentPane().add(jButton_Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 420, 210, 35));
 
-        jLabel_Footer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel_Footer.setText("TopFilms ®");
-        getContentPane().add(jLabel_Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
+        jLabel_Footer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_Footer.setText("Registrate aqui");
+        jLabel_Footer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_FooterMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_FooterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_FooterMouseExited(evt);
+            }
+        });
+        getContentPane().add(jLabel_Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,10 +175,19 @@ public class LoginWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_AccederActionPerformed
 
-    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
+    private void jLabel_FooterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseClicked
+        dispose();
+        new RegisterWindow().setVisible(true);
+    }//GEN-LAST:event_jLabel_FooterMouseClicked
 
-    }//GEN-LAST:event_txt_userActionPerformed
+    private void jLabel_FooterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseEntered
+        jLabel_Footer.setForeground(Color.BLUE);
+    }//GEN-LAST:event_jLabel_FooterMouseEntered
 
+    private void jLabel_FooterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseExited
+       jLabel_Footer.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jLabel_FooterMouseExited
+   
     /**
      * @param args the command line arguments
      */
