@@ -12,6 +12,10 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import dao.Conexion;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 /**
  *
  * @author Cisneros
@@ -31,18 +35,28 @@ public class LoginWindow extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Acceso al sistema");
         setLocationRelativeTo(null);
+        
+        try {
+            BufferedImage wallpaperImage = ImageIO.read(getClass().getResource("/images/wallpaperPrincipal.jpg"));
+            ImageIcon wallpaper = new ImageIcon(wallpaperImage.getScaledInstance(
+                    jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
+            jLabel_Wallpaper.setIcon(wallpaper);
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
+        }
 
-        ImageIcon wallpaper = new ImageIcon("src/main/java/images/wallpaperPrincipal.jpg");
-        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(),
-                jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
-        jLabel_Wallpaper.setIcon(icono);
-        this.repaint();
+        try {
+            //InputStream logoStream = getClass().getResourceAsStream("/images/logo.png");
+            BufferedImage logoImage = ImageIO.read(getClass().getResource("/images/logo.jpg"));
+            //BufferedImage logoImage = ImageIO.read(logoStream);
+            ImageIcon logo = new ImageIcon(logoImage.getScaledInstance(
+                    jLabel_Logo.getWidth(), jLabel_Logo.getHeight(), Image.SCALE_DEFAULT));
+            jLabel_Logo.setIcon(logo);
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
+        }
 
-        ImageIcon wallapper_logo = new ImageIcon("src/images/logo.png");
-        Icon icono_logo = new ImageIcon(wallapper_logo.getImage().getScaledInstance(jLabel_Logo.getWidth(),
-                jLabel_Logo.getHeight(), Image.SCALE_DEFAULT));
-        jLabel_Logo.setIcon(icono_logo);
-        this.repaint();
+        
     }
 
     @Override
@@ -72,9 +86,7 @@ public class LoginWindow extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 270, 270));
 
-        txt_user.setBackground(new java.awt.Color(153, 153, 255));
         txt_user.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txt_user.setForeground(new java.awt.Color(255, 255, 255));
         txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txt_user.addActionListener(new java.awt.event.ActionListener() {
@@ -84,16 +96,12 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
 
-        txt_password.setBackground(new java.awt.Color(153, 153, 255));
         txt_password.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txt_password.setForeground(new java.awt.Color(255, 255, 255));
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
 
-        jButton_Acceder.setBackground(new java.awt.Color(153, 153, 255));
-        jButton_Acceder.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
-        jButton_Acceder.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Acceder.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jButton_Acceder.setText("Acceder");
         jButton_Acceder.setBorder(null);
         jButton_Acceder.addActionListener(new java.awt.event.ActionListener() {
