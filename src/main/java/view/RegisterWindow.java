@@ -4,17 +4,139 @@
  */
 package view;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.*;
+
+
 /**
  *
  * @author DCM
  */
 public class RegisterWindow extends javax.swing.JFrame {
 
+    private JTextField textFieldNombre;
+    private JTextField textFieldApellidos;
+    private JTextField textFieldUsuario;
+    private JPasswordField passwordField;
+    private JComboBox<String> comboBoxRoles;
+    private JButton btnRegistrar;
+    
     /**
      * Creates new form RegisterWindow
      */
     public RegisterWindow() {
-        initComponents();
+      setTitle("Registro de Usuario");
+        setSize(400, 350);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Panel principal con diseño de cuadrícula
+        JPanel panelPrincipal = new JPanel(new GridLayout(6, 2, 10, 10));
+        panelPrincipal.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        // Etiquetas y campos de texto
+        JLabel lblNombre = new JLabel("Nombre:");
+        JLabel lblApellidos = new JLabel("Apellidos:");
+        JLabel lblUsuario = new JLabel("Usuario:");
+        JLabel lblContraseña = new JLabel("Contraseña:");
+        JLabel lblRol = new JLabel("Rol:");
+
+        textFieldNombre = new JTextField();
+        textFieldApellidos = new JTextField();
+        textFieldUsuario = new JTextField();
+        passwordField = new JPasswordField();
+
+        // ComboBox para seleccionar el rol
+        String[] roles = {"Administrador", "Crítico", "Usuario"};
+        comboBoxRoles = new JComboBox<>(roles);
+        comboBoxRoles.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                // Habilitar o deshabilitar la contraseña según el rol seleccionado
+                boolean passwordEnabled = comboBoxRoles.getSelectedItem().equals("Administrador") ||
+                                          comboBoxRoles.getSelectedItem().equals("Usuario");
+                passwordField.setEnabled(passwordEnabled);
+            }
+        });
+
+        // Botón de registro
+        btnRegistrar = new JButton("Registrar");
+        btnRegistrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Obtener valores de los campos
+                String nombre = textFieldNombre.getText();
+                String apellidos = textFieldApellidos.getText();
+                String usuario = textFieldUsuario.getText();
+                String rol = (String) comboBoxRoles.getSelectedItem();
+                char[] contraseña = passwordField.getPassword();
+
+                // Agregar lógica de registro aquí
+
+                // Mostrar un mensaje de éxito
+                String mensaje = "¡Usuario registrado!\nNombre: " + nombre +
+                                 "\nApellidos: " + apellidos +
+                                 "\nUsuario: " + usuario +
+                                 "\nRol: " + rol;
+                JOptionPane.showMessageDialog(RegisterWindow.this, mensaje);
+
+                // Limpiar campos después del registro (puedes ajustar esto según tus necesidades)
+                textFieldNombre.setText("");
+                textFieldApellidos.setText("");
+                textFieldUsuario.setText("");
+                passwordField.setText("");
+            }
+        });
+
+        // Añadir componentes al panel
+        panelPrincipal.add(lblNombre);
+        panelPrincipal.add(textFieldNombre);
+        panelPrincipal.add(lblApellidos);
+        panelPrincipal.add(textFieldApellidos);
+        panelPrincipal.add(lblUsuario);
+        panelPrincipal.add(textFieldUsuario);
+        panelPrincipal.add(lblContraseña);
+        panelPrincipal.add(passwordField);
+        panelPrincipal.add(lblRol);
+        panelPrincipal.add(comboBoxRoles);
+        panelPrincipal.add(new JLabel()); // Espaciador
+        panelPrincipal.add(btnRegistrar);
+
+        // Configurar colores
+        panelPrincipal.setBackground(Color.WHITE);
+        lblNombre.setForeground(Color.BLACK);
+        lblApellidos.setForeground(Color.BLACK);
+        lblUsuario.setForeground(Color.BLACK);
+        lblContraseña.setForeground(Color.BLACK);
+        lblRol.setForeground(Color.BLACK);
+        btnRegistrar.setBackground(Color.GRAY);
+        btnRegistrar.setForeground(Color.WHITE);
+
+        // Configurar fuente
+        Font font = new Font("Arial", Font.PLAIN, 14);
+        lblNombre.setFont(font);
+        lblApellidos.setFont(font);
+        lblUsuario.setFont(font);
+        lblContraseña.setFont(font);
+        lblRol.setFont(font);
+        textFieldNombre.setFont(font);
+        textFieldApellidos.setFont(font);
+        textFieldUsuario.setFont(font);
+        passwordField.setFont(font);
+        comboBoxRoles.setFont(font);
+        btnRegistrar.setFont(font);
+
+        // Agregar panel al contenido
+        getContentPane().add(panelPrincipal);
+
+        // Hacer visible la ventana
+        setVisible(true);
+//initComponents();
     }
 
     /**

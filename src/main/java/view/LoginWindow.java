@@ -7,7 +7,6 @@ package view;
 
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -15,7 +14,6 @@ import dao.Conexion;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.InputStream;
 import javax.imageio.ImageIO;
 /**
  *
