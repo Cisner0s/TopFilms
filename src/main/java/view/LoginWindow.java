@@ -45,9 +45,7 @@ public class LoginWindow extends javax.swing.JFrame {
         }
 
         try {
-            //InputStream logoStream = getClass().getResourceAsStream("/images/logo.png");
-            BufferedImage logoImage = ImageIO.read(getClass().getResource("/images/logo.jpg"));
-            //BufferedImage logoImage = ImageIO.read(logoStream);
+            BufferedImage logoImage = ImageIO.read(getClass().getResource("/images/logo.jpg"));;
             ImageIcon logo = new ImageIcon(logoImage.getScaledInstance(
                     jLabel_Logo.getWidth(), jLabel_Logo.getHeight(), Image.SCALE_DEFAULT));
             jLabel_Logo.setIcon(logo);

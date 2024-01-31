@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 import javax.swing.*;
 
@@ -18,127 +21,30 @@ import javax.swing.*;
  * @author DCM
  */
 public class RegisterWindow extends javax.swing.JFrame {
-
-    private JTextField textFieldNombre;
-    private JTextField textFieldApellidos;
-    private JTextField textFieldUsuario;
-    private JPasswordField passwordField;
-    private JComboBox<String> comboBoxRoles;
-    private JButton btnRegistrar;
     
-    /**
-     * Creates new form RegisterWindow
-     */
     public RegisterWindow() {
-      setTitle("Registro de Usuario");
-        setSize(400, 350);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        initComponents();
+         setResizable(false);
+        setTitle("Registro de un nuevo usuario");
         setLocationRelativeTo(null);
-
-        // Panel principal con diseño de cuadrícula
-        JPanel panelPrincipal = new JPanel(new GridLayout(6, 2, 10, 10));
-        panelPrincipal.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
-        // Etiquetas y campos de texto
-        JLabel lblNombre = new JLabel("Nombre:");
-        JLabel lblApellidos = new JLabel("Apellidos:");
-        JLabel lblUsuario = new JLabel("Usuario:");
-        JLabel lblContraseña = new JLabel("Contraseña:");
-        JLabel lblRol = new JLabel("Rol:");
-
-        textFieldNombre = new JTextField();
-        textFieldApellidos = new JTextField();
-        textFieldUsuario = new JTextField();
-        passwordField = new JPasswordField();
-
-        // ComboBox para seleccionar el rol
-        String[] roles = {"Administrador", "Crítico", "Usuario"};
-        comboBoxRoles = new JComboBox<>(roles);
-        comboBoxRoles.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                // Habilitar o deshabilitar la contraseña según el rol seleccionado
-                boolean passwordEnabled = comboBoxRoles.getSelectedItem().equals("Administrador") ||
-                                          comboBoxRoles.getSelectedItem().equals("Usuario");
-                passwordField.setEnabled(passwordEnabled);
-            }
-        });
-
-        // Botón de registro
-        btnRegistrar = new JButton("Registrar");
-        btnRegistrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Obtener valores de los campos
-                String nombre = textFieldNombre.getText();
-                String apellidos = textFieldApellidos.getText();
-                String usuario = textFieldUsuario.getText();
-                String rol = (String) comboBoxRoles.getSelectedItem();
-                char[] contraseña = passwordField.getPassword();
-
-                // Agregar lógica de registro aquí
-
-                // Mostrar un mensaje de éxito
-                String mensaje = "¡Usuario registrado!\nNombre: " + nombre +
-                                 "\nApellidos: " + apellidos +
-                                 "\nUsuario: " + usuario +
-                                 "\nRol: " + rol;
-                JOptionPane.showMessageDialog(RegisterWindow.this, mensaje);
-
-                // Limpiar campos después del registro (puedes ajustar esto según tus necesidades)
-                textFieldNombre.setText("");
-                textFieldApellidos.setText("");
-                textFieldUsuario.setText("");
-                passwordField.setText("");
-            }
-        });
-
-        // Añadir componentes al panel
-        panelPrincipal.add(lblNombre);
-        panelPrincipal.add(textFieldNombre);
-        panelPrincipal.add(lblApellidos);
-        panelPrincipal.add(textFieldApellidos);
-        panelPrincipal.add(lblUsuario);
-        panelPrincipal.add(textFieldUsuario);
-        panelPrincipal.add(lblContraseña);
-        panelPrincipal.add(passwordField);
-        panelPrincipal.add(lblRol);
-        panelPrincipal.add(comboBoxRoles);
-        panelPrincipal.add(new JLabel()); // Espaciador
-        panelPrincipal.add(btnRegistrar);
-
-        // Configurar colores
-        panelPrincipal.setBackground(Color.WHITE);
-        lblNombre.setForeground(Color.BLACK);
-        lblApellidos.setForeground(Color.BLACK);
-        lblUsuario.setForeground(Color.BLACK);
-        lblContraseña.setForeground(Color.BLACK);
-        lblRol.setForeground(Color.BLACK);
-        btnRegistrar.setBackground(Color.GRAY);
-        btnRegistrar.setForeground(Color.WHITE);
-
-        // Configurar fuente
-        Font font = new Font("Arial", Font.PLAIN, 14);
-        lblNombre.setFont(font);
-        lblApellidos.setFont(font);
-        lblUsuario.setFont(font);
-        lblContraseña.setFont(font);
-        lblRol.setFont(font);
-        textFieldNombre.setFont(font);
-        textFieldApellidos.setFont(font);
-        textFieldUsuario.setFont(font);
-        passwordField.setFont(font);
-        comboBoxRoles.setFont(font);
-        btnRegistrar.setFont(font);
-
-        // Agregar panel al contenido
-        getContentPane().add(panelPrincipal);
-
-        // Hacer visible la ventana
-        setVisible(true);
-//initComponents();
+        setIconImage(getIconImage());
+    
+    try {
+            BufferedImage wallpaperImage = ImageIO.read(getClass().getResource("/images/Registro.png"));
+            ImageIcon wallpaper = new ImageIcon(wallpaperImage.getScaledInstance(
+                    jLabel_ImagenRegistro.getWidth(), jLabel_ImagenRegistro.getHeight(), Image.SCALE_DEFAULT));
+            jLabel_ImagenRegistro.setIcon(wallpaper);
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
+        }
     }
 
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,21 +54,108 @@ public class RegisterWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel_Titulo = new javax.swing.JLabel();
+        jLabel_ImagenRegistro = new javax.swing.JLabel();
+        jLabel_Username = new javax.swing.JLabel();
+        jTextField_Username = new javax.swing.JTextField();
+        jLabel_Contraseña = new javax.swing.JLabel();
+        jPasswordField_Contraseña = new javax.swing.JPasswordField();
+        jLabel_Username2 = new javax.swing.JLabel();
+        jTextField_NombreCompleto = new javax.swing.JTextField();
+        jLabel_Rol = new javax.swing.JLabel();
+        jComboBox_Rol = new javax.swing.JComboBox<>();
+        jLabel_ContraseñaRol = new javax.swing.JLabel();
+        jPasswordField_ContraseñaRol = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_Titulo.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
+        jLabel_Titulo.setText("REGISTRO");
+        jPanel1.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 58));
+        jPanel1.add(jLabel_ImagenRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 64, 58));
+
+        jLabel_Username.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Username.setText("Nombre de Usuario");
+        jPanel1.add(jLabel_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+
+        jTextField_Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, -1));
+
+        jLabel_Contraseña.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel_Contraseña.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Contraseña.setText("Contraseña");
+        jPanel1.add(jLabel_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+
+        jPasswordField_Contraseña.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jPasswordField_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 180, -1));
+
+        jLabel_Username2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Username2.setText("Nombre Completo");
+        jPanel1.add(jLabel_Username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+
+        jTextField_NombreCompleto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_NombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
+
+        jLabel_Rol.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Rol.setText("Rol");
+        jPanel1.add(jLabel_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+
+        jComboBox_Rol.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jComboBox_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Critico (Especial)", "Administrador (Especial)" }));
+        jComboBox_Rol.setBorder(null);
+        jComboBox_Rol.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jComboBox_Rol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_RolActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBox_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, -1));
+
+        jLabel_ContraseñaRol.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_ContraseñaRol.setText("Contraseña Rol Especial");
+        jLabel_ContraseñaRol.setEnabled(false);
+        jPanel1.add(jLabel_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+
+        jPasswordField_ContraseñaRol.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPasswordField_ContraseñaRol.setEnabled(false);
+        jPanel1.add(jPasswordField_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 180, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoRegistro.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 410, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox_RolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RolActionPerformed
+        String selectedRole = (String) jComboBox_Rol.getSelectedItem();
+
+                // Habilitar o deshabilitar campos según la opción seleccionada
+                if ("Administrador (Especial)".equals(selectedRole) || "Critico (Especial)".equals(selectedRole)) {
+                    jPasswordField_ContraseñaRol.setEnabled(true);
+                    jLabel_ContraseñaRol.setEnabled(true);
+
+                } else {
+                    jPasswordField_ContraseñaRol.setEnabled(false);
+                    jLabel_ContraseñaRol.setEnabled(false);
+                }
+    }//GEN-LAST:event_jComboBox_RolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +166,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -200,5 +194,19 @@ public class RegisterWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox_Rol;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_Contraseña;
+    private javax.swing.JLabel jLabel_ContraseñaRol;
+    private javax.swing.JLabel jLabel_ImagenRegistro;
+    private javax.swing.JLabel jLabel_Rol;
+    private javax.swing.JLabel jLabel_Titulo;
+    private javax.swing.JLabel jLabel_Username;
+    private javax.swing.JLabel jLabel_Username2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField_Contraseña;
+    private javax.swing.JPasswordField jPasswordField_ContraseñaRol;
+    private javax.swing.JTextField jTextField_NombreCompleto;
+    private javax.swing.JTextField jTextField_Username;
     // End of variables declaration//GEN-END:variables
 }
