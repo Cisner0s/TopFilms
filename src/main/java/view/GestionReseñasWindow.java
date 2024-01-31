@@ -15,6 +15,9 @@ public class GestionReseñasWindow extends javax.swing.JFrame {
      */
     public GestionReseñasWindow() {
         initComponents();
+        setResizable(false);
+        setTitle("Gestion de Reseñas");
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,7 +29,7 @@ public class GestionReseñasWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
