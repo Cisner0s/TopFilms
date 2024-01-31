@@ -22,7 +22,6 @@ public class AdminWindow extends javax.swing.JFrame {
     public AdminWindow() {
         initComponents();
         setImageLabel(jButton_GestionUsuarios, "/images/GestionUsuarios.png");
-        setImageLabel(jLabel_Testeo, "/images/GestionUsuarios.png");
 
     }
 
@@ -50,9 +49,8 @@ public class AdminWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton_GestionUsuarios = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel_Testeo = new javax.swing.JLabel();
+        jButton_GestionReseñas = new javax.swing.JButton();
+        jButton_AñadirContenido = new javax.swing.JButton();
         jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,22 +58,34 @@ public class AdminWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton_GestionUsuarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_GestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GestionUsuariosActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton_GestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 90, 80));
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 90, 80));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 90, 80));
+        jButton_GestionReseñas.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_GestionReseñas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_GestionReseñas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GestionReseñasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_GestionReseñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 90, 80));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 90, 80));
-
-        jLabel_Testeo.setText("jLabel1");
-        jPanel1.add(jLabel_Testeo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 90, 80));
+        jButton_AñadirContenido.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_AñadirContenido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_AñadirContenido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AñadirContenidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_AñadirContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 90, 80));
 
         jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
         jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 400));
@@ -93,6 +103,21 @@ public class AdminWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_GestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionUsuariosActionPerformed
+        dispose();
+        new GestionUsuariosWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_GestionUsuariosActionPerformed
+
+    private void jButton_AñadirContenidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AñadirContenidoActionPerformed
+        dispose();
+        new AñadirContenidoWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_AñadirContenidoActionPerformed
+
+    private void jButton_GestionReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionReseñasActionPerformed
+        dispose();
+        new GestionReseñasWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_GestionReseñasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,11 +156,10 @@ public class AdminWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton_AñadirContenido;
+    private javax.swing.JButton jButton_GestionReseñas;
     private javax.swing.JButton jButton_GestionUsuarios;
     private javax.swing.JLabel jLabel_Fondo;
-    private javax.swing.JLabel jLabel_Testeo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
