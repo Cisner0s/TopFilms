@@ -82,6 +82,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         jLabel_Username.setText("Nombre de Usuario");
         jPanel1.add(jLabel_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
 
+        jTextField_Username.setBackground(new java.awt.Color(204, 204, 204));
         jTextField_Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, -1));
 
@@ -90,6 +91,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         jLabel_Contraseña.setText("Contraseña");
         jPanel1.add(jLabel_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
+        jPasswordField_Contraseña.setBackground(new java.awt.Color(204, 204, 204));
         jPasswordField_Contraseña.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jPasswordField_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 180, -1));
 
@@ -97,6 +99,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         jLabel_Username2.setText("Nombre Completo");
         jPanel1.add(jLabel_Username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
+        jTextField_NombreCompleto.setBackground(new java.awt.Color(204, 204, 204));
         jTextField_NombreCompleto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_NombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
 
@@ -120,6 +123,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         jLabel_ContraseñaRol.setEnabled(false);
         jPanel1.add(jLabel_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
 
+        jPasswordField_ContraseñaRol.setBackground(new java.awt.Color(204, 204, 204));
         jPasswordField_ContraseñaRol.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField_ContraseñaRol.setEnabled(false);
         jPanel1.add(jPasswordField_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 180, -1));
