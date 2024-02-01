@@ -4,6 +4,7 @@
  */
 package view;
 
+import dao.Conexion;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,9 +12,13 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.imageio.ImageIO;
 
 import javax.swing.*;
+import view.LoginWindow;
 
 
 /**
@@ -182,7 +187,42 @@ public class RegisterWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox_RolActionPerformed
 
     private void jButton_RegistrarmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarmeActionPerformed
-        // TODO add your handling code here:
+        int role;
+        String user, pswd, name, rolePswd, roleString;      
+        user = jTextField_Username.getText().trim();
+        pswd = jPasswordField_Contraseña.getText().trim();
+        name = jTextField_Username.getText().trim();
+        rolePswd = jPasswordField_Contraseña.getText().trim();
+        role = jComboBox_Rol.getSelectedIndex();
+        
+        if (!user.equals("") && !pswd.equals("") && !name.equals("")) {
+            if (role == 0) {
+                roleString = "Usuario";
+            } else if (role == 1) {
+                roleString = "Critico";
+            } else if (role == 2){
+                roleString = "Administrador";
+            }
+            
+            try {
+                Connection cn = Conexion.conectar();
+                PreparedStatement pst = cn.prepareStatement(
+                    "select NOMBREUSUARIO from usuario where NOMBREUSUARIO ='" + user + "'");
+                ResultSet rs = pst.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Nombre de usuario no disponible.");
+                    cn.close();
+                } else {
+                    
+                }
+            } catch (Exception e) {
+                System.err.println("Error al validar el nombre de usuario." + e);
+                JOptionPane.showMessageDialog(null, "¡¡ERROR al comparar usuario!!, contacte al administrador.");
+            }
+                
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes rellenar todos los campos.");
+        }
     }//GEN-LAST:event_jButton_RegistrarmeActionPerformed
 
     private void jButton_AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AtrasActionPerformed
