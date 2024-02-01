@@ -6,13 +6,13 @@ public interface DAO<T> {
     
     
     // CRUD 
-    void create(T a);
-    List<T> read();
-    void update(T a); 
-    void delete(T a); 
+    void create(T a) throws DAOException;
+    List<T> read() throws DAOException;
+    void update(T a) throws DAOException; 
+    void delete(T a) throws DAOException; 
     
     // Adicionales
-    T get(int id); 
+    T get(int id) throws DAOException;  
 
 }
 
