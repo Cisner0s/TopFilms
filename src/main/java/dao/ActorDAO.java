@@ -61,6 +61,7 @@ public class ActorDAO implements DAO<Actor>{
         }
     }
     
+    
     @Override
     public List<Actor> read() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

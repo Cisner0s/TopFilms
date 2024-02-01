@@ -14,6 +14,9 @@ import dao.Conexion;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 /**
  *
@@ -23,6 +26,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     public static String user = ""; //Se declara así para enviar datos entre interfaces
     String pass = "";
+    int intentos = 3;
     
     /**
      * Creates new form Login
@@ -177,12 +181,21 @@ public class LoginWindow extends javax.swing.JFrame {
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos.");
+                    intentos -= 1;
                     txt_user.setText("Nombre de usuario");
                     txt_user.setForeground(Color.gray);
                     txt_password.setText("Contraseña");
                     txt_password.setForeground(Color.gray);
                     txt_password.setEchoChar((char) 0);
+                    if (intentos == 0){
+                        JOptionPane.showMessageDialog(null, "No le quedan más intentos, vuelva más tarde.");
+                        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+                        jButton_Acceder.setEnabled(false);
+                        scheduler.schedule(() -> jButton_Acceder.setEnabled(true), 10, TimeUnit.MINUTES);
+                        intentos = 3;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos. Le quedan " + intentos + " intento(s).");
+                    }
                 }
 
             } catch (SQLException e) {
