@@ -5,7 +5,9 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -46,14 +48,14 @@ public class ActorDAO implements DAO<Actor>{
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya guardado.");
             }
-        } catch (SQLException ex) {
-            throw new DAOException("Error en SQL.", ex);
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL.", e);
         }finally{
             if(stat != null){
                 try{
                     stat.close();
-                }catch(SQLException ex){
-                    throw new DAOException("Error en SQL.", ex); 
+                }catch(SQLException e){
+                    throw new DAOException("Error en SQL.", e); 
                 }
             }
         }
@@ -70,13 +72,73 @@ public class ActorDAO implements DAO<Actor>{
     }
 
     @Override
-    public void delete(Actor a) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(Actor actor) throws DAOException {
+        PreparedStatement stat = null; 
+        try{
+            stat = conn.prepareStatement(DELETE);
+            stat.setInt(1, actor.getId());
+            if(stat.executeUpdate() == 0){
+                throw new DAOException("Puede que no se haya actualizado la base de datos correctamente");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL", e);
+        }finally{
+            if(stat != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
     }
 
     @Override
-    public Actor get(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Actor get(int id) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Actor actor = null; 
+        try{
+            stat = conn.prepareStatement(GET);
+            stat.setInt(1, id);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                actor = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado ese actor");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        
+        return actor;
+    }
+    
+    private Actor convertir(ResultSet rs) throws SQLException{
+        int id = rs.getInt("ACTOR_ID");
+        String nombre = rs.getString("NOMBRE");
+        String sexo = rs.getString("SEXO");
+        Date fechaNac = rs.getDate("FECHA_NACIMIENTO");
+        String lugarNac = rs.getString("LUGAR_NACIMIENTO");
+        String nacionalidad = rs.getString("NACIONALIDAD");
+        String premios = rs.getString("PREMIOS");
+        String imagen = rs.getString("IMAGEN");
+        return new Actor(id, nombre, sexo, fechaNac, lugarNac, nacionalidad, premios, imagen);
     }
     
 }
