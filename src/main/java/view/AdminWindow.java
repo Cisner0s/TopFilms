@@ -53,6 +53,7 @@ public class AdminWindow extends javax.swing.JFrame {
         jButton_GestionUsuarios = new javax.swing.JButton();
         jButton_GestionReseñas = new javax.swing.JButton();
         jButton_GestionContenido = new javax.swing.JButton();
+        jButton_CerrarSesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel_Fondo = new javax.swing.JLabel();
 
@@ -94,6 +95,15 @@ public class AdminWindow extends javax.swing.JFrame {
         });
         jPanel1.add(jButton_GestionContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 350, 40));
 
+        jButton_CerrarSesion.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jButton_CerrarSesion.setText("Cerrar Sesión");
+        jButton_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CerrarSesionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
         jLabel1.setText("ADMINISTRADOR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 360, 40));
@@ -129,6 +139,11 @@ public class AdminWindow extends javax.swing.JFrame {
         //dispose();
         new GestionReseñasWindow().setVisible(true);
     }//GEN-LAST:event_jButton_GestionReseñasActionPerformed
+
+    private void jButton_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CerrarSesionActionPerformed
+        dispose();
+        new LoginWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_CerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +181,7 @@ public class AdminWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_CerrarSesion;
     private javax.swing.JButton jButton_GestionContenido;
     private javax.swing.JButton jButton_GestionReseñas;
     private javax.swing.JButton jButton_GestionUsuarios;

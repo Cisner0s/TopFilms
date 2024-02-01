@@ -67,6 +67,8 @@ public class RegisterWindow extends javax.swing.JFrame {
         jComboBox_Rol = new javax.swing.JComboBox<>();
         jLabel_ContraseñaRol = new javax.swing.JLabel();
         jPasswordField_ContraseñaRol = new javax.swing.JPasswordField();
+        jButton_Registrarme = new javax.swing.JButton();
+        jButton_Atras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,6 +130,24 @@ public class RegisterWindow extends javax.swing.JFrame {
         jPasswordField_ContraseñaRol.setEnabled(false);
         jPanel1.add(jPasswordField_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 180, -1));
 
+        jButton_Registrarme.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jButton_Registrarme.setText("Registrarme");
+        jButton_Registrarme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegistrarmeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Registrarme, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 180, -1));
+
+        jButton_Atras.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jButton_Atras.setText("Atrás");
+        jButton_Atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AtrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoRegistro.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 410, 580));
 
@@ -160,6 +180,15 @@ public class RegisterWindow extends javax.swing.JFrame {
                     jLabel_ContraseñaRol.setEnabled(false);
                 }
     }//GEN-LAST:event_jComboBox_RolActionPerformed
+
+    private void jButton_RegistrarmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarmeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_RegistrarmeActionPerformed
+
+    private void jButton_AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AtrasActionPerformed
+        dispose();
+        new LoginWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_AtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +227,8 @@ public class RegisterWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_Atras;
+    private javax.swing.JButton jButton_Registrarme;
     private javax.swing.JComboBox<String> jComboBox_Rol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_Contraseña;
