@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author DCM
@@ -15,6 +18,16 @@ public class AñadirDirectorWindow extends javax.swing.JFrame {
      */
     public AñadirDirectorWindow() {
         initComponents();
+         setResizable(false);
+        setTitle("Añadir Director");
+        setLocationRelativeTo(null);
+        setIconImage(getIconImage());
+    }
+
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
     }
 
     /**

@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author DCM
@@ -15,6 +18,16 @@ public class AñadirPeliculaWindow extends javax.swing.JFrame {
      */
     public AñadirPeliculaWindow() {
         initComponents();
+        setResizable(false);
+        setTitle("Añadir Pelicula");
+        setLocationRelativeTo(null);
+        setIconImage(getIconImage());
+    }
+
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
     }
 
     /**
@@ -102,7 +115,7 @@ public class AñadirPeliculaWindow extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 138, Short.MAX_VALUE)
+                .addGap(0, 88, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addGap(6, 6, 6)
                 .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author DCM
@@ -15,6 +18,16 @@ public class AñadirActorWindow extends javax.swing.JFrame {
      */
     public AñadirActorWindow() {
         initComponents();
+        setResizable(false);
+        setTitle("Añadir Actor");
+        setLocationRelativeTo(null);
+        setIconImage(getIconImage());
+    }
+
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
     }
 
     /**
@@ -46,60 +59,71 @@ public class AñadirActorWindow extends javax.swing.JFrame {
         jTextField40 = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
         jTextField41 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel45.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel45.setText("Titulo");
-        jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
-        jPanel1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
+        jPanel1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 180, -1));
 
+        jLabel46.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel46.setText("Fecha Estreno");
-        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+        jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
 
+        jLabel47.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel47.setText("Numero de Episodios");
-        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
-        jPanel1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+        jPanel1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, -1));
 
+        jLabel48.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel48.setText("Duracion media por Episodio");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
-        jPanel1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        jPanel1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, -1));
 
+        jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel49.setText("Numero de Temporadas");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
-        jPanel1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+        jPanel1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 180, -1));
 
+        jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel51.setText("Presupuesto");
         jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
-        jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
+        jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 180, -1));
 
+        jLabel52.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel52.setText("Ganancias");
-        jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, -1));
-        jPanel1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
+        jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, -1));
+        jPanel1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 180, -1));
 
+        jLabel50.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel50.setText("Imagen");
         jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, -1, -1));
-        jPanel1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
+        jPanel1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 180, -1));
 
+        jLabel53.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel53.setText("Nombre Director");
-        jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, -1, -1));
-        jPanel1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, -1, -1));
+        jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, -1, -1));
+        jPanel1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 180, -1));
 
+        jLabel54.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel54.setText("Nombre Estudio");
-        jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, -1, -1));
-        jPanel1.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, -1, -1));
+        jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, -1, -1));
+        jPanel1.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, 180, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setText("Añadir Actor");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 180, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,6 +164,8 @@ public class AñadirActorWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;

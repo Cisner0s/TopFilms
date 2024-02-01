@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author DCM
@@ -18,8 +21,15 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Gestion de Contenido");
         setLocationRelativeTo(null);
+        setIconImage(getIconImage());
     }
 
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,11 +219,10 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
                     new AñadirPeliculaWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
-                    new AñadirPeliculaWindow().setVisible(true);
-
+                    new EditarPeliculaWindow().setVisible(true);
                 } else if (accion == 2){
                     dispose();
-                    new AñadirPeliculaWindow().setVisible(true);
+                    new BorrarPeliculaWindow().setVisible(true);
                 }
             }
             case "Serie" -> {
@@ -222,11 +231,10 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
                     new AñadirSerieWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
-                    new AñadirSerieWindow().setVisible(true);
-
+                    new EditarSerieWindow().setVisible(true);
                 } else if (accion == 2){
                     dispose();
-                    new AñadirSerieWindow().setVisible(true);
+                    new BorrarSerieWindow().setVisible(true);
                 }
             }
             case "Actor" -> {
@@ -235,11 +243,10 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
                     new AñadirActorWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
-                    new AñadirActorWindow().setVisible(true);
-
+                    new EditarActorWindow().setVisible(true);
                 } else if (accion == 2){
                     dispose();
-                    new AñadirActorWindow().setVisible(true);
+                    new BorrarActorWindow().setVisible(true);
                 }
             }
             case "Director" -> {
@@ -248,11 +255,10 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
                     new AñadirDirectorWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
-                    new AñadirDirectorWindow().setVisible(true);
-
+                    new EditarDirectorWindow().setVisible(true);
                 } else if (accion == 2){
                     dispose();
-                    new AñadirDirectorWindow().setVisible(true);
+                    new BorrarDirectorWindow().setVisible(true);
                 }
             }
             case "Estudio" -> {
@@ -261,11 +267,10 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
                     new AñadirEstudioWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
-                    new AñadirEstudioWindow().setVisible(true);
-
+                    new EditarEstudioWindow().setVisible(true);
                 } else if (accion == 2){
                     dispose();
-                    new AñadirEstudioWindow().setVisible(true);
+                    new BorrarEstudioWindow().setVisible(true);
                 }
             }
             default -> {

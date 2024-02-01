@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,7 +26,7 @@ public class AdminWindow extends javax.swing.JFrame {
         setTitle("Configuracion de Administrador.");
         setLocationRelativeTo(null); 
         setImageLabel(jButton_GestionUsuarios, "/images/GestionUsuarios.png");
-
+      setIconImage(getIconImage());
     }
 
     private void setImageLabel(JButton buttonName, String root){
@@ -39,6 +40,13 @@ public class AdminWindow extends javax.swing.JFrame {
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(buttonName.getWidth(), buttonName.getHeight(), Image.SCALE_DEFAULT));
         buttonName.setIcon(icon);
         this.repaint();
+    }
+    
+
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
     }
     /**
      * This method is called from within the constructor to initialize the form.
