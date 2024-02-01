@@ -11,12 +11,12 @@ import java.awt.Toolkit;
  *
  * @author DCM
  */
-public class AñadirEstudioWindow extends javax.swing.JFrame {
+public class AnadirEstudioWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form AñadirEstudioWindow
      */
-    public AñadirEstudioWindow() {
+    public AnadirEstudioWindow() {
         initComponents();
         setResizable(false);
         setTitle("Añadir Estudio");
@@ -50,30 +50,59 @@ public class AñadirEstudioWindow extends javax.swing.JFrame {
         jTextField52 = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
         jTextField53 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel69.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel69.setText("Nombre");
-        jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, 20));
-        jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, 20));
+        jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, 20));
 
+        jTextField49.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField49.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 180, 20));
+
+        jLabel70.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel70.setText("Propietario");
-        jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, 20));
-        jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, 20));
+        jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 20));
 
+        jTextField50.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField50.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 20));
+
+        jLabel71.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel71.setText("Fecha de fundacion");
-        jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, 20));
-        jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, 20));
+        jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
 
+        jTextField51.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField51.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 20));
+
+        jLabel72.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel72.setText("Patrimonio");
-        jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, 20));
-        jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, 20));
+        jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, 20));
 
+        jTextField52.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField52.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 20));
+
+        jLabel73.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel73.setText("Sedes");
-        jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, 20));
-        jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, -1, 20));
+        jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, 20));
+
+        jTextField53.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 180, 20));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel2.setText("Añadir Estudio");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 400, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,7 +112,9 @@ public class AñadirEstudioWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,25 +137,28 @@ public class AñadirEstudioWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AñadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AñadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AñadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AñadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirEstudioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AñadirEstudioWindow().setVisible(true);
+                new AnadirEstudioWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;

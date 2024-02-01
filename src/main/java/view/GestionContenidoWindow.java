@@ -216,7 +216,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
             case "Pelicula" -> {
                 if(accion == 0){
                     dispose();
-                    new AñadirPeliculaWindow().setVisible(true);
+                    new AnadirPeliculaWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
                     new EditarPeliculaWindow().setVisible(true);
@@ -228,7 +228,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
             case "Serie" -> {
                 if(accion == 0){
                     dispose();
-                    new AñadirSerieWindow().setVisible(true);
+                    new AnadirSerieWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
                     new EditarSerieWindow().setVisible(true);
@@ -240,7 +240,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
             case "Actor" -> {
                 if(accion == 0){
                     dispose();
-                    new AñadirActorWindow().setVisible(true);
+                    new AnadirActorWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
                     new EditarActorWindow().setVisible(true);
@@ -252,7 +252,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
             case "Director" -> {
                 if(accion == 0){
                     dispose();
-                    new AñadirDirectorWindow().setVisible(true);
+                    new AnadirDirectorWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
                     new EditarDirectorWindow().setVisible(true);
@@ -264,7 +264,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
             case "Estudio" -> {
                 if(accion == 0){
                     dispose();
-                    new AñadirEstudioWindow().setVisible(true);
+                    new AnadirEstudioWindow().setVisible(true);
                 } else if (accion == 1){
                     dispose();
                     new EditarEstudioWindow().setVisible(true);
