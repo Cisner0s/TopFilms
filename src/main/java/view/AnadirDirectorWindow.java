@@ -62,9 +62,10 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 700));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 700));
@@ -116,7 +117,7 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
 
         jLabel68.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel68.setText("Premios");
-        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, -1, -1));
+        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
 
         jTextArea8.setBackground(new java.awt.Color(204, 255, 255));
         jTextArea8.setColumns(20);
@@ -124,7 +125,7 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jTextArea8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane8.setViewportView(jTextArea8);
 
-        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
 
         jDateChooser1.setBackground(new java.awt.Color(204, 255, 255));
         jDateChooser1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -141,6 +142,11 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel1.setText("Añadir Director");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 280, 60));
+
+        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton1.setText("OK");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 180, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 400, 700));
@@ -200,6 +206,7 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
