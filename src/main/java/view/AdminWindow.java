@@ -25,24 +25,9 @@ public class AdminWindow extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Configuracion de Administrador.");
         setLocationRelativeTo(null); 
-        setImageLabel(jButton_GestionUsuarios, "/images/GestionUsuarios.png");
-      setIconImage(getIconImage());
-    }
-
-    private void setImageLabel(JButton buttonName, String root){
-        ImageIcon image = new ImageIcon(root);
-        Icon icon = new ImageIcon(image.getImage().getScaledInstance(buttonName.getWidth(), buttonName.getHeight(), Image.SCALE_DEFAULT));
-        buttonName.setIcon(icon);
-        this.repaint();
-    }
-      private void setImageLabel(JLabel buttonName, String root){
-        ImageIcon image = new ImageIcon(root);
-        Icon icon = new ImageIcon(image.getImage().getScaledInstance(buttonName.getWidth(), buttonName.getHeight(), Image.SCALE_DEFAULT));
-        buttonName.setIcon(icon);
-        this.repaint();
+        setIconImage(getIconImage());
     }
     
-
      @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
