@@ -53,7 +53,11 @@ public class LoginWindow extends javax.swing.JFrame {
             e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
         }
 
-        
+        txt_user.setText("Nombre de usuario");
+        txt_user.setForeground(Color.gray);
+        txt_password.setText("Contraseña");
+	txt_password.setForeground(Color.gray);
+	txt_password.setEchoChar((char) 0);
     }
 
     @Override
@@ -88,12 +92,28 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_user.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_userFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_userFocusLost(evt);
+            }
+        });
         getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
 
         txt_password.setBackground(new java.awt.Color(204, 204, 204));
         txt_password.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_passwordFocusLost(evt);
+            }
+        });
         getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
 
         jButton_Acceder.setBackground(new java.awt.Color(204, 204, 204));
@@ -158,8 +178,11 @@ public class LoginWindow extends javax.swing.JFrame {
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos.");
-                    txt_user.setText("");
-                    txt_password.setText("");
+                    txt_user.setText("Nombre de usuario");
+                    txt_user.setForeground(Color.gray);
+                    txt_password.setText("Contraseña");
+                    txt_password.setForeground(Color.gray);
+                    txt_password.setEchoChar((char) 0);
                 }
 
             } catch (SQLException e) {
@@ -183,6 +206,38 @@ public class LoginWindow extends javax.swing.JFrame {
     private void jLabel_FooterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseExited
        jLabel_Footer.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabel_FooterMouseExited
+    
+    private void txt_userFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_userFocusGained
+        if (txt_user.getText().equals("Nombre de usuario") && txt_user.getForeground().equals(Color.gray)) {
+            txt_user.setText("");
+            txt_user.setForeground(Color.black);
+	}
+    }//GEN-LAST:event_txt_userFocusGained
+
+    private void txt_userFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_userFocusLost
+        if (txt_user.getText().equals("")) {
+            txt_user.setText("Nombre de usuario");
+            txt_user.setForeground(Color.gray);
+	}
+    }//GEN-LAST:event_txt_userFocusLost
+
+    private void txt_passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusGained
+        String pw = new String(txt_password.getPassword());
+        if (pw.equals("Contraseña") && txt_password.getForeground().equals(Color.gray)) {
+            txt_password.setText("");
+            txt_password.setForeground(Color.black);
+            txt_password.setEchoChar('*');
+	}
+    }//GEN-LAST:event_txt_passwordFocusGained
+
+    private void txt_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusLost
+        String pw = new String(txt_password.getPassword());
+	if (pw.equals("")) {
+            txt_password.setEchoChar((char) 0);
+            txt_password.setText("Contraseña");
+            txt_password.setForeground(Color.gray);
+	}
+    }//GEN-LAST:event_txt_passwordFocusLost
    
     /**
      * @param args the command line arguments
