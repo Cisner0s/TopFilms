@@ -29,291 +29,209 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField21 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jTextField27 = new javax.swing.JTextField();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jTextField28 = new javax.swing.JTextField();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jTextField29 = new javax.swing.JTextField();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
-        jLabel43 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
-        jLabel44 = new javax.swing.JLabel();
-        jTextField32 = new javax.swing.JTextField();
-        jLabel45 = new javax.swing.JLabel();
-        jTextField33 = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jTextField34 = new javax.swing.JTextField();
-        jTextField35 = new javax.swing.JTextField();
-        jLabel48 = new javax.swing.JLabel();
-        jTextField36 = new javax.swing.JTextField();
-        jLabel49 = new javax.swing.JLabel();
-        jTextField37 = new javax.swing.JTextField();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jTextField38 = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        jTextField39 = new javax.swing.JTextField();
-        jTextField40 = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
-        jTextField41 = new javax.swing.JTextField();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jTextField42 = new javax.swing.JTextField();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jTextField43 = new javax.swing.JTextField();
-        jLabel59 = new javax.swing.JLabel();
-        jTextField44 = new javax.swing.JTextField();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        jTextField45 = new javax.swing.JTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jLabel62 = new javax.swing.JLabel();
-        jTextField46 = new javax.swing.JTextField();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jTextField47 = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
-        jTextField48 = new javax.swing.JTextField();
-        jLabel67 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
-        jLabel68 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
-        jLabel69 = new javax.swing.JLabel();
-        jTextField49 = new javax.swing.JTextField();
-        jLabel70 = new javax.swing.JLabel();
-        jTextField50 = new javax.swing.JTextField();
-        jLabel71 = new javax.swing.JLabel();
-        jTextField51 = new javax.swing.JTextField();
-        jLabel72 = new javax.swing.JLabel();
-        jTextField52 = new javax.swing.JTextField();
-        jLabel73 = new javax.swing.JLabel();
-        jTextField53 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jCheckBox_Editar = new javax.swing.JCheckBox();
+        jCheckBox_Anadir = new javax.swing.JCheckBox();
+        jCheckBox_Borrar = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, -1));
 
-        jLabel36.setText("Titulo");
-        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 120, -1, -1));
-
-        jLabel37.setText("Sinopsis");
-        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 182, -1, -1));
-
-        jLabel38.setText("Genero");
-        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
-        jPanel2.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
-
-        jLabel39.setText("Fecha Estreno");
-        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
-
-        jLabel40.setText("Presupuesto");
-        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
-        jPanel2.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
-
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane5.setViewportView(jTextArea5);
-
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 216, -1, -1));
-        jPanel2.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, -1));
-
-        jLabel41.setText("Ganancias");
-        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
-
-        jLabel42.setText("Imagen");
-        jPanel2.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, -1, -1));
-        jPanel2.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
-
-        jLabel43.setText("Nombre Director");
-        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, -1, -1));
-        jPanel2.add(jTextField31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 610, -1, -1));
-
-        jLabel44.setText("Nombre Estudio");
-        jPanel2.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 640, -1, -1));
-        jPanel2.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 660, -1, -1));
-
-        jLabel45.setText("Titulo");
-        jPanel2.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
-        jPanel2.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 142, -1, -1));
-
-        jLabel46.setText("Fecha Estreno");
-        jPanel2.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
-
-        jLabel47.setText("Numero de Episodios");
-        jPanel2.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, -1));
-        jPanel2.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
-        jPanel2.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
-
-        jLabel48.setText("Duracion media por Episodio");
-        jPanel2.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
-        jPanel2.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
-
-        jLabel49.setText("Numero de Temporadas");
-        jPanel2.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
-        jPanel2.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, -1, -1));
-
-        jLabel50.setText("Imagen");
-        jPanel2.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, -1, -1));
-
-        jLabel51.setText("Presupuesto");
-        jPanel2.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
-        jPanel2.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
-
-        jLabel52.setText("Ganancias");
-        jPanel2.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
-        jPanel2.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, -1, -1));
-        jPanel2.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 600, -1, -1));
-
-        jLabel53.setText("Nombre Director");
-        jPanel2.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 580, -1, -1));
-        jPanel2.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 650, -1, -1));
-
-        jLabel54.setText("Nombre Estudio");
-        jPanel2.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 630, -1, -1));
-
-        jLabel55.setText("Nombre");
-        jPanel2.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
-        jPanel2.add(jTextField42, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, -1, -1));
-
-        jLabel56.setText("Sexo");
-        jPanel2.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, -1, -1));
-
-        jLabel57.setText("Fecha de Nacimiento");
-        jPanel2.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 240, -1, -1));
-
-        jLabel58.setText("Lugar de Nacimiento");
-        jPanel2.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
-        jPanel2.add(jTextField43, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, -1, -1));
-
-        jLabel59.setText("Nacionalidad");
-        jPanel2.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
-        jPanel2.add(jTextField44, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 380, -1, -1));
-
-        jLabel60.setText("Premios");
-        jPanel2.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 410, -1, -1));
-
-        jLabel61.setText("Imagen");
-        jPanel2.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 560, -1, -1));
-        jPanel2.add(jTextField45, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 580, -1, -1));
-
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane6.setViewportView(jTextArea6);
-
-        jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 440, -1, -1));
-
-        jLabel62.setText("Nombre");
-        jPanel2.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 110, -1, -1));
-        jPanel2.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 130, -1, -1));
-
-        jLabel63.setText("Sexo");
-        jPanel2.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 180, -1, -1));
-
-        jLabel64.setText("Fecha de Nacimiento");
-        jPanel2.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 240, -1, -1));
-
-        jLabel65.setText("Lugar de Nacimiento");
-        jPanel2.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 300, -1, -1));
-        jPanel2.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 320, -1, -1));
-
-        jLabel66.setText("Nacionalidad");
-        jPanel2.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 360, -1, -1));
-        jPanel2.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 380, -1, -1));
-
-        jLabel67.setText("Nominaciones");
-        jPanel2.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 410, -1, -1));
-
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPane7.setViewportView(jTextArea7);
-
-        jPanel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 440, -1, -1));
-
-        jLabel68.setText("Premios");
-        jPanel2.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 550, -1, -1));
-
-        jTextArea8.setColumns(20);
-        jTextArea8.setRows(5);
-        jScrollPane8.setViewportView(jTextArea8);
-
-        jPanel2.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 580, -1, -1));
-
-        jLabel69.setText("Nombre");
-        jPanel2.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 110, -1, -1));
-        jPanel2.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 130, -1, -1));
-
-        jLabel70.setText("Propietario");
-        jPanel2.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 170, -1, -1));
-        jPanel2.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 190, -1, -1));
-
-        jLabel71.setText("Fecha de fundacion");
-        jPanel2.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 230, -1, -1));
-        jPanel2.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 250, -1, -1));
-
-        jLabel72.setText("Patrimonio");
-        jPanel2.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 280, -1, -1));
-        jPanel2.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 300, -1, -1));
-
-        jLabel73.setText("Sedes");
-        jPanel2.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 330, -1, -1));
-        jPanel2.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 350, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", " ", "Pelicula", "Serie", "Actor", "Director", "Estudio" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pelicula", "Serie", "Actor", "Director", "Estudio" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 290, -1));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 290, -1));
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel1.setText("Seleccione el tipo de contenido a añadir");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 770));
+        jCheckBox_Editar.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jCheckBox_Editar.setText("Editar");
+        jCheckBox_Editar.setEnabled(false);
+        jCheckBox_Editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox_EditarMouseClicked(evt);
+            }
+        });
+        jPanel2.add(jCheckBox_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+
+        jCheckBox_Anadir.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jCheckBox_Anadir.setText("Añadir");
+        jCheckBox_Anadir.setEnabled(false);
+        jCheckBox_Anadir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox_AnadirMouseClicked(evt);
+            }
+        });
+        jPanel2.add(jCheckBox_Anadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, 20));
+
+        jCheckBox_Borrar.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jCheckBox_Borrar.setText("Borrar");
+        jCheckBox_Borrar.setEnabled(false);
+        jCheckBox_Borrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox_BorrarMouseClicked(evt);
+            }
+        });
+        jPanel2.add(jCheckBox_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jButton1.setText("OK");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        String selectedAction = (String) jComboBox1.getSelectedItem();
+        if(null != selectedAction)switch (selectedAction) {
+            case "..." -> {
+                jCheckBox_Anadir.setEnabled(false);
+                jCheckBox_Editar.setEnabled(false);
+                jCheckBox_Borrar.setEnabled(false);
+            }
+            case "Pelicula" -> {
+                jCheckBox_Anadir.setEnabled(true);
+                jCheckBox_Editar.setEnabled(true);
+                jCheckBox_Borrar.setEnabled(true);
+            }
+            case "Serie" -> {
+                jCheckBox_Anadir.setEnabled(true);
+                jCheckBox_Editar.setEnabled(true);
+                jCheckBox_Borrar.setEnabled(true);
+            }
+            case "Actor" -> {
+                jCheckBox_Anadir.setEnabled(true);
+                jCheckBox_Editar.setEnabled(true);
+                jCheckBox_Borrar.setEnabled(true);
+            }
+            case "Director" -> {
+                jCheckBox_Anadir.setEnabled(true);
+                jCheckBox_Editar.setEnabled(true);
+                jCheckBox_Borrar.setEnabled(true);
+            }
+            case "Estudio" -> {
+                jCheckBox_Anadir.setEnabled(true);
+                jCheckBox_Editar.setEnabled(true);
+                jCheckBox_Borrar.setEnabled(true);
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jCheckBox_EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox_EditarMouseClicked
+        if(!jCheckBox_Editar.isEnabled()){
+            
+        } else if(jCheckBox_Editar.isSelected() && jCheckBox_Editar.isEnabled()){
+            jCheckBox_Anadir.setEnabled(false);
+            jCheckBox_Borrar.setEnabled(false);
+        } else if(!jCheckBox_Editar.isSelected()){
+            jCheckBox_Anadir.setEnabled(true);
+            jCheckBox_Borrar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox_EditarMouseClicked
+
+    private void jCheckBox_AnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox_AnadirMouseClicked
+        if(!jCheckBox_Anadir.isEnabled()){
+            
+        } else if(jCheckBox_Anadir.isSelected() && jCheckBox_Anadir.isEnabled()){
+            jCheckBox_Editar.setEnabled(false);
+            jCheckBox_Borrar.setEnabled(false);
+        } else if(!jCheckBox_Anadir.isSelected()){
+            jCheckBox_Editar.setEnabled(true);
+            jCheckBox_Borrar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox_AnadirMouseClicked
+
+    private void jCheckBox_BorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox_BorrarMouseClicked
+        if(!jCheckBox_Borrar.isEnabled()){
+            
+        } else if(jCheckBox_Borrar.isSelected() && jCheckBox_Borrar.isEnabled()){
+            jCheckBox_Editar.setEnabled(false);
+            jCheckBox_Anadir.setEnabled(false);
+        } else if(!jCheckBox_Borrar.isSelected()){
+            jCheckBox_Editar.setEnabled(true);
+            jCheckBox_Anadir.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox_BorrarMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String selectedAction = (String) jComboBox1.getSelectedItem();
+        int accion; // 0 = Añadir | 1 = Editar | 2 = Borrar | 3 = No seleccionado
+        
+        if(jCheckBox_Anadir.isEnabled()){
+            accion = 0;
+        } else if(jCheckBox_Editar.isEnabled()){
+            accion = 1;
+        } else if(jCheckBox_Borrar.isEnabled()){
+            accion = 2;
+        } else {
+            accion = 3;
+        }
+        
+        if(null != selectedAction)switch (selectedAction) {
+            case "..." -> {
+                
+            }
+            case "Pelicula" -> {
+                dispose();
+                if(accion == 0){
+                    new AñadirPeliculaWindow().setVisible(true);
+                }
+            }
+            case "Serie" -> {
+                dispose();
+                if(accion == 0){
+                    new AñadirSerieWindow().setVisible(true);
+                }
+            }
+            case "Actor" -> {
+                dispose();
+                if(accion == 0){
+                    new AñadirActorWindow().setVisible(true);
+                }
+            }
+            case "Director" -> {
+                dispose();
+                if(accion == 0){
+                    new AñadirDirectorWindow().setVisible(true);
+                }
+            }
+            case "Estudio" -> {
+                dispose();
+                if(accion == 0){
+                    new AñadirEstudioWindow().setVisible(true);
+                }
+            }
+            default -> {
+            }
+        
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -352,83 +270,12 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox_Anadir;
+    private javax.swing.JCheckBox jCheckBox_Borrar;
+    private javax.swing.JCheckBox jCheckBox_Editar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
-    private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField40;
-    private javax.swing.JTextField jTextField41;
-    private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField43;
-    private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField45;
-    private javax.swing.JTextField jTextField46;
-    private javax.swing.JTextField jTextField47;
-    private javax.swing.JTextField jTextField48;
-    private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField50;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
     // End of variables declaration//GEN-END:variables
 }
