@@ -36,11 +36,13 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jCheckBox_Anadir = new javax.swing.JCheckBox();
         jCheckBox_Borrar = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pelicula", "Serie", "Actor", "Director", "Estudio" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,10 +52,10 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 290, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
-        jLabel1.setText("Seleccione el tipo de contenido a añadir");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        jLabel1.setText("Seleccione el tipo de contenido");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
-        jCheckBox_Editar.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jCheckBox_Editar.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
         jCheckBox_Editar.setText("Editar");
         jCheckBox_Editar.setEnabled(false);
         jCheckBox_Editar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -63,7 +65,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         });
         jPanel2.add(jCheckBox_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
-        jCheckBox_Anadir.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jCheckBox_Anadir.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
         jCheckBox_Anadir.setText("Añadir");
         jCheckBox_Anadir.setEnabled(false);
         jCheckBox_Anadir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,7 +75,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         });
         jPanel2.add(jCheckBox_Anadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, 20));
 
-        jCheckBox_Borrar.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jCheckBox_Borrar.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
         jCheckBox_Borrar.setText("Borrar");
         jCheckBox_Borrar.setEnabled(false);
         jCheckBox_Borrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,7 +85,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         });
         jPanel2.add(jCheckBox_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Cambria", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
         jButton1.setText("OK");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,6 +93,9 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 520, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,37 +204,72 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
                 
             }
             case "Pelicula" -> {
-                dispose();
                 if(accion == 0){
+                    dispose();
+                    new AñadirPeliculaWindow().setVisible(true);
+                } else if (accion == 1){
+                    dispose();
+                    new AñadirPeliculaWindow().setVisible(true);
+
+                } else if (accion == 2){
+                    dispose();
                     new AñadirPeliculaWindow().setVisible(true);
                 }
             }
             case "Serie" -> {
-                dispose();
                 if(accion == 0){
+                    dispose();
+                    new AñadirSerieWindow().setVisible(true);
+                } else if (accion == 1){
+                    dispose();
+                    new AñadirSerieWindow().setVisible(true);
+
+                } else if (accion == 2){
+                    dispose();
                     new AñadirSerieWindow().setVisible(true);
                 }
             }
             case "Actor" -> {
-                dispose();
                 if(accion == 0){
+                    dispose();
+                    new AñadirActorWindow().setVisible(true);
+                } else if (accion == 1){
+                    dispose();
+                    new AñadirActorWindow().setVisible(true);
+
+                } else if (accion == 2){
+                    dispose();
                     new AñadirActorWindow().setVisible(true);
                 }
             }
             case "Director" -> {
-                dispose();
                 if(accion == 0){
+                    dispose();
+                    new AñadirDirectorWindow().setVisible(true);
+                } else if (accion == 1){
+                    dispose();
+                    new AñadirDirectorWindow().setVisible(true);
+
+                } else if (accion == 2){
+                    dispose();
                     new AñadirDirectorWindow().setVisible(true);
                 }
             }
             case "Estudio" -> {
-                dispose();
                 if(accion == 0){
+                    dispose();
+                    new AñadirEstudioWindow().setVisible(true);
+                } else if (accion == 1){
+                    dispose();
+                    new AñadirEstudioWindow().setVisible(true);
+
+                } else if (accion == 2){
+                    dispose();
                     new AñadirEstudioWindow().setVisible(true);
                 }
             }
             default -> {
-            }
+            }}
         
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -276,6 +316,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox_Editar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
