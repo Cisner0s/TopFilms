@@ -4,6 +4,12 @@
  */
 package view;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author DCM
@@ -15,8 +21,25 @@ public class AdminWindow extends javax.swing.JFrame {
      */
     public AdminWindow() {
         initComponents();
+        setResizable(false);
+        setTitle("Configuracion de Administrador.");
+        setLocationRelativeTo(null); 
+        setImageLabel(jButton_GestionUsuarios, "/images/GestionUsuarios.png");
+
     }
 
+    private void setImageLabel(JButton buttonName, String root){
+        ImageIcon image = new ImageIcon(root);
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(buttonName.getWidth(), buttonName.getHeight(), Image.SCALE_DEFAULT));
+        buttonName.setIcon(icon);
+        this.repaint();
+    }
+      private void setImageLabel(JLabel buttonName, String root){
+        ImageIcon image = new ImageIcon(root);
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(buttonName.getWidth(), buttonName.getHeight(), Image.SCALE_DEFAULT));
+        buttonName.setIcon(icon);
+        this.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +49,86 @@ public class AdminWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton_GestionUsuarios = new javax.swing.JButton();
+        jButton_GestionReseñas = new javax.swing.JButton();
+        jButton_GestionContenido = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel_Fondo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 430));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_GestionUsuarios.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_GestionUsuarios.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        jButton_GestionUsuarios.setText("Gestion de Usuarios");
+        jButton_GestionUsuarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_GestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GestionUsuariosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_GestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 350, 40));
+
+        jButton_GestionReseñas.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_GestionReseñas.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        jButton_GestionReseñas.setText("Gestion de Reseñas");
+        jButton_GestionReseñas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_GestionReseñas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GestionReseñasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_GestionReseñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 350, 40));
+
+        jButton_GestionContenido.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_GestionContenido.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        jButton_GestionContenido.setText("Gestion de Contenido");
+        jButton_GestionContenido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_GestionContenido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GestionContenidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_GestionContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 350, 40));
+
+        jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
+        jLabel1.setText("ADMINISTRADOR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 360, 40));
+
+        jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_GestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionUsuariosActionPerformed
+        //dispose();
+        new GestionUsuariosWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_GestionUsuariosActionPerformed
+
+    private void jButton_GestionContenidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionContenidoActionPerformed
+        //dispose();
+        new GestionContenidoWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_GestionContenidoActionPerformed
+
+    private void jButton_GestionReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GestionReseñasActionPerformed
+        //dispose();
+        new GestionReseñasWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_GestionReseñasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +166,11 @@ public class AdminWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_GestionContenido;
+    private javax.swing.JButton jButton_GestionReseñas;
+    private javax.swing.JButton jButton_GestionUsuarios;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_Fondo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
