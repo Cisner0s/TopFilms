@@ -196,12 +196,12 @@ public class RegisterWindow extends javax.swing.JFrame {
         role = jComboBox_Rol.getSelectedIndex();
         
         if (!user.equals("") && !pswd.equals("") && !name.equals("")) {
-            if (role == 0) {
-                roleString = "Usuario";
-            } else if (role == 1) {
-                roleString = "Critico";
-            } else if (role == 2){
-                roleString = "Administrador";
+            switch (role) {
+                case 0 -> roleString = "Usuario";
+                case 1 -> roleString = "Critico";
+                case 2 -> roleString = "Administrador";
+                default -> {
+                }
             }
             
             try {
