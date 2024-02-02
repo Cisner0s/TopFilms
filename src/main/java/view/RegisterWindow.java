@@ -188,11 +188,11 @@ public class RegisterWindow extends javax.swing.JFrame {
 
     private void jButton_RegistrarmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarmeActionPerformed
         int role;
-        String user, pswd, name, rolePswd, roleString;      
+        String user, pswd, name, rolePswd, roleString = "";      
         user = jTextField_Username.getText().trim();
         pswd = jPasswordField_Contraseña.getText().trim();
-        name = jTextField_Username.getText().trim();
-        rolePswd = jPasswordField_Contraseña.getText().trim();
+        name = jTextField_NombreCompleto.getText();
+        rolePswd = jPasswordField_ContraseñaRol.getText().trim();
         role = jComboBox_Rol.getSelectedIndex();
         
         if (!user.equals("") && !pswd.equals("") && !name.equals("")) {
@@ -213,7 +213,30 @@ public class RegisterWindow extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Nombre de usuario no disponible.");
                     cn.close();
                 } else {
-                    
+                    cn.close();
+                    if (roleString.equals("Usuario") || roleString.equals("Critico") && rolePswd.equals("Critico") || roleString.equals("Administrador") && rolePswd.equals("Administrador")){
+                        try {
+                            Connection cn2 = Conexion.conectar();
+                            PreparedStatement pst2 = cn2.prepareStatement(
+                                "insert into usuario values (?,?,?,?,?,?)");
+                            pst2.setInt(1, 0);
+                            pst2.setString(2, user);
+                            pst2.setString(3, pswd);
+                            pst2.setString(4, name);
+                            pst2.setString(5, roleString);
+                            pst2.setString(6, "Activo");
+                            pst2.executeUpdate();
+                            cn2.close();
+                            JOptionPane.showMessageDialog(null, "Registro exitoso.");
+                            this.dispose();
+                            new LoginWindow().setVisible(true);
+                        } catch (Exception e) {
+                            System.err.println("Error al registrar usuario." + e);
+                            JOptionPane.showMessageDialog(null, "¡¡ERROR al registrar usuario!!, contacte al administrador.");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Introduce correctamente la contraseña de rol.");
+                    }
                 }
             } catch (Exception e) {
                 System.err.println("Error al validar el nombre de usuario." + e);
