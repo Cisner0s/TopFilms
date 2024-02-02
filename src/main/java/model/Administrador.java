@@ -8,6 +8,9 @@ package model;
  *
  * @author DCM
  */
-public class Administrador {
-    
+public class Administrador extends Usuario{
+
+    public Administrador(int usuario_id, String nombreUsuario, String nombreCompleto, String rol, String contraseña, String estatus) {
+        super(nombreUsuario, nombreCompleto, rol, contraseña, estatus);
+    }
 }
