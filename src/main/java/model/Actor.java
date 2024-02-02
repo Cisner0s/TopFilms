@@ -64,4 +64,49 @@ public class Actor {
         return this.imagen; 
     }
     
+    public void setId(int id) {
+    this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setLugarNacimiento(String lugarNacimiento) {
+        this.lugarNacimiento = lugarNacimiento;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public void setPremios(String premios) {
+        this.premios = premios;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Actor{" +
+            "id=" + id +
+            ", nombre='" + nombre + '\'' +
+            ", sexo='" + sexo + '\'' +
+            ", fechaNacimiento=" + fechaNacimiento +
+            ", lugarNacimiento='" + lugarNacimiento + '\'' +
+            ", nacionalidad='" + nacionalidad + '\'' +
+            ", premios='" + premios + '\'' +
+            ", imagen='" + imagen + '\'' +
+            '}';
+    }
 }

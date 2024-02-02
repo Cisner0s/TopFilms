@@ -20,7 +20,6 @@ public class Resena {
     public Resena(String tituloResena, String textoResena, Usuario usuario) {
         this.tituloResena = tituloResena;
         this.textoResena = textoResena;
-        this.pelicula = pelicula;
         this.usuario = usuario;
     }
 
@@ -74,5 +73,14 @@ public class Resena {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+    
+    @Override
+    public String toString() {
+        return "Resena{" +
+            "ID=" + resena_id +
+            ", titulo='" + tituloResena + '\'' +
+            ", texto='" + textoResena + '\'' +
+            '}';
     }
 }
