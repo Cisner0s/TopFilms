@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author DCM
@@ -15,6 +18,16 @@ public class UserWindow extends javax.swing.JFrame {
      */
     public UserWindow() {
         initComponents();
+        setResizable(false);
+        setTitle("Menu Principal Usuario");
+        setLocationRelativeTo(null);
+        setIconImage(getIconImage());
+    }
+
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
+        return retValue;
     }
 
     /**
@@ -26,21 +39,100 @@ public class UserWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton_Shows = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton_Peliculas = new javax.swing.JButton();
+        jButton_Busqueda = new javax.swing.JButton();
+        jButton_Ajustes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(875, 440));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_Shows.setForeground(new java.awt.Color(0, 102, 255));
+        jButton_Shows.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/series (1).png"))); // NOI18N
+        jButton_Shows.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Shows.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Shows.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ShowsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Shows, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 140, 100));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel2.setText("Menu Principal de Usuario");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+
+        jButton_Peliculas.setForeground(new java.awt.Color(0, 102, 255));
+        jButton_Peliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/peliculas (1).png"))); // NOI18N
+        jButton_Peliculas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Peliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Peliculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_PeliculasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Peliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 140, 100));
+
+        jButton_Busqueda.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jButton_Busqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa (1).png"))); // NOI18N
+        jButton_Busqueda.setText("Busqueda Avanzada");
+        jButton_Busqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Busqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BusquedaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 320, 30));
+
+        jButton_Ajustes.setForeground(new java.awt.Color(51, 102, 255));
+        jButton_Ajustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GestionUsuarios (1).png"))); // NOI18N
+        jButton_Ajustes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Ajustes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Ajustes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AjustesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Ajustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, 70, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(875, 440));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -7, 850, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 844, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_PeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PeliculasActionPerformed
+        new FilmWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_PeliculasActionPerformed
+
+    private void jButton_ShowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ShowsActionPerformed
+        new ShowWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_ShowsActionPerformed
+
+    private void jButton_BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BusquedaActionPerformed
+        new BusquedaWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_BusquedaActionPerformed
+
+    private void jButton_AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AjustesActionPerformed
+        new AjustesUsuarioWindow().setVisible(true);
+    }//GEN-LAST:event_jButton_AjustesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +170,12 @@ public class UserWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_Ajustes;
+    private javax.swing.JButton jButton_Busqueda;
+    private javax.swing.JButton jButton_Peliculas;
+    private javax.swing.JButton jButton_Shows;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

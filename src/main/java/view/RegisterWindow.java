@@ -29,7 +29,7 @@ public class RegisterWindow extends javax.swing.JFrame {
     
     public RegisterWindow() {
         initComponents();
-         setResizable(false);
+        setResizable(false);
         setTitle("Registro de un nuevo usuario");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());

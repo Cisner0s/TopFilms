@@ -11,15 +11,15 @@ import java.awt.Toolkit;
  *
  * @author DCM
  */
-public class ShowWindow extends javax.swing.JFrame {
+public class AjustesUsuarioWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form ShowWindow
+     * Creates new form AjustesUsuarioWindow
      */
-    public ShowWindow() {
+    public AjustesUsuarioWindow() {
         initComponents();
         setResizable(false);
-        setTitle("Menu Series");
+        setTitle("Menu Ajustes de Usuario");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
     }
@@ -72,20 +72,20 @@ public class ShowWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ShowWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AjustesUsuarioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ShowWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AjustesUsuarioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ShowWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AjustesUsuarioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ShowWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AjustesUsuarioWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ShowWindow().setVisible(true);
+                new AjustesUsuarioWindow().setVisible(true);
             }
         });
     }
