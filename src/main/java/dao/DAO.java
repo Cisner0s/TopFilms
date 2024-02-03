@@ -9,7 +9,7 @@ public interface DAO<T> {
     void create(T a) throws DAOException;
     List<T> read() throws DAOException;
     void update(T a) throws DAOException; 
-    void delete(T a) throws DAOException; 
+    void delete(int a) throws DAOException; 
     
     // Adicionales
     T get(int id) throws DAOException;  

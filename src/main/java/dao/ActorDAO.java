@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import java.sql.Connection;
@@ -9,20 +5,15 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Actor;
 
-/**
- *
- * @author jorge
- */
 public class ActorDAO implements DAO<Actor>{
 
-    private Connection conn;
+    private final Connection conn;
     
-    final String INSERT = "INSERT INTO actor(ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+    final String INSERT = "INSERT INTO actor(NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN) VALUES(?, ?, ?, ?, ?, ?, ?)";
     final String READ = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor"; 
     final String UPDATE = "UPDATE actor SET NOMBRE = ?, SEXO = ?, FECHA_NACIMIENTO = ?, LUGAR_NACIMIENTO = ?, NACIONALIDAD = ?, PREMIOS = ?, IMAGEN = ? WHERE ACTOR_ID = ?"; 
     final String DELETE = "DELETE FROM actor WHERE ACTOR_ID = ?";
@@ -37,16 +28,22 @@ public class ActorDAO implements DAO<Actor>{
         PreparedStatement stat = null; 
         try{
             stat = conn.prepareStatement(INSERT); 
-            stat.setInt(1, actor.getId());
-            stat.setString(2, actor.getNombre()); 
-            stat.setString(3, actor.getSexo());
-            stat.setDate(4, actor.getFechaNacimiento());
-            stat.setString(5, actor.getLugarNacimiento());
-            stat.setString(6, actor.getNacionalidad());
-            stat.setString(7, actor.getPremios());
-            stat.setString(8, actor.getImagen());
+            stat.setString(1, actor.getNombre()); 
+            stat.setString(2, actor.getSexo());
+            stat.setDate(3, actor.getFechaNacimiento());
+            stat.setString(4, actor.getLugarNacimiento());
+            stat.setString(5, actor.getNacionalidad());
+            stat.setString(6, actor.getPremios());
+            stat.setString(7, actor.getImagen());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya guardado.");
+            }
+            try (PreparedStatement statement = conn.prepareStatement("SELECT LAST_INSERT_ID()")) {
+                ResultSet rs = statement.executeQuery();
+                if (rs.next()) {
+                    int idGenerado = rs.getInt(1);
+                    actor.setId(idGenerado);
+                }
             }
         } catch (SQLException e) {
             throw new DAOException("Error en SQL.", e);
@@ -63,21 +60,61 @@ public class ActorDAO implements DAO<Actor>{
     
     
     @Override
-    public List<Actor> read() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Actor> read() throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs; 
+        List<Actor> actores = new ArrayList<>(); 
+        try {
+            stat = conn.prepareStatement(READ);
+            rs = stat.executeQuery(); 
+            while(rs.next()){
+                actores.add(convertir(rs));
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL", e);
+        }finally{
+            if(stat != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
+        return actores;
     }
 
     @Override
-    public void update(Actor a) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void update(Actor a) throws DAOException {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(UPDATE);
+            stat.setString(1, a.getNombre());
+            stat.setString(2, a.getSexo());
+            stat.setDate(3, a.getFechaNacimiento());
+            stat.setString(4, a.getLugarNacimiento());
+            stat.setString(5, a.getNacionalidad());
+            stat.setString(6, a.getPremios());
+            stat.setString(7, a.getImagen());
+        } catch(SQLException e){
+            throw new DAOException("Error en SQL", e);
+        }finally{
+            if(stat != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
     }
-
+    
     @Override
-    public void delete(Actor actor) throws DAOException {
+    public void delete(int id) throws DAOException {
         PreparedStatement stat = null; 
         try{
             stat = conn.prepareStatement(DELETE);
-            stat.setInt(1, actor.getId());
+            stat.setInt(1, id);
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya actualizado la base de datos correctamente");
             }
@@ -139,7 +176,8 @@ public class ActorDAO implements DAO<Actor>{
         String nacionalidad = rs.getString("NACIONALIDAD");
         String premios = rs.getString("PREMIOS");
         String imagen = rs.getString("IMAGEN");
-        return new Actor(id, nombre, sexo, fechaNac, lugarNac, nacionalidad, premios, imagen);
+        Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios, imagen);
+        actor.setId(id);
+        return actor;
     }
-    
 }

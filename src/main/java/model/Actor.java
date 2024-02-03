@@ -21,8 +21,7 @@ public class Actor {
     private String premios; 
     private String imagen; 
     
-    public Actor(int id, String nombre, String sexo, Date fechaNacimiento, String lugarNacimiento, String nacionalidad, String premios, String imagen){
-        this.id = id; 
+    public Actor(String nombre, String sexo, Date fechaNacimiento, String lugarNacimiento, String nacionalidad, String premios, String imagen){
         this.nombre = nombre; 
         this.sexo = sexo; 
         this.fechaNacimiento = fechaNacimiento; 
