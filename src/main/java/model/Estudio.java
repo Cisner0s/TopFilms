@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author DCM
@@ -11,7 +13,7 @@ package model;
 public class Estudio {
     private int estudio_id;
     private String nombre;
-    private String fecha_Fundacion;
+    private Date fecha_Fundacion;
     private String propietario;
     private String sedes;
     private int patrimonio;
@@ -20,7 +22,7 @@ public class Estudio {
 
     }
 
-    public Estudio(String nombre, String fecha_Fundacion, String propietario, String sedes, int patrimonio) {
+    public Estudio(String nombre, String propietario, Date fecha_Fundacion, int patrimonio, String sedes) {
         this.nombre = nombre;
         this.fecha_Fundacion = fecha_Fundacion;
         this.propietario = propietario;
@@ -44,11 +46,11 @@ public class Estudio {
         this.nombre = nombre;
     }
 
-    public String getFecha_Fundacion() {
+    public Date getFecha_Fundacion() {
         return fecha_Fundacion;
     }
 
-    public void setFecha_Fundacion(String fecha_Fundacion) {
+    public void setFecha_Fundacion(Date fecha_Fundacion) {
         this.fecha_Fundacion = fecha_Fundacion;
     }
 
