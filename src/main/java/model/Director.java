@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -11,21 +12,21 @@ import java.util.List;
  * @author DCM
  */
 public class Director {
-    private int director_id;
+    private int id;
     private String nombre;
-    private String fecha_Nacimiento;
     private String sexo;
+    private Date fecha_Nacimiento;
     private String lugar_nacimiento;
     private String nacionalidad;
-    private String premios;
     private String nominaciones;
+    private String premios;
     private List<Pelicula> peliculas;
     private List<Serie> series;
 
    
     public Director() {}
 
-    public Director(String nombre, String fecha_Nacimiento, String sexo, String lugar_nacimiento, String nacionalidad, String premios, String nominaciones) {
+    public Director(String nombre, String sexo, Date fecha_Nacimiento, String lugar_nacimiento, String nacionalidad, String nominaciones, String premios) {
         this.nombre = nombre;
         this.fecha_Nacimiento = fecha_Nacimiento;
         this.sexo = sexo;
@@ -44,11 +45,11 @@ public class Director {
     }
 
     public int getDirector_id() {
-        return director_id;
+        return id;
     }
 
     public void setDirector_id(int director_id) {
-        this.director_id = director_id;
+        this.id = director_id;
     }
 
     public String getNombre() {
@@ -59,11 +60,11 @@ public class Director {
         this.nombre = nombre;
     }
 
-    public String getFecha_Nacimiento() {
+    public Date getFecha_Nacimiento() {
         return fecha_Nacimiento;
     }
 
-    public void setFecha_Nacimiento(String fecha_Nacimiento) {
+    public void setFecha_Nacimiento(Date fecha_Nacimiento) {
         this.fecha_Nacimiento = fecha_Nacimiento;
     }
 
@@ -118,7 +119,7 @@ public class Director {
     @Override
     public String toString() {
         return "Director{" +
-                "director_id=" + director_id +
+                "director_id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", fecha_Nacimiento='" + fecha_Nacimiento + '\'' +
                 ", sexo='" + sexo + '\'' +

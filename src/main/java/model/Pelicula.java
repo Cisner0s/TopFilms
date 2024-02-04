@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
 public class Pelicula {
     private int pelicula_id;
     private String titulo;
-    private String fecha_Estreno;
+    private Date fecha_Estreno;
     private String genero;
     private int presupuesto;
     private int ganancias;
@@ -27,7 +28,7 @@ public class Pelicula {
 
     public Pelicula() {}
     
-    public Pelicula(String titulo, String fecha_Estreno, String genero, int presupuesto, int ganancias, String sinopsis, String imagen, Director director, Estudio estudio, List<Actor> actores) {
+    public Pelicula(String titulo, Date fecha_Estreno, String genero, int presupuesto, int ganancias, String sinopsis, String imagen, Director director, Estudio estudio, List<Actor> actores) {
         this.titulo = titulo;
         this.fecha_Estreno = fecha_Estreno;
         this.genero = genero;
@@ -56,11 +57,11 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public String getFecha_Estreno() {
+    public Date getFecha_Estreno() {
         return fecha_Estreno;
     }
 
-    public void setFecha_Estreno(String fecha_Estreno) {
+    public void setFecha_Estreno(Date fecha_Estreno) {
         this.fecha_Estreno = fecha_Estreno;
     }
 
