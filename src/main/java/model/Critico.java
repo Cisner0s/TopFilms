@@ -13,8 +13,12 @@ import java.util.List;
 public class Critico extends Usuario{
     private List<Critica> criticas;
     
-    public Critico(int usuario_id, String nombreUsuario, String nombreCompleto, String rol, String contraseña, String estatus) {
-        super(nombreUsuario, nombreCompleto, rol, contraseña, estatus);
+//    public Critico(int usuario_id, String nombreUsuario, String nombreCompleto, String rol, String contraseña, String estatus) {
+//        super(nombreUsuario, nombreCompleto, rol, contraseña, estatus);
+//    }
+
+    private Critico(String nombreUsuario, String nombreCompleto, String rol, String contraseña, String estatus) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public List<Critica> getCriticas() {

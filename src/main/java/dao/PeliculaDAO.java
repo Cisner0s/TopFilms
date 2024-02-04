@@ -40,7 +40,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
             stat.setInt(5, a.getPresupuesto());
             stat.setInt(6, a.getGanancias());
             stat.setString(7, a.getImagen());
-            stat.setInt(8, a.get);
+            stat.setInt(8, a.getGanancias());
         } catch (Exception e) {
         } finally {
         }

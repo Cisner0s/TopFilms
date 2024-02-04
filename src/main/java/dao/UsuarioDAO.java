@@ -5,44 +5,43 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Director;
+import model.EstatusUsuarios;
+import model.RolUsuarios;
+import model.Usuario;
 
 /**
  *
  * @author jorge
  */
-public class DirectorDAO implements DAO<Director>{
-    
+public class UsuarioDAO implements DAO<Usuario>{
+
     private final Connection conn; 
     
-    final String INSERT = "INSERT INTO director(NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS) VALUES(?, ?, ?, ?, ?, ?, ?)";
-    final String READ = "SELECT DIRECTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS FROM director"; 
-    final String UPDATE = "UPDATE director SET NOMBRE = ?, SEXO = ?, FECHA_NACIMIENTO = ?, LUGAR_NACIMIENTO = ?, NACIONALIDAD = ?, NOMINACIONES = ?, PREMIOS = ? WHERE DIRECTOR_ID = ?"; 
-    final String DELETE = "DELETE FROM director WHERE DIRECTOR_ID = ?";
-    final String GET = "SELECT DIRECTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS FROM director WHERE DIRECTOR_ID = ?";   
+    final String INSERT = "INSERT INTO usuario(NICK, CONTRASENA, NOMBRE, ROL, ESTATUS) VALUES(?, ?, ?, ?, ?)";
+    final String READ = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario"; 
+    final String UPDATE = "UPDATE usuario SET NICK = ?, CONTRASENA = ?, NOMBRE = ?, ROL= ?, ESTATUS= ? WHERE USUARIO_ID = ?"; 
+    final String DELETE = "DELETE FROM usuario WHERE ESTUDIO_ID = ?";
+    final String GET = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE USUARIO_ID = ?"; 
     
-    public DirectorDAO(Connection conn){
+    public UsuarioDAO(Connection conn){
         this.conn = conn; 
     }
-
+    
     @Override
-    public void create(Director a) throws DAOException {
+    public void create(Usuario a) throws DAOException {
         PreparedStatement stat = null; 
         try{
             stat = conn.prepareStatement(INSERT); 
-            stat.setString(1, a.getNombre()); 
-            stat.setString(2, a.getSexo());
-            stat.setDate(3, a.getFecha_Nacimiento());
-            stat.setString(4, a.getLugar_nacimiento());
-            stat.setString(5, a.getNacionalidad());
-            stat.setString(6, a.getNominaciones());
-            stat.setString(7, a.getPremios());
+            stat.setString(1, a.getNickName()); 
+            stat.setString(2, a.getContraseña());
+            stat.setString(3, a.getNombreCompleto());
+            stat.setString(4, a.getRol().name());
+            stat.setString(5, a.getEstatus().name());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya guardado.");
             }
@@ -50,7 +49,7 @@ public class DirectorDAO implements DAO<Director>{
                 ResultSet rs = statement.executeQuery();
                 if (rs.next()) {
                     int idGenerado = rs.getInt(1);
-                    a.setDirector_id(idGenerado);
+                    a.setUsuario_id(idGenerado);
                 }
             }
         } catch (SQLException e) {
@@ -67,15 +66,15 @@ public class DirectorDAO implements DAO<Director>{
     }
 
     @Override
-    public List<Director> read() throws DAOException {
+    public List<Usuario> read() throws DAOException {
         PreparedStatement stat = null; 
         ResultSet rs; 
-        List<Director> directores = new ArrayList<>(); 
+        List<Usuario> usuarios = new ArrayList<>(); 
         try {
             stat = conn.prepareStatement(READ);
             rs = stat.executeQuery(); 
             while(rs.next()){
-                directores.add(convertir(rs));
+                usuarios.add(convertir(rs));
             }
         }catch(SQLException e){
             throw new DAOException("Error en SQL", e);
@@ -88,21 +87,19 @@ public class DirectorDAO implements DAO<Director>{
                 }
             }
         }
-        return directores;
+        return usuarios;
     }
 
     @Override
-    public void update(Director a) throws DAOException {
+    public void update(Usuario a) throws DAOException {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
-            stat.setString(1, a.getNombre());
-            stat.setString(2, a.getSexo());
-            stat.setDate(3, a.getFecha_Nacimiento());
-            stat.setString(4, a.getLugar_nacimiento());
-            stat.setString(5, a.getNacionalidad());
-            stat.setString(6, a.getNominaciones());
-            stat.setString(7, a.getPremios());
+            stat.setString(1, a.getNickName()); 
+            stat.setString(2, a.getContraseña());
+            stat.setString(3, a.getNombreCompleto());
+            stat.setString(4, a.getRol().name());
+            stat.setString(5, a.getEstatus().name());
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{
@@ -139,16 +136,16 @@ public class DirectorDAO implements DAO<Director>{
     }
 
     @Override
-    public Director get(int id) throws DAOException {
+    public Usuario get(int id) throws DAOException {
         PreparedStatement stat = null; 
         ResultSet rs = null; 
-        Director director = null; 
+        Usuario usuario = null; 
         try{
             stat = conn.prepareStatement(GET);
             stat.setInt(1, id);
             rs = stat.executeQuery();
             if(rs.next()){
-                director = convertir(rs);
+                usuario = convertir(rs);
             }else{
                 throw new DAOException("No se ha encontrado ese actor");
             }
@@ -170,22 +167,21 @@ public class DirectorDAO implements DAO<Director>{
                 }
             }
         }
-        
-        return director;
+       
+        return usuario;
     }
     
-    private Director convertir(ResultSet rs) throws SQLException{
-        int id = rs.getInt("DIRECTOR_ID");
-        String nombre = rs.getString("NOMBRE");
-        String sexo = rs.getString("SEXO");
-        Date fechaNac = rs.getDate("FECHA_NACIMIENTO");
-        String lugarNac = rs.getString("LUGAR_NACIMIENTO");
-        String nacionalidad = rs.getString("NACIONALIDAD");
-        String nominaciones = rs.getString("NOMINACIONES");
-        String premios = rs.getString("PREMIOS");
-        Director director = new Director(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios, nominaciones);
-        director.setDirector_id(id);
-        return director;
+    private Usuario convertir(ResultSet rs) throws SQLException{
+        int id = rs.getInt("USUARIO_ID");
+        String nick = rs.getString("NICK");
+        String pass = rs.getString("CONTRASENA");
+        String fullName = rs.getString("NOMBRE");
+        String rolString = rs.getString("ROL");
+        RolUsuarios rol = RolUsuarios.valueOf(rolString);
+        String estatusString = rs.getString("ESTATUS");
+        EstatusUsuarios estatus = EstatusUsuarios.valueOf(estatusString);
+        Usuario usuario = new Usuario(nick, pass, fullName, rol, estatus);
+        usuario.setUsuario_id(id);
+        return usuario;
     }
-    
 }

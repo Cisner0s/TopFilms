@@ -13,21 +13,21 @@ import java.util.List;
 public class Usuario {
     
     private int usuario_id;
-    private String nombreUsuario;
-    private String contraseña;
-    private String nombreCompleto;
-    private String rol;
-    private String estatus;
+    private String nickName;
+    private String contrasena;
+    private String nombre;
+    private RolUsuarios rol;
+    private EstatusUsuarios estatus;
     private List<Resena> resenas;
 
     public Usuario() {}
 
-    public Usuario(String nombreUsuario, String nombreCompleto, String rol, String contraseña, String estatus) {
+    public Usuario(String nick, String contrasena,String nombre, RolUsuarios rol, EstatusUsuarios estatus) {
        
-        this.nombreUsuario = nombreUsuario;
-        this.nombreCompleto = nombreCompleto;
+        this.nickName = nick;
+        this.nombre = nombre;
         this.rol = rol;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.estatus = estatus;
     }
 
@@ -39,27 +39,27 @@ public class Usuario {
         this.usuario_id = usuario_id;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getNombreCompleto() {
-        return nombreCompleto;
+        return nombre;
     }
 
     public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+        this.nombre = nombreCompleto;
     }
 
-    public String getRol() {
+    public RolUsuarios getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(RolUsuarios rol) {
           if (rol.equals("Administrador") || rol.equals("Critico") || rol.equals("Usuario")){
             this.rol = rol;
         } else {
@@ -68,11 +68,11 @@ public class Usuario {
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasena;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contrasena = contraseña;
     }
 
     public List<Resena> getResenas() {
@@ -83,11 +83,11 @@ public class Usuario {
         this.resenas = resenas;
     }
     
-    public String getEstatus(){
+    public EstatusUsuarios getEstatus(){
         return this.estatus;
     }
     
-    public void setEstatus(String estatus){
+    public void setEstatus(EstatusUsuarios estatus){
         if (estatus.equals("Activo") || estatus.equals("Inactivo")){
             this.estatus = estatus;
         } else {
