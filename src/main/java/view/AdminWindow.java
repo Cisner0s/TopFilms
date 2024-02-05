@@ -27,6 +27,12 @@ public class AdminWindow extends javax.swing.JFrame {
         setTitle("Configuracion de Administrador.");
         setLocationRelativeTo(null); 
         setIconImage(getIconImage());
+        
+        AdminController ctr = new AdminController(this);
+        jButton_GestionReseñas.addActionListener(ctr);
+        jButton_GestionUsuarios.addActionListener(ctr);
+        jButton_GestionContenido.addActionListener(ctr);
+        jButton_CerrarSesion.addActionListener(ctr);
     }
     
      @Override
