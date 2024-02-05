@@ -5,6 +5,7 @@
 package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import view.AdminWindow;
 import view.GestionContenidoWindow;
 import view.GestionReseñasWindow;
@@ -15,42 +16,26 @@ import view.LoginWindow;
  *
  * @author DCM
  */
-public class AdminController{
+public class AdminController implements ActionListener{
     private final AdminWindow adminWindow;
     
     public AdminController(AdminWindow adminWindow) {
-        this.adminWindow = adminWindow;
-        buttons();
+        this.adminWindow = adminWindow;       
     }
-    
-    public void buttons(){
-        adminWindow.jButton_GestionReseñas.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() instanceof JButton) {
+            JButton botonClicado = (JButton) e.getSource();
+            if (botonClicado.equals(adminWindow.jButton_GestionReseñas)){
                 new GestionReseñasWindow().setVisible(true);
-            }
-        });
-        
-        adminWindow.jButton_GestionUsuarios.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            } else if (botonClicado.equals(adminWindow.jButton_GestionUsuarios)){
                 new GestionUsuariosWindow().setVisible(true);
-            }
-        });
-        
-        adminWindow.jButton_GestionContenido.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            } else if (botonClicado.equals(adminWindow.jButton_GestionContenido)) {
                 new GestionContenidoWindow().setVisible(true);
-            }
-        });
-        
-        adminWindow.jButton_CerrarSesion.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            } else if (botonClicado.equals(adminWindow.jButton_CerrarSesion)) {
                 adminWindow.dispose();
                 new LoginWindow().setVisible(true);
             }
-        });
+        }
     }
 }
