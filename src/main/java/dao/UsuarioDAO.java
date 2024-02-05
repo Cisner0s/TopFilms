@@ -29,6 +29,7 @@ public class UsuarioDAO implements DAO<Usuario>{
     final String GET_ID = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE USUARIO_ID = ?"; 
     final String GET_NICK = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE NICK = ?";
     final String LOGIN = "SELECT COUNT(*) FROM usuario WHERE NICK = ? AND CONTRASENA = ?"; 
+    final String REGISTER = "SELECT COUNT(*) FROM usuario WHERE NICK = ?";
     
     public UsuarioDAO(Connection conn){
         this.conn = conn; 
@@ -239,6 +240,38 @@ public class UsuarioDAO implements DAO<Usuario>{
             }
         }
         return false;
+    }
+    
+    public boolean register(String nickName) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        try {
+            stat = conn.prepareStatement(REGISTER);
+            stat.setString(1, nickName);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                return count == 0; 
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL");
+        } finally {
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        return true; 
     }
     
     private Usuario convertir(ResultSet rs) throws SQLException{
