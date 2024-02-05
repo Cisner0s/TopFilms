@@ -38,6 +38,7 @@ public class LoginMouseController implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
+        loginWindow.jLabel_Footer.setForeground(Color.BLUE);
     }
 
     @Override
