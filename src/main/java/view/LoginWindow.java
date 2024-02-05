@@ -46,7 +46,7 @@ public class LoginWindow extends javax.swing.JFrame {
         } catch (IOException e) {
             e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
         }
-*/
+
         try {
             BufferedImage logoImage = ImageIO.read(getClass().getResource("/images/logo.jpg"));;
             ImageIcon logo = new ImageIcon(logoImage.getScaledInstance(
@@ -55,7 +55,7 @@ public class LoginWindow extends javax.swing.JFrame {
         } catch (IOException e) {
             e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
         }
-
+*/
         txt_user.setText("Nombre de usuario");
         txt_user.setForeground(Color.gray);
         txt_password.setText("Contraseña");
