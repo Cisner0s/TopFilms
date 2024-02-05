@@ -55,14 +55,6 @@ public class GestionUsuariosController implements ActionListener {
         status = gestionUsuariosWindow.jTextField38.getText().trim();
         role = gestionUsuariosWindow.jComboBox_Rol.getSelectedIndex();
         
-        if ("Activo".equals(status)){
-            statusS = ACTIVO;
-        } else if ("Inactivo".equals(status)) {
-            statusS = INACTIVO;
-        } else {
-            JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
-        }
-        
         switch (role) {
                 case 0 -> roleS = USUARIO;
                 case 1 -> roleS = CRITICO;
@@ -109,8 +101,17 @@ public class GestionUsuariosController implements ActionListener {
     
     public void botonCrear() throws DAOException {
         if (!"".equals(u) && !"".equals(pswd) && !"".equals(u) && !"".equals(status)) {
-            Usuario user = new Usuario(u, pswd, name, roleS, statusS);
-            dao.create(user);
+            if ("Activo".equals(status)){
+                statusS = ACTIVO;
+                Usuario user = new Usuario(u, pswd, name, roleS, statusS);
+                dao.create(user);
+            } else if ("Inactivo".equals(status)) {
+                statusS = INACTIVO;
+                Usuario user = new Usuario(u, pswd, name, roleS, statusS);
+                dao.create(user);
+            } else {
+                JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
         }
@@ -140,8 +141,17 @@ public class GestionUsuariosController implements ActionListener {
     
     public void botonEditar() throws DAOException {
         if (!"".equals(u) && !"".equals(pswd) && !"".equals(u) && !"".equals(status)) {
-            Usuario user = new Usuario(u, pswd, name, roleS, statusS);
-            dao.update(user);
+            if ("Activo".equals(status)){
+                statusS = ACTIVO;
+                Usuario user = new Usuario(u, pswd, name, roleS, statusS);
+                dao.update(user);
+            } else if ("Inactivo".equals(status)) {
+                statusS = INACTIVO;
+                Usuario user = new Usuario(u, pswd, name, roleS, statusS);
+                dao.update(user);
+            } else {
+                JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
         }
