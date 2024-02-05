@@ -159,8 +159,8 @@ public class LoginWindow extends javax.swing.JFrame {
             try {
                 Connection cn = Conexion.conectar();
                 PreparedStatement pst = cn.prepareStatement(
-                        "select ROL, ESTATUS from usuario where NOMBREUSUARIO = '" + user
-                        + "' and CONTRASEÑA = '" + pass + "'");
+                        "select ROL, ESTATUS from usuario where NICK = '" + user
+                        + "' and CONTRASENA = '" + pass + "'");
 
                 ResultSet rs = pst.executeQuery();
                 if (rs.next()) {
@@ -168,14 +168,14 @@ public class LoginWindow extends javax.swing.JFrame {
                     String tipo_nivel = rs.getString("ROL");
                     String estatus = rs.getString("ESTATUS");
 
-                    if (tipo_nivel.equalsIgnoreCase("Administrador") && estatus.equalsIgnoreCase("Activo")) {
+                    if (tipo_nivel.equalsIgnoreCase("ADMIN") && estatus.equalsIgnoreCase("Activo")) {
                         //dispose(); Hace que el JFrame sea destruido y limpiado por el sistema operativo.
                         dispose();
                         new AdminWindow().setVisible(true);
-                    } else if (tipo_nivel.equalsIgnoreCase("Critico") && estatus.equalsIgnoreCase("Activo")) {
+                    } else if (tipo_nivel.equalsIgnoreCase("CRITICO") && estatus.equalsIgnoreCase("ACTIVO")) {
                         dispose();
                         new CriticoWindow().setVisible(true);
-                    } else if (tipo_nivel.equalsIgnoreCase("Usuario") && estatus.equalsIgnoreCase("Activo")) {
+                    } else if (tipo_nivel.equalsIgnoreCase("USUARIO") && estatus.equalsIgnoreCase("ACTIVO")) {
                         dispose();
                         new UserWindow().setVisible(true);
                     }

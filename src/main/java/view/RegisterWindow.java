@@ -207,7 +207,7 @@ public class RegisterWindow extends javax.swing.JFrame {
             try {
                 Connection cn = Conexion.conectar();
                 PreparedStatement pst = cn.prepareStatement(
-                    "select NOMBREUSUARIO from usuario where NOMBREUSUARIO ='" + user + "'");
+                    "select NICK from usuario where NICK ='" + user + "'");
                 ResultSet rs = pst.executeQuery();
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Nombre de usuario no disponible.");
