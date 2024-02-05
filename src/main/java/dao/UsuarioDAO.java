@@ -26,7 +26,9 @@ public class UsuarioDAO implements DAO<Usuario>{
     final String READ = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario"; 
     final String UPDATE = "UPDATE usuario SET NICK = ?, CONTRASENA = ?, NOMBRE = ?, ROL= ?, ESTATUS= ? WHERE USUARIO_ID = ?"; 
     final String DELETE = "DELETE FROM usuario WHERE ESTUDIO_ID = ?";
-    final String GET = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE USUARIO_ID = ?"; 
+    final String GET_ID = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE USUARIO_ID = ?"; 
+    final String GET_NICK = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE NICK = ?";
+    final String LOGIN = "SELECT COUNT(*) FROM usuario WHERE NICK = ? AND CONTRASENA = ?"; 
     
     public UsuarioDAO(Connection conn){
         this.conn = conn; 
@@ -141,7 +143,7 @@ public class UsuarioDAO implements DAO<Usuario>{
         ResultSet rs = null; 
         Usuario usuario = null; 
         try{
-            stat = conn.prepareStatement(GET);
+            stat = conn.prepareStatement(GET_ID);
             stat.setInt(1, id);
             rs = stat.executeQuery();
             if(rs.next()){
@@ -169,6 +171,74 @@ public class UsuarioDAO implements DAO<Usuario>{
         }
        
         return usuario;
+    }
+    
+    public Usuario get(String nickName) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Usuario usuario = null; 
+        try{
+            stat = conn.prepareStatement(GET_NICK);
+            stat.setString(1, nickName);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                usuario = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado ese actor");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+       
+        return usuario;
+    }
+    
+    public boolean login(String nickName, String password) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        try{
+            stat = conn.prepareStatement(LOGIN);
+            stat.setString(1, nickName);
+            stat.setString(2, password);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                return count > 0; 
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL");
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        return false;
     }
     
     private Usuario convertir(ResultSet rs) throws SQLException{

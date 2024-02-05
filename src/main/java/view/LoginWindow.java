@@ -5,12 +5,14 @@
  */
 package view;
 
+import controller.LoginController;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import dao.Conexion;
+import dao.UsuarioDAO;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class LoginWindow extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Acceso al sistema");
         setLocationRelativeTo(null);
+        
         
         try {
             BufferedImage wallpaperImage = ImageIO.read(getClass().getResource("/images/wallpaperPrincipal.jpg"));
@@ -68,6 +71,14 @@ public class LoginWindow extends javax.swing.JFrame {
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
         return retValue;
+    }
+    
+    public String getNickName(){
+        return txt_user.getText(); 
+    }
+    
+    public String getPassword(){
+        return txt_password.getText();
     }
     
     /**
@@ -124,11 +135,6 @@ public class LoginWindow extends javax.swing.JFrame {
         jButton_Acceder.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jButton_Acceder.setText("Acceder");
         jButton_Acceder.setBorder(null);
-        jButton_Acceder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_AccederActionPerformed(evt);
-            }
-        });
         getContentPane().add(jButton_Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 420, 210, 35));
 
         jLabel_Footer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -150,63 +156,6 @@ public class LoginWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButton_AccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AccederActionPerformed
-
-        user = txt_user.getText().trim();
-        pass = txt_password.getText().trim();
-        if (!user.equals("") || !pass.equals("")) {
-
-            try {
-                Connection cn = Conexion.conectar();
-                PreparedStatement pst = cn.prepareStatement(
-                        "select ROL, ESTATUS from usuario where NICK = '" + user
-                        + "' and CONTRASENA = '" + pass + "'");
-
-                ResultSet rs = pst.executeQuery();
-                if (rs.next()) {
-
-                    String tipo_nivel = rs.getString("ROL");
-                    String estatus = rs.getString("ESTATUS");
-
-                    if (tipo_nivel.equalsIgnoreCase("ADMIN") && estatus.equalsIgnoreCase("Activo")) {
-                        //dispose(); Hace que el JFrame sea destruido y limpiado por el sistema operativo.
-                        dispose();
-                        new AdminWindow().setVisible(true);
-                    } else if (tipo_nivel.equalsIgnoreCase("CRITICO") && estatus.equalsIgnoreCase("ACTIVO")) {
-                        dispose();
-                        new CriticoWindow().setVisible(true);
-                    } else if (tipo_nivel.equalsIgnoreCase("USUARIO") && estatus.equalsIgnoreCase("ACTIVO")) {
-                        dispose();
-                        new UserWindow().setVisible(true);
-                    }
-
-                } else {
-                    intentos -= 1;
-                    txt_user.setText("Nombre de usuario");
-                    txt_user.setForeground(Color.gray);
-                    txt_password.setText("Contraseña");
-                    txt_password.setForeground(Color.gray);
-                    txt_password.setEchoChar((char) 0);
-                    if (intentos == 0){
-                        JOptionPane.showMessageDialog(null, "No le quedan más intentos, vuelva más tarde.");
-                        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-                        jButton_Acceder.setEnabled(false);
-                        scheduler.schedule(() -> jButton_Acceder.setEnabled(true), 10, TimeUnit.MINUTES);
-                        intentos = 3;
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos. Le quedan " + intentos + " intento(s).");
-                    }
-                }
-
-            } catch (SQLException e) {
-                System.err.println("Error en el botón Acceder." + e);
-                JOptionPane.showMessageDialog(null, "¡¡ERROR al iniciar!!, contacte al administrador.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
-        }
-    }//GEN-LAST:event_jButton_AccederActionPerformed
-
     private void jLabel_FooterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseClicked
         dispose();
         new RegisterWindow().setVisible(true);
@@ -279,17 +228,18 @@ public class LoginWindow extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginWindow().setVisible(true);
+                LoginWindow view = new LoginWindow();
+                view.setVisible(true);
+                LoginController logCtr = new LoginController(view, new UsuarioDAO(Conexion.conectar()));
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Acceder;
+    public javax.swing.JButton jButton_Acceder;
     private javax.swing.JLabel jLabel_Footer;
     private javax.swing.JLabel jLabel_Logo;
     private javax.swing.JLabel jLabel_Wallpaper;
