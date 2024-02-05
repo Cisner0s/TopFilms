@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.GestionUsuariosController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,13 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         setTitle("Gestion de Usuarios");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
+        
+        GestionUsuariosController ctr = new GestionUsuariosController(this);
+        jButton4.addActionListener(ctr);
+        jButton5.addActionListener(ctr);
+        jButton6.addActionListener(ctr);
+        jButton7.addActionListener(ctr);
+        jButton8.addActionListener(ctr);
     }
     
      @Override
@@ -47,7 +55,6 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jLabel48 = new javax.swing.JLabel();
         jTextField35 = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
-        jTextField36 = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         jTextField38 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -60,6 +67,7 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jTextField23 = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
+        jComboBox_Rol = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -95,10 +103,6 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel49.setText("Rol");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
-
-        jTextField36.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField36.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 180, -1));
 
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel51.setText("Estatus");
@@ -152,6 +156,10 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jButton8.setText("OK");
         jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 180, -1));
+
+        jComboBox_Rol.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jComboBox_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Critico (Especial)", "Administrador (Especial)" }));
+        jPanel1.add(jComboBox_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 180, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 580));
@@ -212,11 +220,12 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton6;
+    public javax.swing.JButton jButton7;
+    public javax.swing.JButton jButton8;
+    public javax.swing.JComboBox<String> jComboBox_Rol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel45;
@@ -227,12 +236,11 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField38;
+    public javax.swing.JTextField jTextField21;
+    public javax.swing.JTextField jTextField22;
+    public javax.swing.JTextField jTextField23;
+    public javax.swing.JTextField jTextField34;
+    public javax.swing.JTextField jTextField35;
+    public javax.swing.JTextField jTextField38;
     // End of variables declaration//GEN-END:variables
 }
