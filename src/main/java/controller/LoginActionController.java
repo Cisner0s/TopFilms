@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.Conexion;
 import dao.DAOException;
 import dao.UsuarioDAO;
 import java.awt.event.ActionEvent;
@@ -23,14 +24,14 @@ import view.UserWindow;
  *
  * @author DCM
  */
-public class LoginController implements ActionListener{
+public class LoginActionController implements ActionListener{
 
     private final LoginWindow loginWindow; 
     private final UsuarioDAO dao; 
     
-    public LoginController(LoginWindow loginWindow, UsuarioDAO dao){
+    public LoginActionController(LoginWindow loginWindow){
         this.loginWindow = loginWindow; 
-        this.dao = dao; 
+        this.dao = new UsuarioDAO(Conexion.conectar()); 
         loginWindow.jButton_Acceder.addActionListener(this);
     }
     

@@ -5,7 +5,9 @@
  */
 package view;
 
-import controller.LoginController;
+import controller.LoginActionController;
+import controller.LoginFocusController;
+import controller.LoginMouseController;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -40,6 +42,14 @@ public class LoginWindow extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Acceso al sistema");
         setLocationRelativeTo(null);
+        
+        LoginActionController actionCtr = new LoginActionController(this); 
+        LoginMouseController mouseCtr = new LoginMouseController(this);
+        LoginFocusController focusCtr = new LoginFocusController(this);
+        jButton_Acceder.addActionListener(actionCtr);
+        jLabel_Footer.addMouseListener(mouseCtr);
+        txt_password.addFocusListener(focusCtr);
+        txt_user.addFocusListener(focusCtr);
         
         
         try {
@@ -107,28 +117,12 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_user.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_userFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_userFocusLost(evt);
-            }
-        });
         getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
 
         txt_password.setBackground(new java.awt.Color(204, 204, 204));
         txt_password.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_passwordFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_passwordFocusLost(evt);
-            }
-        });
         getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
 
         jButton_Acceder.setBackground(new java.awt.Color(204, 204, 204));
@@ -139,68 +133,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
         jLabel_Footer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_Footer.setText("Registrate aqui");
-        jLabel_Footer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_FooterMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel_FooterMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_FooterMouseExited(evt);
-            }
-        });
         getContentPane().add(jLabel_Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void jLabel_FooterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseClicked
-        dispose();
-        new RegisterWindow().setVisible(true);
-    }//GEN-LAST:event_jLabel_FooterMouseClicked
-
-    private void jLabel_FooterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseEntered
-        jLabel_Footer.setForeground(Color.BLUE);
-    }//GEN-LAST:event_jLabel_FooterMouseEntered
-
-    private void jLabel_FooterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_FooterMouseExited
-       jLabel_Footer.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jLabel_FooterMouseExited
-    
-    private void txt_userFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_userFocusGained
-        if (txt_user.getText().equals("Nombre de usuario") && txt_user.getForeground().equals(Color.gray)) {
-            txt_user.setText("");
-            txt_user.setForeground(Color.black);
-	}
-    }//GEN-LAST:event_txt_userFocusGained
-
-    private void txt_userFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_userFocusLost
-        if (txt_user.getText().equals("")) {
-            txt_user.setText("Nombre de usuario");
-            txt_user.setForeground(Color.gray);
-	}
-    }//GEN-LAST:event_txt_userFocusLost
-
-    private void txt_passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusGained
-        String pw = new String(txt_password.getPassword());
-        if (pw.equals("Contraseña") && txt_password.getForeground().equals(Color.gray)) {
-            txt_password.setText("");
-            txt_password.setForeground(Color.black);
-            txt_password.setEchoChar('*');
-	}
-    }//GEN-LAST:event_txt_passwordFocusGained
-
-    private void txt_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusLost
-        String pw = new String(txt_password.getPassword());
-	if (pw.equals("")) {
-            txt_password.setEchoChar((char) 0);
-            txt_password.setText("Contraseña");
-            txt_password.setForeground(Color.gray);
-	}
-    }//GEN-LAST:event_txt_passwordFocusLost
-   
+           
     /**
      * @param args the command line arguments
      */
@@ -231,19 +169,17 @@ public class LoginWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                LoginWindow view = new LoginWindow();
-                view.setVisible(true);
-                LoginController logCtr = new LoginController(view, new UsuarioDAO(Conexion.conectar()));
+                new LoginWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Acceder;
-    private javax.swing.JLabel jLabel_Footer;
+    public javax.swing.JLabel jLabel_Footer;
     private javax.swing.JLabel jLabel_Logo;
     private javax.swing.JLabel jLabel_Wallpaper;
-    private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_user;
+    public javax.swing.JPasswordField txt_password;
+    public javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
 }
