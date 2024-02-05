@@ -22,6 +22,7 @@ public class AdminController implements ActionListener{
     public AdminController(AdminWindow adminWindow) {
         this.adminWindow = adminWindow;       
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() instanceof JButton) {

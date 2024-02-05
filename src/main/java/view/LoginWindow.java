@@ -5,22 +5,13 @@
  */
 package view;
 
-import controller.LoginActionController;
-import controller.LoginFocusController;
-import controller.LoginMouseController;
+import controller.LoginController;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import java.sql.*;
-import javax.swing.JOptionPane;
-import dao.Conexion;
-import dao.UsuarioDAO;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 /**
  *
@@ -28,10 +19,7 @@ import javax.imageio.ImageIO;
  */
 public class LoginWindow extends javax.swing.JFrame {
 
-    public static String user = ""; //Se declara así para enviar datos entre interfaces
-    String pass = "";
-    int intentos = 3;
-    
+    public static String user = ""; //Se declara así para enviar datos entre interfaces    
     /**
      * Creates new form Login
      */
@@ -43,13 +31,11 @@ public class LoginWindow extends javax.swing.JFrame {
         setTitle("Acceso al sistema");
         setLocationRelativeTo(null);
         
-        LoginActionController actionCtr = new LoginActionController(this); 
-        LoginMouseController mouseCtr = new LoginMouseController(this);
-        LoginFocusController focusCtr = new LoginFocusController(this);
-        jButton_Acceder.addActionListener(actionCtr);
-        jLabel_Footer.addMouseListener(mouseCtr);
-        txt_password.addFocusListener(focusCtr);
-        txt_user.addFocusListener(focusCtr);
+        LoginController loginCtr = new LoginController(this);
+        jButton_Acceder.addActionListener(loginCtr);
+        jLabel_Footer.addMouseListener(loginCtr);
+        txt_password.addFocusListener(loginCtr);
+        txt_user.addFocusListener(loginCtr);
         
         
         try {
