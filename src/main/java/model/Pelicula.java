@@ -16,19 +16,19 @@ public class Pelicula {
     private String titulo;
     private Date fecha_Estreno;
     private String genero;
-    private int presupuesto;
-    private int ganancias;
+    private long presupuesto;
+    private long ganancias;
     private String sinopsis;
     private String imagen;
-    private Director director;
-    private Estudio estudio;
+    private int director_id;
+    private int estudio_id;
     private List<Actor> actores;
     private List<Resena> resenas;
     private List<Critica> criticas;
 
     public Pelicula() {}
     
-    public Pelicula(String titulo, Date fecha_Estreno, String genero, int presupuesto, int ganancias, String sinopsis, String imagen, Director director, Estudio estudio, List<Actor> actores) {
+    public Pelicula(String titulo, String sinopsis, String genero, Date fecha_Estreno, long presupuesto, long ganancias, String imagen, int director_id, int estudio_id) {
         this.titulo = titulo;
         this.fecha_Estreno = fecha_Estreno;
         this.genero = genero;
@@ -36,11 +36,10 @@ public class Pelicula {
         this.ganancias = ganancias;
         this.sinopsis = sinopsis;
         this.imagen = imagen;
-        this.director = director;
-        this.estudio = estudio;
-        this.actores = actores;
+        this.director_id = director_id;
+        this.estudio_id = estudio_id;
     }
-
+    
     public int getPelicula_id() {
         return pelicula_id;
     }
@@ -73,7 +72,7 @@ public class Pelicula {
         this.genero = genero;
     }
 
-    public int getPresupuesto() {
+    public long getPresupuesto() {
         return presupuesto;
     }
 
@@ -81,7 +80,7 @@ public class Pelicula {
         this.presupuesto = presupuesto;
     }
 
-    public int getGanancias() {
+    public long getGanancias() {
         return ganancias;
     }
 
@@ -105,20 +104,20 @@ public class Pelicula {
         this.imagen = imagen;
     }
 
-    public Director getDirector() {
-        return director;
+    public int getDirector() {
+        return director_id;
     }
 
-    public void setDirector(Director director) {
-        this.director = director;
+    public void setDirector(int director_id) {
+        this.director_id = director_id;
     }
 
-    public Estudio getEstudio() {
-        return estudio;
+    public int getEstudio() {
+        return estudio_id;
     }
 
     public void setEstudio(Estudio estudio) {
-        this.estudio = estudio;
+        this.estudio_id = estudio_id;
     }
 
     public List<Actor> getActores() {
@@ -148,8 +147,8 @@ public class Pelicula {
             ", ganancias=" + ganancias +
             ", sinopsis='" + sinopsis + '\'' +
             ", imagen='" + imagen + '\'' +
-            ", director=" + director +
-            ", estudio=" + estudio +
+            ", director=" + director_id +
+            ", estudio=" + estudio_id +
             ", actores=" + actores +
             ", resenas=" + resenas +
             ", criticas=" + criticas +
