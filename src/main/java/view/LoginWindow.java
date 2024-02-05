@@ -38,7 +38,7 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user.addFocusListener(loginCtr);
         
         
-        try {
+       /* try {
             BufferedImage wallpaperImage = ImageIO.read(getClass().getResource("/images/wallpaperPrincipal.jpg"));
             ImageIcon wallpaper = new ImageIcon(wallpaperImage.getScaledInstance(
                     jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
@@ -46,7 +46,7 @@ public class LoginWindow extends javax.swing.JFrame {
         } catch (IOException e) {
             e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
         }
-
+*/
         try {
             BufferedImage logoImage = ImageIO.read(getClass().getResource("/images/logo.jpg"));;
             ImageIcon logo = new ImageIcon(logoImage.getScaledInstance(
@@ -87,49 +87,67 @@ public class LoginWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel_Logo = new javax.swing.JLabel();
         txt_user = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
         jButton_Acceder = new javax.swing.JButton();
         jLabel_Footer = new javax.swing.JLabel();
-        jLabel_Wallpaper = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(153, 0, 153));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jLabel_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 270, 270));
+
+        jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_Blanco.png"))); // NOI18N
+        getContentPane().add(jLabel_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 270, 270));
 
         txt_user.setBackground(new java.awt.Color(204, 204, 204));
         txt_user.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
+        getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 210, -1));
 
         txt_password.setBackground(new java.awt.Color(204, 204, 204));
         txt_password.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
+        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, -1));
 
         jButton_Acceder.setBackground(new java.awt.Color(204, 204, 204));
         jButton_Acceder.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        jButton_Acceder.setText("Acceder");
+        jButton_Acceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton_Acceder.setBorder(null);
-        getContentPane().add(jButton_Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 420, 210, 35));
+        jButton_Acceder.setBorderPainted(false);
+        jButton_Acceder.setContentAreaFilled(false);
+        getContentPane().add(jButton_Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 80, 70));
 
         jLabel_Footer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_Footer.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Footer.setText("Registrate aqui");
-        getContentPane().add(jLabel_Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 560));
+        getContentPane().add(jLabel_Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo_Trans_1.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 340, 490));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Acceder;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel_Footer;
     private javax.swing.JLabel jLabel_Logo;
-    private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JPasswordField txt_password;
     public javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
