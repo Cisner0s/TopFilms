@@ -13,28 +13,26 @@ public class Resena {
     private int resena_id;
     private String tituloResena;
     private String textoResena;
-    private Pelicula pelicula;
-    private Serie serie;
-    private Usuario usuario;
+    private Integer pelicula_id;
+    private Integer serie_id;
+    private Integer usuario_id;
 
-    public Resena(String tituloResena, String textoResena, Usuario usuario) {
+    public Resena(String tituloResena, String textoResena, Integer pelicula_id, Integer serie_id, Integer usuario_id) {
         this.tituloResena = tituloResena;
         this.textoResena = textoResena;
-        this.usuario = usuario;
+        this.pelicula_id = pelicula_id; 
+        this.serie_id = serie_id; 
+        this.usuario_id = usuario_id; 
     }
 
-    public Serie getSerie() {
-        return serie;
+    public Integer getSerie() {
+        return serie_id;
     }
 
-    public void setSerie(Serie serie) {
-        this.serie = serie;
+    public void setSerie(Integer serie_id) {
+        this.serie_id = serie_id;
     }
-
-    public Resena() {
-        // Constructor vacío
-    }
-
+    
     public int getResena_id() {
         return resena_id;
     }
@@ -59,20 +57,20 @@ public class Resena {
         this.textoResena = textoResena;
     }
 
-    public Pelicula getPelicula() {
-        return pelicula;
+    public Integer getPelicula() {
+        return pelicula_id;
     }
 
-    public void setPelicula(Pelicula pelicula) {
-        this.pelicula = pelicula;
+    public void setPelicula(Integer pelicula_id) {
+        this.pelicula_id = pelicula_id;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Integer getUsuario() {
+        return usuario_id;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Integer usuario_id) {
+        this.usuario_id = usuario_id;
     }
     
     @Override

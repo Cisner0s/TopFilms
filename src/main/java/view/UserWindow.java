@@ -10,7 +10,7 @@ import java.awt.Toolkit;
 import model.Usuario;
 import view.BusquedaWindow;
 import view.FilmMenuWindow;
-import view.ShowWindow;
+import view.SerieMenuWindow;
 
 /**
  *

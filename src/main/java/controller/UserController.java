@@ -11,7 +11,7 @@ import model.Usuario;
 import view.AjustesUsuarioWindow;
 import view.BusquedaWindow;
 import view.FilmMenuWindow;
-import view.ShowWindow;
+import view.SerieMenuWindow;
 import view.UserWindow;
 
 /**
@@ -34,7 +34,7 @@ public class UserController implements ActionListener {
             if (botonClicado.equals(userWindow.jButton_Peliculas)){
                 new FilmMenuWindow().setVisible(true);
             } else if (botonClicado.equals(userWindow.jButton_Shows)){
-                new ShowWindow().setVisible(true);
+                new SerieMenuWindow().setVisible(true);
             } else if (botonClicado.equals(userWindow.jButton_Ajustes)) {
                 new AjustesUsuarioWindow(user).setVisible(true);
             } else if (botonClicado.equals(userWindow.jButton_Busqueda)) {

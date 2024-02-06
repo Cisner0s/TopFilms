@@ -23,7 +23,7 @@ public class SerieDAO implements DAO<Serie>{
 
     private final Connection conn; 
     
-    private final String CREATE = "INSERT INTO serie(TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANANCIAS, director_id, estudio_id)";
+    private final String CREATE = "INSERT INTO serie(TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANANCIAS, director_id, estudio_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private final String READ = "SELECT * FROM serie ";
     private final String UPDATE = "UPDATE serie SET TITULO = ?, FECHA_ESTRENO = ?, GENERO = ?, N_EPISODIOS = ?, DURACION_MED_EPISODIO = ?, N_TEMPORADAS = ?, PRESUPUESTO = ?, GANANCIAS = ?, director_id = ?, estudio_id = ? WHERE SERIE_ID = ?";
     private final String DELETE = "DELETE FROM serie WHERE SERIE_ID = ?";
@@ -83,6 +83,13 @@ public class SerieDAO implements DAO<Serie>{
                     stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL");
                 }
             }
         }
