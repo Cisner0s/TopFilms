@@ -50,7 +50,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextField_sexo = new javax.swing.JTextField();
         jLabel_sexo = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextArea_premios = new javax.swing.JTextArea();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -88,9 +88,9 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jLabel_sexo.setText("Sexo");
         jPanel1.add(jLabel_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
+        jTextArea_premios.setColumns(20);
+        jTextArea_premios.setRows(5);
+        jScrollPane4.setViewportView(jTextArea_premios);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 300, 140));
 
@@ -214,7 +214,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_anadir;
-    private com.toedter.calendar.JDateChooser jDateChooser_fechaNac;
+    public com.toedter.calendar.JDateChooser jDateChooser_fechaNac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -229,10 +229,10 @@ public class AnadirActorWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField_lugarNac;
-    private javax.swing.JTextField jTextField_nacionalidad;
-    private javax.swing.JTextField jTextField_nombre;
-    private javax.swing.JTextField jTextField_sexo;
+    public javax.swing.JTextArea jTextArea_premios;
+    public javax.swing.JTextField jTextField_lugarNac;
+    public javax.swing.JTextField jTextField_nacionalidad;
+    public javax.swing.JTextField jTextField_nombre;
+    public javax.swing.JTextField jTextField_sexo;
     // End of variables declaration//GEN-END:variables
 }

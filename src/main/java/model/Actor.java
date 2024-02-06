@@ -19,16 +19,14 @@ public class Actor {
     private String lugarNacimiento; 
     private String nacionalidad; 
     private String premios; 
-    private String imagen; 
     
-    public Actor(String nombre, String sexo, Date fechaNacimiento, String lugarNacimiento, String nacionalidad, String premios, String imagen){
+    public Actor(String nombre, String sexo, Date fechaNacimiento, String lugarNacimiento, String nacionalidad, String premios){
         this.nombre = nombre; 
         this.sexo = sexo; 
         this.fechaNacimiento = fechaNacimiento; 
         this.lugarNacimiento = lugarNacimiento; 
         this.nacionalidad = nacionalidad; 
         this.premios = premios; 
-        this.imagen = imagen;  
     }
     
     public int getId(){
@@ -59,10 +57,6 @@ public class Actor {
         return this.premios;
     }
     
-    public String getImagen(){
-        return this.imagen; 
-    }
-    
     public void setId(int id) {
     this.id = id;
     }
@@ -91,10 +85,6 @@ public class Actor {
         this.premios = premios;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     @Override
     public String toString() {
         return "Actor{" +
@@ -105,7 +95,6 @@ public class Actor {
             ", lugarNacimiento='" + lugarNacimiento + '\'' +
             ", nacionalidad='" + nacionalidad + '\'' +
             ", premios='" + premios + '\'' +
-            ", imagen='" + imagen + '\'' +
             '}';
     }
 }

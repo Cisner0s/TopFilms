@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -14,16 +15,15 @@ public class Serie {
     
     private int serie_id;
     private String titulo;
-    private String fecha_Estreno;
+    private Date fecha_Estreno;
     private String genero;
-    private int presupuesto;
-    private int ganacias;
+    private long presupuesto;
+    private long ganacias;
     private int n_Episodios;
     private double Duracion_Med_Episodio;
-    private String imagen;
     private int n_Temporadas;
-    private Director director;
-    private Estudio estudio;
+    private int director_id;
+    private int estudio_id;
     private List<Actor> actores;
     private List<Resena> resenas;
     private List<Critica> criticas;
@@ -32,9 +32,9 @@ public class Serie {
 
     }
 
-    public Serie( String titulo, String fecha_Estreno, String genero, int presupuesto, int ganacias,
-            int n_Episodios, double Duracion_Med_Episodio, String imagen, int n_Temporadas, Estudio estudio,
-            Director director) {
+    public Serie( String titulo, Date fecha_Estreno, String genero, int n_Episodios,
+            double Duracion_Med_Episodio, int n_Temporadas, long presupuesto, long ganacias,
+            int director_id, int estudio_id) {
      
         this.titulo = titulo;
         this.fecha_Estreno = fecha_Estreno;
@@ -43,10 +43,9 @@ public class Serie {
         this.ganacias = ganacias;
         this.n_Episodios = n_Episodios;
         this.Duracion_Med_Episodio = Duracion_Med_Episodio;
-        this.imagen = imagen;
         this.n_Temporadas = n_Temporadas;
-        this.estudio = estudio;
-        this.director = director;
+        this.estudio_id = estudio_id;
+        this.director_id = director_id;
     }
 
     public int getSerie_id() {
@@ -65,11 +64,11 @@ public class Serie {
         this.titulo = titulo;
     }
 
-    public String getFecha_Estreno() {
+    public Date getFecha_Estreno() {
         return fecha_Estreno;
     }
 
-    public void setFecha_Estreno(String fecha_Estreno) {
+    public void setFecha_Estreno(Date fecha_Estreno) {
         this.fecha_Estreno = fecha_Estreno;
     }
 
@@ -81,19 +80,19 @@ public class Serie {
         this.genero = genero;
     }
 
-    public int getPresupuesto() {
+    public long getPresupuesto() {
         return presupuesto;
     }
 
-    public void setPresupuesto(int presupuesto) {
+    public void setPresupuesto(long presupuesto) {
         this.presupuesto = presupuesto;
     }
 
-    public int getGanacias() {
+    public long getGanacias() {
         return ganacias;
     }
 
-    public void setGanacias(int ganacias) {
+    public void setGanacias(long ganacias) {
         this.ganacias = ganacias;
     }
 
@@ -113,14 +112,6 @@ public class Serie {
         this.Duracion_Med_Episodio = Duracion_Med_Episodio;
     }
 
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     public int getN_Temporadas() {
         return n_Temporadas;
     }
@@ -129,20 +120,20 @@ public class Serie {
         this.n_Temporadas = n_Temporadas;
     }
 
-    public Estudio getEstudio() {
-        return estudio;
+    public int getEstudio() {
+        return estudio_id;
     }
 
-    public void setEstudio(Estudio estudio) {
-        this.estudio = estudio;
+    public void setEstudio(int estudio_id) {
+        this.estudio_id = estudio_id;
     }
 
-    public Director getDirector() {
-        return director;
+    public int getDirector() {
+        return director_id;
     }
 
     public void setDirector(Director director) {
-        this.director = director;
+        this.director_id = director_id;
     }
 
     public List<Actor> getActores() {

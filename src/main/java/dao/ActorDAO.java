@@ -17,7 +17,8 @@ public class ActorDAO implements DAO<Actor>{
     final String READ = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor"; 
     final String UPDATE = "UPDATE actor SET NOMBRE = ?, SEXO = ?, FECHA_NACIMIENTO = ?, LUGAR_NACIMIENTO = ?, NACIONALIDAD = ?, PREMIOS = ?, IMAGEN = ? WHERE ACTOR_ID = ?"; 
     final String DELETE = "DELETE FROM actor WHERE ACTOR_ID = ?";
-    final String GET = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor WHERE ACTOR_ID = ?";   
+    final String GET_ID = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor WHERE ACTOR_ID = ?";   
+    final String GET_NOMBRE = "SELECT COUNT(*) FROM actor WHERE NOMBRE = ?"; 
     
     public ActorDAO(Connection conn){
         this.conn = conn; 
@@ -34,7 +35,6 @@ public class ActorDAO implements DAO<Actor>{
             stat.setString(4, actor.getLugarNacimiento());
             stat.setString(5, actor.getNacionalidad());
             stat.setString(6, actor.getPremios());
-            stat.setString(7, actor.getImagen());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya guardado.");
             }
@@ -95,7 +95,6 @@ public class ActorDAO implements DAO<Actor>{
             stat.setString(4, a.getLugarNacimiento());
             stat.setString(5, a.getNacionalidad());
             stat.setString(6, a.getPremios());
-            stat.setString(7, a.getImagen());
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{
@@ -137,7 +136,7 @@ public class ActorDAO implements DAO<Actor>{
         ResultSet rs = null; 
         Actor actor = null; 
         try{
-            stat = conn.prepareStatement(GET);
+            stat = conn.prepareStatement(GET_ID);
             stat.setInt(1, id);
             rs = stat.executeQuery();
             if(rs.next()){
@@ -167,6 +166,38 @@ public class ActorDAO implements DAO<Actor>{
         return actor;
     }
     
+    public boolean existe(String nombre) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        try {
+            stat = conn.prepareStatement(GET_NOMBRE);
+            stat.setString(1, nombre);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                return count > 0; 
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL");
+        } finally {
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        return false; 
+    }
+    
     private Actor convertir(ResultSet rs) throws SQLException{
         int id = rs.getInt("ACTOR_ID");
         String nombre = rs.getString("NOMBRE");
@@ -175,8 +206,7 @@ public class ActorDAO implements DAO<Actor>{
         String lugarNac = rs.getString("LUGAR_NACIMIENTO");
         String nacionalidad = rs.getString("NACIONALIDAD");
         String premios = rs.getString("PREMIOS");
-        String imagen = rs.getString("IMAGEN");
-        Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios, imagen);
+        Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios);
         actor.setId(id);
         return actor;
     }
