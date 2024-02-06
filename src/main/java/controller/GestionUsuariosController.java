@@ -47,11 +47,11 @@ public class GestionUsuariosController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        username = gestionUsuariosWindow.jTextField22.getText().trim();
-        id = gestionUsuariosWindow.jTextField23.getText().trim();
-        u = gestionUsuariosWindow.jTextField21.getText().trim();
-        pswd = gestionUsuariosWindow.jTextField34.getText().trim();
-        name = gestionUsuariosWindow.jTextField35.getText();
+        username = gestionUsuariosWindow.jTextField_Username.getText().trim();
+        id = gestionUsuariosWindow.jTextField_UsuarioID.getText().trim();
+        u = gestionUsuariosWindow.jTextField_NombreUsuario.getText().trim();
+        pswd = gestionUsuariosWindow.jTextField_Contraseña.getText().trim();
+        name = gestionUsuariosWindow.jTextField_NombreCompleto.getText();
         status = gestionUsuariosWindow.jComboBox_Estatus.getSelectedIndex();
         role = gestionUsuariosWindow.jComboBox_Rol.getSelectedIndex();
         
@@ -72,31 +72,31 @@ public class GestionUsuariosController implements ActionListener {
         
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
-            if (botonClicado.equals(gestionUsuariosWindow.jButton4)){
+            if (botonClicado.equals(gestionUsuariosWindow.jButton_Crear)){
                 try {
                     botonCrear();
                 } catch (DAOException ex) {
                     Logger.getLogger(GestionUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (botonClicado.equals(gestionUsuariosWindow.jButton5)){
+            } else if (botonClicado.equals(gestionUsuariosWindow.jButton_BuscarPorUsername)){
                 try {
                     botonUsername();
                 } catch (DAOException ex) {
                     Logger.getLogger(GestionUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (botonClicado.equals(gestionUsuariosWindow.jButton6)) {
+            } else if (botonClicado.equals(gestionUsuariosWindow.jButton_Editar)) {
                 try {
                     botonEditar();
                 } catch (DAOException ex) {
                     Logger.getLogger(GestionUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (botonClicado.equals(gestionUsuariosWindow.jButton7)) {
+            } else if (botonClicado.equals(gestionUsuariosWindow.jButton_Borrar)) {
                 try {
                     botonBorrar();
                 } catch (DAOException ex) {
                     Logger.getLogger(GestionUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (botonClicado.equals(gestionUsuariosWindow.jButton8)) {
+            } else if (botonClicado.equals(gestionUsuariosWindow.jButton_BuscarPorID)) {
                 try {
                     botonID();
                 } catch (DAOException ex) {
@@ -119,9 +119,9 @@ public class GestionUsuariosController implements ActionListener {
     public void botonUsername() throws DAOException {
         if (!"".equals(username)) {
             Usuario user = dao.get(username);
-            gestionUsuariosWindow.jTextField21.setText(user.getNickName());
-            gestionUsuariosWindow.jTextField34.setText(user.getContraseña());
-            gestionUsuariosWindow.jTextField35.setText(user.getNombreCompleto());
+            gestionUsuariosWindow.jTextField_NombreUsuario.setText(user.getNickName());
+            gestionUsuariosWindow.jTextField_Contraseña.setText(user.getContraseña());
+            gestionUsuariosWindow.jTextField_NombreCompleto.setText(user.getNombreCompleto());
             if (user.getEstatus().equals(ACTIVO)){
                     gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
             } else if (user.getEstatus().equals(INACTIVO)) {
@@ -169,10 +169,10 @@ public class GestionUsuariosController implements ActionListener {
             try {
                 idInt = Integer.parseInt(id);
                 Usuario user = dao.get(idInt);
-                gestionUsuariosWindow.jTextField22.setText(user.getNickName());
-                gestionUsuariosWindow.jTextField21.setText(user.getNickName());
-                gestionUsuariosWindow.jTextField34.setText(user.getContraseña());
-                gestionUsuariosWindow.jTextField35.setText(user.getNombreCompleto());
+                gestionUsuariosWindow.jTextField_Username.setText(user.getNickName());
+                gestionUsuariosWindow.jTextField_NombreUsuario.setText(user.getNickName());
+                gestionUsuariosWindow.jTextField_Contraseña.setText(user.getContraseña());
+                gestionUsuariosWindow.jTextField_NombreCompleto.setText(user.getNombreCompleto());
                 if (user.getEstatus().equals(ACTIVO)){
                     gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
                 } else if (user.getEstatus().equals(INACTIVO)) {
