@@ -7,11 +7,14 @@ package controller;
 import dao.ActorDAO;
 import dao.Conexion;
 import dao.DAOException;
+import dao.PeliculaActorDAO;
 import dao.PeliculaDAO;
+import dao.SerieActorDAO;
 import dao.SerieDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +23,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import model.Actor;
 import model.Pelicula;
+import model.PeliculaActor;
 import model.Serie;
+import model.SerieActor;
 import view.AnadirActorWindow;
 
 /**
@@ -33,12 +38,16 @@ public class AnadirActorController implements ActionListener{
     private final PeliculaDAO filmDao; 
     private final SerieDAO serieDao;
     private final ActorDAO actorDao; 
+    private final PeliculaActorDAO pelActDao; 
+    private final SerieActorDAO serActDao;
     
     public AnadirActorController(AnadirActorWindow view) {
         this.view = view; 
         this.filmDao = new PeliculaDAO(Conexion.conectar());
         this.serieDao = new SerieDAO(Conexion.conectar());
         this.actorDao = new ActorDAO(Conexion.conectar());
+        this.pelActDao = new PeliculaActorDAO(Conexion.conectar());
+        this.serActDao = new SerieActorDAO(Conexion.conectar());
         try {
             initPeliculas();
             initSeries();
@@ -83,6 +92,28 @@ public class AnadirActorController implements ActionListener{
                 if(!actorDao.existe(nombre)){
                     Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios);
                     actorDao.create(actor);
+                    
+                    List<Pelicula> peliculas = new ArrayList<>();
+                    List<String> nombresPeliculas = view.jList_peliculas.getSelectedValuesList(); 
+                    for(String nombrePelicula : nombresPeliculas){
+                        peliculas.add(filmDao.get(nombrePelicula));
+                    }
+                    for(Pelicula pelicula : peliculas){
+                        PeliculaActor relPelAct = new PeliculaActor(pelicula.getPelicula_id(), actor.getId());
+                        pelActDao.create(relPelAct);
+                    }
+                    
+                    List<Serie> series = new ArrayList<>();
+                    List<String> nombresSeries = view.jList_series.getSelectedValuesList();
+                    for(String nombreSerie : nombresSeries){
+                        series.add(serieDao.get(nombreSerie));
+                    }
+                    for(Serie serie : series){
+                        SerieActor relSerAct = new SerieActor(serie.getSerie_id(), actor.getId());
+                        serActDao.create(relSerAct);
+                    }
+                    
+                    
                     JOptionPane.showMessageDialog(null, "Actor creado correctamente.");
                 }else{
                     JOptionPane.showMessageDialog(null, "El nombre de ese actor ya esta registrado.");

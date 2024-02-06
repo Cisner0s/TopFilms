@@ -6,33 +6,31 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.PeliculaActor;
+import model.SerieActor;
 
 /**
  *
  * @author jorge
  */
-public class PeliculaActorDAO implements DAO<PeliculaActor>{
-    
+public class SerieActorDAO implements DAO<SerieActor>{
+
     private final Connection conn; 
 
-    private final String CREATE = "INSERT INTO pelicula_actor(pelicula_id, actor_id) VALUES(?, ?)"; 
+    private final String CREATE = "INSERT INTO serie_actor(serie, actor_id) VALUES(?, ?)"; 
     
-    public PeliculaActorDAO(Connection conn){
+    public SerieActorDAO(Connection conn){
         this.conn = conn; 
     }
     
     @Override
-    public void create(PeliculaActor a) throws DAOException {
+    public void create(SerieActor a) throws DAOException {
         PreparedStatement stat = null; 
         try {
             stat = conn.prepareStatement(CREATE);
-            stat.setInt(1, a.getPelicula_id());
+            stat.setInt(1, a.getSerie_id());
             stat.setInt(2, a.getActor_id());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("No se puedo crear la relación pelicula/actor correctamente");
@@ -51,12 +49,12 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
     }
 
     @Override
-    public List read() throws DAOException {
+    public List<SerieActor> read() throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(PeliculaActor a) throws DAOException {
+    public void update(SerieActor a) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -66,12 +64,8 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
     }
 
     @Override
-    public PeliculaActor get(int id) throws DAOException {
+    public SerieActor get(int id) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    private PeliculaActor convertir(ResultSet rs){
-        return null; 
     }
     
 }
