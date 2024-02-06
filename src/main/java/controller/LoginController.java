@@ -61,7 +61,7 @@ public class LoginController implements ActionListener, FocusListener, MouseList
                             break;
                         case CRITICO:
                             loginWindow.dispose();
-                            new UserWindow().setVisible(true);
+                            new UserWindow(user).setVisible(true);
                             break;
                         case ADMIN:
                             loginWindow.dispose();

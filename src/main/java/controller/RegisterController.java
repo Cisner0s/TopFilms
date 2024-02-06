@@ -82,7 +82,7 @@ public class RegisterController implements ActionListener{
                         break;
                     case CRITICO: 
                         regWindow.dispose();
-                        new UserWindow().setVisible(true);
+                        new UserWindow(newUser).setVisible(true);
                         break;
                     case ADMIN: 
                         regWindow.dispose();
