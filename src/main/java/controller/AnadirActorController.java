@@ -56,7 +56,7 @@ public class AnadirActorController implements ActionListener{
         }
                 
     }
-    
+ 
     private void initPeliculas() throws DAOException{
         List<Pelicula> peliculas = filmDao.read();
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -64,10 +64,9 @@ public class AnadirActorController implements ActionListener{
       
         for(Pelicula pel : peliculas){
             listModel.addElement(pel.getTitulo());
-        }
-        
+        }   
     }
-    
+
     private void initSeries() throws DAOException{
         List<Serie> series = serieDao.read();
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -88,6 +87,7 @@ public class AnadirActorController implements ActionListener{
             String lugarNac = view.jTextField_lugarNac.getText();
             String nacionalidad = view.jTextField_nacionalidad.getText();
             String premios = view.jTextArea_premios.getText();
+            
             try {
                 if(!actorDao.existe(nombre)){
                     Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios);
@@ -119,7 +119,7 @@ public class AnadirActorController implements ActionListener{
                     JOptionPane.showMessageDialog(null, "El nombre de ese actor ya esta registrado.");
                 }
             } catch (DAOException ex) {
-                JOptionPane.showMessageDialog(null, "No puedo crearse el actor correctamente");
+                JOptionPane.showMessageDialog(null, "No pudo crearse el actor correctamente");
             }
         }else{
             JOptionPane.showMessageDialog(null, "Por favor complete todos los campos obligatorios. El campo de premios puede dejarse vacío si el actor no ha recibido ningún premio.");
