@@ -7,6 +7,8 @@ package controller;
 import dao.Conexion;
 import dao.DAOException;
 import dao.PeliculaDAO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +21,7 @@ import view.AnadirActorWindow;
  *
  * @author jorge
  */
-public class AnadirActorController {
+public class AnadirActorController implements ActionListener{
     
     private final AnadirActorWindow view; 
     private final PeliculaDAO filmDao; 
@@ -43,6 +45,11 @@ public class AnadirActorController {
         for(Pelicula pel : peliculas){
             listModel.addElement(pel.getTitulo());
         }
+        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
         
     }
             
