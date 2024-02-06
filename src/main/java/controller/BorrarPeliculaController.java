@@ -34,7 +34,7 @@ public class BorrarPeliculaController implements ActionListener {
         id = borrarPeliculaWindow.jTextField1.getText().trim();
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
-            if (botonClicado.equals(borrarPeliculaWindow.jButton1)){
+            if (botonClicado.equals(borrarPeliculaWindow.jButton_BuscarID)){
                 try {
                     botonID();
                 } catch (DAOException ex) {

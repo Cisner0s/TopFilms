@@ -25,7 +25,7 @@ public class BorrarEstudioWindow extends javax.swing.JFrame {
         setIconImage(getIconImage());
         
         BorrarEstudioController ctr = new BorrarEstudioController(this);
-        jButton1.addActionListener(ctr);
+        jButton_BuscarID.addActionListener(ctr);
         jButton2.addActionListener(ctr);
     }
     
@@ -48,11 +48,14 @@ public class BorrarEstudioWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButton_BuscarID = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton_BuscarNombre = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -69,17 +72,17 @@ public class BorrarEstudioWindow extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Estudio_ID");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 80, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 80, 20));
 
         jTextField1.setBackground(new java.awt.Color(204, 153, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 100, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 100, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 130, 80));
+        jButton_BuscarID.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_BuscarID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton_BuscarID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_BuscarID.setBorderPainted(false);
+        jButton_BuscarID.setContentAreaFilled(false);
+        jPanel1.add(jButton_BuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 130, 80));
 
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,6 +101,21 @@ public class BorrarEstudioWindow extends javax.swing.JFrame {
         jButton2.setText("BORRAR");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 200, -1));
+
+        jLabel6.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nombre Completo");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 140, 20));
+
+        jTextField2.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 100, -1));
+
+        jButton_BuscarNombre.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_BuscarNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton_BuscarNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_BuscarNombre.setBorderPainted(false);
+        jButton_BuscarNombre.setContentAreaFilled(false);
+        jPanel1.add(jButton_BuscarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 130, 80));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -156,16 +174,19 @@ public class BorrarEstudioWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton_BuscarID;
+    public javax.swing.JButton jButton_BuscarNombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea jTextArea1;
     public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,8 +17,6 @@ import model.EstatusUsuarios;
 import static model.EstatusUsuarios.ACTIVO;
 import static model.EstatusUsuarios.INACTIVO;
 import model.RolUsuarios;
-import static model.RolUsuarios.ADMIN;
-import static model.RolUsuarios.CRITICO;
 import static model.RolUsuarios.USUARIO;
 import model.Usuario;
 import view.AjustesUsuarioWindow;

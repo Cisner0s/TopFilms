@@ -34,7 +34,7 @@ public class BorrarActorController implements ActionListener {
         id = borrarActorWindow.jTextField1.getText().trim();
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
-            if (botonClicado.equals(borrarActorWindow.jButton1)){
+            if (botonClicado.equals(borrarActorWindow.jButton_BuscarID)){
                 try {
                     botonID();
                 } catch (DAOException ex) {

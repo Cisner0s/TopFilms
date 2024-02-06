@@ -94,10 +94,4 @@ public class AnadirActorController implements ActionListener{
             JOptionPane.showMessageDialog(null, "Por favor complete todos los campos obligatorios. El campo de premios puede dejarse vacío si el actor no ha recibido ningún premio.");
         }
     }
-    
-    
-            
-    
-            
-    
 }

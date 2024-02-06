@@ -34,7 +34,7 @@ public class BorrarSerieController implements ActionListener {
         id = borrarSerieWindow.jTextField1.getText().trim();
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
-            if (botonClicado.equals(borrarSerieWindow.jButton1)){
+            if (botonClicado.equals(borrarSerieWindow.jButton_BuscarID)){
                 try {
                     botonID();
                 } catch (DAOException ex) {
