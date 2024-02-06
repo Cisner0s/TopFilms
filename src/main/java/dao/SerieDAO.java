@@ -27,8 +27,8 @@ public class SerieDAO implements DAO<Serie>{
     private final String READ = "SELECT * FROM serie ";
     private final String UPDATE = "UPDATE serie SET TITULO = ?, FECHA_ESTRENO = ?, GENERO = ?, N_EPISODIOS = ?, DURACION_MED_EPISODIO = ?, N_TEMPORADAS = ?, PRESUPUESTO = ?, GANANCIAS = ?, director_id = ?, estudio_id = ? WHERE SERIE_ID = ?";
     private final String DELETE = "DELETE FROM serie WHERE SERIE_ID = ?";
-    private final String GET_BY_ID = "SELECT SERIE_ID, TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANACIAS, director_id, estudio_id FROM serie WHERE SERIE_ID = ?";  
-    private final String GET_BY_TITULO = "SELECT SERIE_ID, TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANACIAS, director_id, estudio_id FROM serie WHERE TITULO = ?";  
+    private final String GET_BY_ID = "SELECT SERIE_ID, TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANANCIAS, director_id, estudio_id FROM serie WHERE SERIE_ID = ?";  
+    private final String GET_BY_TITULO = "SELECT SERIE_ID, TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANANCIAS, director_id, estudio_id FROM serie WHERE TITULO = ?";  
 
     
     public SerieDAO(Connection conn){

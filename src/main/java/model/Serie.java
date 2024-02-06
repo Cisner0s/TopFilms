@@ -151,4 +151,22 @@ public class Serie {
     public void setResena(List<Resena> resena) {
         this.resenas = resena;
     }
+    
+    @Override
+    public String toString() {
+        return "Serie_ID: " + serie_id + "\n" +
+                "Titulo: " + titulo + "\n" +
+                "Fecha de Estreno: " + fecha_Estreno + "\n" +
+                "Género: " + genero + "\n" +
+                "Presupuesto: " + presupuesto + "\n" +
+                "Ganancias: " + ganacias + "\n" +
+                "Número de Episodios: " + n_Episodios + "\n" +
+                "Duración Media por Episodio: " + Duracion_Med_Episodio + "\n" +
+                "Número de Temporadas: " + n_Temporadas + "\n" +
+                "ID del Director: " + director_id + "\n" +
+                "ID del Estudio: " + estudio_id + "\n" +
+                "Actores: " + actores + "\n" +
+                "Reseñas: " + resenas + "\n" +
+                "Críticas: " + criticas;
+    }
 }
