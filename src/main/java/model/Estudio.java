@@ -16,13 +16,13 @@ public class Estudio {
     private Date fecha_Fundacion;
     private String propietario;
     private String sedes;
-    private int patrimonio;
+    private long patrimonio;
 
     public Estudio() {
 
     }
 
-    public Estudio(String nombre, String propietario, Date fecha_Fundacion, int patrimonio, String sedes) {
+    public Estudio(String nombre, String propietario, Date fecha_Fundacion, long patrimonio, String sedes) {
         this.nombre = nombre;
         this.fecha_Fundacion = fecha_Fundacion;
         this.propietario = propietario;
@@ -70,7 +70,7 @@ public class Estudio {
         this.sedes = sedes;
     }
 
-    public int getPatrimonio() {
+    public long getPatrimonio() {
         return patrimonio;
     }
 

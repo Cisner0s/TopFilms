@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller;
+package controller.editar;
 
+import controller.GestionUsuariosController;
 import dao.ActorDAO;
 import dao.Conexion;
 import dao.DAOException;
