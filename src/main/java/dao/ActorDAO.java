@@ -13,7 +13,7 @@ public class ActorDAO implements DAO<Actor>{
 
     private final Connection conn;
     
-    final String INSERT = "INSERT INTO actor(NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    final String INSERT = "INSERT INTO actor(NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS) VALUES(?, ?, ?, ?, ?, ?)";
     final String READ = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor"; 
     final String UPDATE = "UPDATE actor SET NOMBRE = ?, SEXO = ?, FECHA_NACIMIENTO = ?, LUGAR_NACIMIENTO = ?, NACIONALIDAD = ?, PREMIOS = ?, IMAGEN = ? WHERE ACTOR_ID = ?"; 
     final String DELETE = "DELETE FROM actor WHERE ACTOR_ID = ?";
@@ -47,6 +47,7 @@ public class ActorDAO implements DAO<Actor>{
                 }
             }
         } catch (SQLException e) {
+            e.printStackTrace(); // Imprime la traza de la excepción
             throw new DAOException("Error en SQL.", e);
         }finally{
             if(stat != null){
