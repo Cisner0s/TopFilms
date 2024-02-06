@@ -27,7 +27,7 @@ public class DirectorDAO implements DAO<Director>{
     final String DELETE = "DELETE FROM director WHERE DIRECTOR_ID = ?";
     final String GET = "SELECT DIRECTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS FROM director WHERE DIRECTOR_ID = ?";   
     final String GET_BY_NAME = "SELECT DIRECTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS FROM director WHERE NOMBRE = ?";   
-
+    final String EXIST_NOMBRE = "SELECT COUNT(*) FROM director WHERE NOMBRE = ?"; 
     
     public DirectorDAO(Connection conn){
         this.conn = conn; 
@@ -211,6 +211,38 @@ public class DirectorDAO implements DAO<Director>{
         }
         
         return director;
+    }
+    
+    public boolean exist(String nombre) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        try {
+            stat = conn.prepareStatement(EXIST_NOMBRE);
+            stat.setString(1, nombre);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                return count > 0; 
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL");
+        } finally {
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        return false; 
     }
     
     private Director convertir(ResultSet rs) throws SQLException{

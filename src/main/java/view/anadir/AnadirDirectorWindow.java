@@ -4,6 +4,7 @@
  */
 package view.anadir;
 
+import controller.anadir.AnadirDirectorController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,9 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         setTitle("Añadir Director");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
+        
+        AnadirDirectorController ctr = new AnadirDirectorController(this);
+        jButton_AñadirDirector.addActionListener(ctr);
     }
 
      @Override
@@ -30,6 +34,13 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         return retValue;
     }
 
+        public boolean camposCompletos(){
+        return !"".equals(jTextField_Nombre.getText().trim()) &&
+               !"".equals(jTextField_LugarNacimiento.getText().trim()) &&
+               !"".equals(jTextField_Nacionalidad.getText().trim()) &&
+               jDateChooser_FechaNacimiento.getDate() != null &&
+               (jRadioButton_Femenino.isSelected() || jRadioButton_Masculino.isSelected());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,25 +55,25 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jTextField46 = new javax.swing.JTextField();
+        jTextField_Nombre = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
-        jTextField47 = new javax.swing.JTextField();
+        jTextField_LugarNacimiento = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
-        jTextField48 = new javax.swing.JTextField();
+        jTextField_Nacionalidad = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
+        jTextArea_Nominaciones = new javax.swing.JTextArea();
         jLabel68 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jTextArea_Premios = new javax.swing.JTextArea();
+        jDateChooser_FechaNacimiento = new com.toedter.calendar.JDateChooser();
+        jRadioButton_Masculino = new javax.swing.JRadioButton();
+        jRadioButton_Femenino = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_AñadirDirector = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -72,9 +83,9 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 730));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField46.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField46.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, -1));
+        jTextField_Nombre.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Nombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, -1));
 
         jLabel62.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,29 +107,29 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jLabel65.setText("Lugar de Nacimiento");
         jPanel1.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
-        jTextField47.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField47.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 200, -1));
+        jTextField_LugarNacimiento.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_LugarNacimiento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_LugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 200, -1));
 
         jLabel66.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(255, 255, 255));
         jLabel66.setText("Nacionalidad");
         jPanel1.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
-        jTextField48.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField48.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 200, -1));
+        jTextField_Nacionalidad.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Nacionalidad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 200, -1));
 
         jLabel67.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setText("Nominaciones");
         jPanel1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
 
-        jTextArea7.setBackground(new java.awt.Color(204, 255, 255));
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jTextArea7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPane7.setViewportView(jTextArea7);
+        jTextArea_Nominaciones.setBackground(new java.awt.Color(204, 255, 255));
+        jTextArea_Nominaciones.setColumns(20);
+        jTextArea_Nominaciones.setRows(5);
+        jTextArea_Nominaciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane7.setViewportView(jTextArea_Nominaciones);
 
         jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
 
@@ -127,39 +138,39 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jLabel68.setText("Premios");
         jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, -1, -1));
 
-        jTextArea8.setBackground(new java.awt.Color(204, 255, 255));
-        jTextArea8.setColumns(20);
-        jTextArea8.setRows(5);
-        jTextArea8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPane8.setViewportView(jTextArea8);
+        jTextArea_Premios.setBackground(new java.awt.Color(204, 255, 255));
+        jTextArea_Premios.setColumns(20);
+        jTextArea_Premios.setRows(5);
+        jTextArea_Premios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane8.setViewportView(jTextArea_Premios);
 
         jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
 
-        jDateChooser1.setBackground(new java.awt.Color(204, 255, 255));
-        jDateChooser1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 200, -1));
+        jDateChooser_FechaNacimiento.setBackground(new java.awt.Color(204, 255, 255));
+        jDateChooser_FechaNacimiento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jDateChooser_FechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 200, -1));
 
-        jRadioButton1.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Masculino");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        jRadioButton_Masculino.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jRadioButton_Masculino.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton_Masculino.setText("Masculino");
+        jPanel1.add(jRadioButton_Masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        jRadioButton2.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Femenino");
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+        jRadioButton_Femenino.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jRadioButton_Femenino.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton_Femenino.setText("Femenino");
+        jPanel1.add(jRadioButton_Femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Añadir Director");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 280, 60));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 630, 80, 80));
+        jButton_AñadirDirector.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton_AñadirDirector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton_AñadirDirector.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_AñadirDirector.setBorderPainted(false);
+        jButton_AñadirDirector.setContentAreaFilled(false);
+        jPanel1.add(jButton_AñadirDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 630, 80, 80));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 320, 680));
@@ -222,8 +233,8 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton jButton_AñadirDirector;
+    public com.toedter.calendar.JDateChooser jDateChooser_FechaNacimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -235,14 +246,14 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    public javax.swing.JRadioButton jRadioButton_Femenino;
+    public javax.swing.JRadioButton jRadioButton_Masculino;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextField jTextField46;
-    private javax.swing.JTextField jTextField47;
-    private javax.swing.JTextField jTextField48;
+    public javax.swing.JTextArea jTextArea_Nominaciones;
+    public javax.swing.JTextArea jTextArea_Premios;
+    public javax.swing.JTextField jTextField_LugarNacimiento;
+    public javax.swing.JTextField jTextField_Nacionalidad;
+    public javax.swing.JTextField jTextField_Nombre;
     // End of variables declaration//GEN-END:variables
 }
