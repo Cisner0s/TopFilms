@@ -18,7 +18,8 @@ public class ActorDAO implements DAO<Actor>{
     final String UPDATE = "UPDATE actor SET NOMBRE = ?, SEXO = ?, FECHA_NACIMIENTO = ?, LUGAR_NACIMIENTO = ?, NACIONALIDAD = ?, PREMIOS = ?, IMAGEN = ? WHERE ACTOR_ID = ?"; 
     final String DELETE = "DELETE FROM actor WHERE ACTOR_ID = ?";
     final String GET_ID = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor WHERE ACTOR_ID = ?";   
-    final String GET_NOMBRE = "SELECT COUNT(*) FROM actor WHERE NOMBRE = ?"; 
+    final String GET_NOMBRE = "SELECT ACTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, PREMIOS, IMAGEN FROM actor WHERE NOMBRE = ?";
+    final String EXIST_NOMBRE = "SELECT COUNT(*) FROM actor WHERE NOMBRE = ?"; 
     
     public ActorDAO(Connection conn){
         this.conn = conn; 
@@ -169,11 +170,46 @@ public class ActorDAO implements DAO<Actor>{
         return actor;
     }
     
+    public Actor get(String nombre) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Actor actor = null; 
+        try{
+            stat = conn.prepareStatement(GET_NOMBRE);
+            stat.setString(1, nombre);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                actor = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado ese actor");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        
+        return actor;
+    }
+    
     public boolean existe(String nombre) throws DAOException{
         PreparedStatement stat = null; 
         ResultSet rs = null; 
         try {
-            stat = conn.prepareStatement(GET_NOMBRE);
+            stat = conn.prepareStatement(EXIST_NOMBRE);
             stat.setString(1, nombre);
             rs = stat.executeQuery();
             if(rs.next()){
