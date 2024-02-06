@@ -24,11 +24,12 @@ public class PeliculaDAO implements DAO<Pelicula>{
     
     private final Connection conn;
     
-    final String INSERT = "INSERT INTO pelicula(TITULO, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    final String READ = "SELECT PELICULA_ID, TITULO, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula"; 
-    final String UPDATE = "UPDATE pelicula SET TITULO = ?, SINOPSIS = ?, GENERO = ?, FECHA_ESTRENO = ?, PRESUPUESTO = ?, GANANCIAS = ?, IMAGEN = ?, director_id = ?, ESTUDIO_ESTUDIO_ID = ? WHERE PELICULA_ID = ?"; 
+    final String INSERT = "INSERT INTO pelicula(TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    final String READ = "SELECT * FROM pelicula"; 
+    final String UPDATE = "UPDATE pelicula SET TITULO = ?, DURACION = ?, SINOPSIS = ?, GENERO = ?, FECHA_ESTRENO = ?, PRESUPUESTO = ?, GANANCIAS = ?, IMAGEN = ?, director_id = ?, ESTUDIO_ESTUDIO_ID = ? WHERE PELICULA_ID = ?"; 
     final String DELETE = "DELETE FROM pelicula WHERE PELICULA_ID = ?";
-    final String GET = "SELECT TITULO, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE PELICULA_ID = ?";  
+    final String GET_ID = "SELECT TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE PELICULA_ID = ?";  
+    final String GET_TITULO = "SELECT * FROM pelicula WHERE TITULO = ?"; 
     
     public PeliculaDAO(Connection conn){
         this.conn = conn;
@@ -40,14 +41,19 @@ public class PeliculaDAO implements DAO<Pelicula>{
         try {
             stat = conn.prepareStatement(INSERT);
             stat.setString(1, a.getTitulo());
-            stat.setString(2, a.getSinopsis());
-            stat.setString(3, a.getGenero());
-            stat.setDate(4, a.getFecha_Estreno());
-            stat.setLong(5, a.getPresupuesto());
-            stat.setLong(6, a.getGanancias());
-            stat.setString(7, a.getImagen());
-            stat.setLong(8, a.getGanancias());
-        } catch (Exception e) {
+            stat.setInt(2, a.getDuracion());
+            stat.setString(3, a.getSinopsis());
+            stat.setString(4, a.getGenero());
+            stat.setDate(5, a.getFecha_Estreno());
+            stat.setLong(6, a.getPresupuesto());
+            stat.setLong(7, a.getGanancias());
+            stat.setString(8, a.getImagen());
+            stat.setLong(9, a.getGanancias());
+            if(stat.executeUpdate() == 0){
+                throw new DAOException("Puede que la pelicula no se haya creado correctamente.");
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL");
         } finally {
             if(stat != null){
                 try {
@@ -62,7 +68,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
     @Override
     public List<Pelicula> read() throws DAOException {  
         PreparedStatement stat = null; 
-        ResultSet rs; 
+        ResultSet rs = null; 
         List<Pelicula> peliculas = new ArrayList<>();
         try {
             stat = conn.prepareStatement(READ);
@@ -75,9 +81,16 @@ public class PeliculaDAO implements DAO<Pelicula>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL");
                 }
             }
         }
@@ -116,7 +129,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
         ResultSet rs = null; 
         Pelicula pelicula = null; 
         try{
-            stat = conn.prepareStatement(GET);
+            stat = conn.prepareStatement(GET_ID);
             stat.setInt(1, id);
             rs = stat.executeQuery();
             if(rs.next()){
@@ -146,18 +159,53 @@ public class PeliculaDAO implements DAO<Pelicula>{
         return pelicula;
     }
     
+    public Pelicula peliculaPorTitulo(String titulo) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Pelicula pelicula = null; 
+        try {
+            stat = conn.prepareStatement(GET_TITULO);
+            stat.setString(1, titulo);
+            rs = stat.executeQuery(); 
+            if(rs.next()){
+                pelicula = convertir(rs);
+            }else{
+                throw new DAOException("No se ha podido encontrar la pelicula con ese nombre");
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL rs", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL stat", e);
+                }
+            } 
+        }
+        return pelicula; 
+    }
+    
     public Pelicula convertir(ResultSet rs) throws SQLException{
         int id = rs.getInt(1);
-        String titulo = rs.getString(2);
-        String sinopsis = rs.getString(3);
-        String genero = rs.getString(4);
-        Date fechaEstreno = rs.getDate(5);
-        long presupuesto = rs.getLong(6);
-        long ganancias = rs.getLong(7);
-        String imagen = rs.getString(8);
-        int id_director = rs.getInt(9);
-        int id_estudio = rs.getInt(10);
-        Pelicula pelicula = new Pelicula(titulo, sinopsis, genero, fechaEstreno, presupuesto, ganancias, imagen, id_director, id_estudio);
+        int duracion = rs.getInt(2);
+        String titulo = rs.getString(3);
+        String sinopsis = rs.getString(4);
+        String genero = rs.getString(5);
+        Date fechaEstreno = rs.getDate(6);
+        long presupuesto = rs.getLong(7);
+        long ganancias = rs.getLong(8);
+        String imagen = rs.getString(9);
+        int id_director = rs.getInt(10);
+        int id_estudio = rs.getInt(11);
+        Pelicula pelicula = new Pelicula(titulo, duracion, sinopsis, genero, fechaEstreno, presupuesto, ganancias, imagen, id_director, id_estudio);
         pelicula.setPelicula_id(id);
         return pelicula;
     }

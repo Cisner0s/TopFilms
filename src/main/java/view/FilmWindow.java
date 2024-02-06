@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.FilmMenuController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,9 @@ public class FilmWindow extends javax.swing.JFrame {
         setTitle("Menu Peliculas");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
+        
+        FilmMenuController ctr = new FilmMenuController(this);
+        jTable.addMouseListener(ctr);
     }
 
      @Override
@@ -40,11 +44,46 @@ public class FilmWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Título", "Sinopsis", "Duración"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(jTable);
+        jTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 950, 570));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo_rojoblanco.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
@@ -101,5 +140,7 @@ public class FilmWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public class Pelicula {
     private int pelicula_id;
     private String titulo;
+    private int duracion; 
     private Date fecha_Estreno;
     private String genero;
     private long presupuesto;
@@ -28,8 +29,9 @@ public class Pelicula {
 
     public Pelicula() {}
     
-    public Pelicula(String titulo, String sinopsis, String genero, Date fecha_Estreno, long presupuesto, long ganancias, String imagen, int director_id, int estudio_id) {
+    public Pelicula(String titulo, int duracion, String sinopsis, String genero, Date fecha_Estreno, long presupuesto, long ganancias, String imagen, int director_id, int estudio_id) {
         this.titulo = titulo;
+        this.duracion = duracion; 
         this.fecha_Estreno = fecha_Estreno;
         this.genero = genero;
         this.presupuesto = presupuesto;
@@ -46,6 +48,14 @@ public class Pelicula {
 
     public void setPelicula_id(int pelicula_id) {
         this.pelicula_id = pelicula_id;
+    }
+    
+    public int getDuracion(){
+        return duracion; 
+    }
+    
+    public void setDuracion(int duracion){
+        this.duracion = duracion; 
     }
 
     public String getTitulo() {
