@@ -16,7 +16,6 @@ import model.EstatusUsuarios;
 import model.RolUsuarios;
 import model.Usuario;
 import view.AdminWindow;
-import view.CriticoWindow;
 import view.LoginWindow;
 import view.RegisterWindow;
 import view.UserWindow;
@@ -83,7 +82,7 @@ public class RegisterController implements ActionListener{
                         break;
                     case CRITICO: 
                         regWindow.dispose();
-                        new CriticoWindow().setVisible(true);
+                        new UserWindow().setVisible(true);
                         break;
                     case ADMIN: 
                         regWindow.dispose();

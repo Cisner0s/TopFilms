@@ -117,24 +117,30 @@ public class GestionUsuariosController implements ActionListener {
     }
     
     public void botonUsername() throws DAOException {
-        if (!"".equals(username)) {
-            Usuario user = dao.get(username);
-            gestionUsuariosWindow.jTextField_NombreUsuario.setText(user.getNickName());
-            gestionUsuariosWindow.jTextField_Contraseña.setText(user.getContraseña());
-            gestionUsuariosWindow.jTextField_NombreCompleto.setText(user.getNombreCompleto());
-            if (user.getEstatus().equals(ACTIVO)){
-                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
-            } else if (user.getEstatus().equals(INACTIVO)) {
-                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(1);
-            }
-        
-            switch (user.getRol()) {
-                case USUARIO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
-                case CRITICO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
-                case ADMIN -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
-                default -> {
+        try{
+            if (!"".equals(username)) {
+                Usuario user = dao.get(username);
+                gestionUsuariosWindow.jTextField_NombreUsuario.setText(user.getNickName());
+                gestionUsuariosWindow.jTextField_Contraseña.setText(user.getContraseña());
+                gestionUsuariosWindow.jTextField_NombreCompleto.setText(user.getNombreCompleto());
+                gestionUsuariosWindow.jTextField_UsuarioID.setText(Integer.toString(user.getUsuario_id()));
+
+                if (user.getEstatus().equals(ACTIVO)){
+                        gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
+                } else if (user.getEstatus().equals(INACTIVO)) {
+                        gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(1);
+                }
+
+                switch (user.getRol()) {
+                    case USUARIO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
+                    case CRITICO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
+                    case ADMIN -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
+                    default -> {
+                    }
                 }
             }
+        } catch(DAOException e){
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar un usuario con ese nombre en la base de datos.",  "Usuario no encontrado", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -166,32 +172,37 @@ public class GestionUsuariosController implements ActionListener {
     
     public void botonID() throws DAOException {
         int idInt;
-        if (!"".equals(id)) {
-            try {
-                idInt = Integer.parseInt(id);
-                Usuario user = dao.get(idInt);
-                gestionUsuariosWindow.jTextField_Username.setText(user.getNickName());
-                gestionUsuariosWindow.jTextField_NombreUsuario.setText(user.getNickName());
-                gestionUsuariosWindow.jTextField_Contraseña.setText(user.getContraseña());
-                gestionUsuariosWindow.jTextField_NombreCompleto.setText(user.getNombreCompleto());
-                if (user.getEstatus().equals(ACTIVO)){
-                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
-                } else if (user.getEstatus().equals(INACTIVO)) {
-                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(1);
-                }
         
-                switch (user.getRol()) {
-                case USUARIO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
-                case CRITICO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
-                case ADMIN -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
-                default -> {
+        try{
+            if (!"".equals(id)) {
+                try {
+                    idInt = Integer.parseInt(id);
+                    Usuario user = dao.get(idInt);
+                    gestionUsuariosWindow.jTextField_Username.setText(user.getNickName());
+                    gestionUsuariosWindow.jTextField_NombreUsuario.setText(user.getNickName());
+                    gestionUsuariosWindow.jTextField_Contraseña.setText(user.getContraseña());
+                    gestionUsuariosWindow.jTextField_NombreCompleto.setText(user.getNombreCompleto());
+                    if (user.getEstatus().equals(ACTIVO)){
+                        gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
+                    } else if (user.getEstatus().equals(INACTIVO)) {
+                        gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(1);
+                    }
+
+                    switch (user.getRol()) {
+                    case USUARIO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
+                    case CRITICO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
+                    case ADMIN -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
+                    default -> {
+                    }
                 }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
             }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
-        }
+        } catch (DAOException e) {
+            JOptionPane.showMessageDialog(null, "No se ha podido encontrar un usuario con ese ID en la base de datos.",  "Usuario no encontrado", JOptionPane.ERROR_MESSAGE);
+        }   
     }
 }

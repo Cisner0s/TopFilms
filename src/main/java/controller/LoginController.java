@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
 import model.EstatusUsuarios;
 import model.Usuario;
 import view.AdminWindow;
-import view.CriticoWindow;
 import view.LoginWindow;
 import view.RegisterWindow;
 import view.UserWindow;
@@ -62,7 +61,7 @@ public class LoginController implements ActionListener, FocusListener, MouseList
                             break;
                         case CRITICO:
                             loginWindow.dispose();
-                            new CriticoWindow().setVisible(true);
+                            new UserWindow().setVisible(true);
                             break;
                         case ADMIN:
                             loginWindow.dispose();
