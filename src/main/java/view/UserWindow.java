@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.UserController;
 import java.awt.Image;
 import java.awt.Toolkit;
 import model.Usuario;
@@ -28,6 +29,11 @@ public class UserWindow extends javax.swing.JFrame {
         setIconImage(getIconImage());
         
         this.user = user;
+        UserController ctr = new UserController(this, user);
+        jButton_Peliculas.addActionListener(ctr);
+        jButton_Shows.addActionListener(ctr);
+        jButton_Ajustes.addActionListener(ctr);
+        jButton_Busqueda.addActionListener(ctr);
     }
 
      @Override
@@ -84,22 +90,12 @@ public class UserWindow extends javax.swing.JFrame {
         jButton_Busqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa (1).png"))); // NOI18N
         jButton_Busqueda.setText("Busqueda Avanzada");
         jButton_Busqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton_Busqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_BusquedaActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton_Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 320, 30));
 
         jButton_Ajustes.setForeground(new java.awt.Color(51, 102, 255));
         jButton_Ajustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GestionUsuarios (1).png"))); // NOI18N
         jButton_Ajustes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_Ajustes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton_Ajustes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_AjustesActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton_Ajustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 70, 40));
 
         jButton_Peliculas.setForeground(new java.awt.Color(0, 102, 255));
@@ -107,11 +103,6 @@ public class UserWindow extends javax.swing.JFrame {
         jButton_Peliculas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_Peliculas.setBorderPainted(false);
         jButton_Peliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton_Peliculas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_PeliculasActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton_Peliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 440));
 
         jButton_Shows.setForeground(new java.awt.Color(0, 102, 255));
@@ -119,11 +110,6 @@ public class UserWindow extends javax.swing.JFrame {
         jButton_Shows.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_Shows.setBorderPainted(false);
         jButton_Shows.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton_Shows.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ShowsActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton_Shows, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 420, 440));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
@@ -144,28 +130,12 @@ public class UserWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_PeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_PeliculasActionPerformed
-        new FilmWindow().setVisible(true);
-    }//GEN-LAST:event_jButton_PeliculasActionPerformed
-
-    private void jButton_ShowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ShowsActionPerformed
-        new ShowWindow().setVisible(true);
-    }//GEN-LAST:event_jButton_ShowsActionPerformed
-
-    private void jButton_BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BusquedaActionPerformed
-        new BusquedaWindow().setVisible(true);
-    }//GEN-LAST:event_jButton_BusquedaActionPerformed
-
-    private void jButton_AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AjustesActionPerformed
-        new AjustesUsuarioWindow(user).setVisible(true);
-    }//GEN-LAST:event_jButton_AjustesActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Ajustes;
-    private javax.swing.JButton jButton_Busqueda;
-    private javax.swing.JButton jButton_Peliculas;
-    private javax.swing.JButton jButton_Shows;
+    public javax.swing.JButton jButton_Ajustes;
+    public javax.swing.JButton jButton_Busqueda;
+    public javax.swing.JButton jButton_Peliculas;
+    public javax.swing.JButton jButton_Shows;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
