@@ -41,7 +41,7 @@ public class EstudioDAO implements DAO<Estudio>{
             stat.setString(1, a.getNombre()); 
             stat.setString(2, a.getPropietario());
             stat.setDate(3, a.getFecha_Fundacion());
-            stat.setInt(4, a.getPatrimonio());
+            stat.setLong(4, a.getPatrimonio());
             stat.setString(5, a.getSedes());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya guardado.");
@@ -78,6 +78,7 @@ public class EstudioDAO implements DAO<Estudio>{
                 estudios.add(convertir(rs));
             }
         }catch(SQLException e){
+            System.out.println(e);
             throw new DAOException("Error en SQL", e);
         }finally{
             if(stat != null){
@@ -100,7 +101,7 @@ public class EstudioDAO implements DAO<Estudio>{
             stat.setString(1, a.getNombre()); 
             stat.setString(2, a.getPropietario());
             stat.setDate(3, a.getFecha_Fundacion());
-            stat.setInt(4, a.getPatrimonio());
+            stat.setLong(4, a.getPatrimonio());
             stat.setString(5, a.getSedes());
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
@@ -217,7 +218,7 @@ public class EstudioDAO implements DAO<Estudio>{
         String nombre = rs.getString("NOMBRE");
         String prop = rs.getString("PROPIETARIO");
         Date fechaFund = rs.getDate("FECHA_FUNDACION");
-        int patrimonio = rs.getInt("PATRIMONIO");
+        long patrimonio = rs.getLong("PATRIMONIO");
         String sedes = rs.getString("SEDES");
         Estudio estudio = new Estudio(nombre, prop, fechaFund, patrimonio, sedes);
         estudio.setEstudio_id(id);
