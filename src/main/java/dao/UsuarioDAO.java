@@ -98,11 +98,14 @@ public class UsuarioDAO implements DAO<Usuario>{
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
+            
             stat.setString(1, a.getNickName()); 
             stat.setString(2, a.getContraseña());
             stat.setString(3, a.getNombreCompleto());
             stat.setString(4, a.getRol().name());
             stat.setString(5, a.getEstatus().name());
+            stat.setInt(6, a.getUsuario_id());
+            
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{

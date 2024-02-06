@@ -139,8 +139,9 @@ public class GestionUsuariosController implements ActionListener {
     }
     
     public void botonEditar() throws DAOException {
-        if (!"".equals(u) && !"".equals(pswd) && !"".equals(u) && !"".equals(status)) {
+        if (!"".equals(u) && !"".equals(pswd) && !"".equals(name) && !"".equals(status)) {
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
+                user.setUsuario_id(Integer.parseInt(id));
                 dao.update(user);
                 JOptionPane.showMessageDialog(null, "El usuario se ha editado correctamente.");
         } else {

@@ -73,7 +73,6 @@ public class RegisterWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel_Titulo = new javax.swing.JLabel();
-        jLabel_ImagenRegistro = new javax.swing.JLabel();
         jLabel_Username = new javax.swing.JLabel();
         jTextField_Username = new javax.swing.JTextField();
         jLabel_Contraseña = new javax.swing.JLabel();
@@ -97,7 +96,6 @@ public class RegisterWindow extends javax.swing.JFrame {
         jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Titulo.setText("REGISTRO");
         jPanel1.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 58));
-        jPanel1.add(jLabel_ImagenRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 64, 58));
 
         jLabel_Username.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel_Username.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,6 +143,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         jPanel1.add(jComboBox_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
 
         jLabel_ContraseñaRol.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_ContraseñaRol.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_ContraseñaRol.setText("Contraseña Rol Especial");
         jLabel_ContraseñaRol.setEnabled(false);
         jPanel1.add(jLabel_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
@@ -246,7 +245,6 @@ public class RegisterWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_Contraseña;
     public javax.swing.JLabel jLabel_ContraseñaRol;
-    private javax.swing.JLabel jLabel_ImagenRegistro;
     private javax.swing.JLabel jLabel_Rol;
     private javax.swing.JLabel jLabel_Titulo;
     private javax.swing.JLabel jLabel_Username;
