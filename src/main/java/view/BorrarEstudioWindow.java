@@ -27,6 +27,7 @@ public class BorrarEstudioWindow extends javax.swing.JFrame {
         BorrarEstudioController ctr = new BorrarEstudioController(this);
         jButton_BuscarID.addActionListener(ctr);
         jButton2.addActionListener(ctr);
+        jButton_BuscarNombre.addActionListener(ctr);
     }
     
      @Override

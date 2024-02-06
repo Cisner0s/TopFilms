@@ -22,10 +22,11 @@ public class EstudioDAO implements DAO<Estudio>{
     private final Connection conn; 
     
     final String INSERT = "INSERT INTO estudio(NOMBRE, PROPIETARIO, FECHA_FUNDACION, PATRIMONIO, SEDES) VALUES(?, ?, ?, ?, ?)";
-    final String READ = "SELECT DIRECTOR_ID, NOMBRE, PROPIETARIO, FECHA_FUNDACION, PATRIMONIO, SEDES FROM estudio"; 
+    final String READ = "SELECT ESTUDIO_ID, NOMBRE, PROPIETARIO, FECHA_FUNDACION, PATRIMONIO, SEDES FROM estudio"; 
     final String UPDATE = "UPDATE estudio SET NOMBRE = ?, PROPIETARIO = ?, FECHA_FUNDACION = ?, PATRIMONIO= ?, SEDES= ? WHERE ESTUDIO_ID = ?"; 
     final String DELETE = "DELETE FROM estudio WHERE ESTUDIO_ID = ?";
-    final String GET = "SELECT DIRECTOR_ID, NOMBRE, PROPIETARIO, FECHA_FUNDACION, PATRIMONIO, SEDES FROM estudio WHERE ESTUDIO_ID = ?";   
+    final String GET = "SELECT ESTUDIO_ID, NOMBRE, PROPIETARIO, FECHA_FUNDACION, PATRIMONIO, SEDES FROM estudio WHERE ESTUDIO_ID = ?";   
+    final String GET_BY_NAME = "SELECT ESTUDIO_ID, NOMBRE, PROPIETARIO, FECHA_FUNDACION, PATRIMONIO, SEDES FROM estudio WHERE NOMBRE = ?"; 
     
     public EstudioDAO(Connection conn){
         this.conn = conn; 
@@ -171,8 +172,43 @@ public class EstudioDAO implements DAO<Estudio>{
         return estudio;
     }
     
+    public Estudio get(String nombre) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Estudio estudio = null; 
+        try{
+            stat = conn.prepareStatement(GET_BY_NAME);
+            stat.setString(1, nombre);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                estudio = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado ese estudio");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+       
+        return estudio;
+    }
+    
     private Estudio convertir(ResultSet rs) throws SQLException{
-        int id = rs.getInt("DIRECTOR_ID");
+        int id = rs.getInt("ESTUDIO_ID");
         String nombre = rs.getString("NOMBRE");
         String prop = rs.getString("PROPIETARIO");
         Date fechaFund = rs.getDate("FECHA_FUNDACION");

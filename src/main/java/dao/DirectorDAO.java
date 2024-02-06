@@ -26,6 +26,8 @@ public class DirectorDAO implements DAO<Director>{
     final String UPDATE = "UPDATE director SET NOMBRE = ?, SEXO = ?, FECHA_NACIMIENTO = ?, LUGAR_NACIMIENTO = ?, NACIONALIDAD = ?, NOMINACIONES = ?, PREMIOS = ? WHERE DIRECTOR_ID = ?"; 
     final String DELETE = "DELETE FROM director WHERE DIRECTOR_ID = ?";
     final String GET = "SELECT DIRECTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS FROM director WHERE DIRECTOR_ID = ?";   
+    final String GET_BY_NAME = "SELECT DIRECTOR_ID, NOMBRE, SEXO, FECHA_NACIMIENTO, LUGAR_NACIMIENTO, NACIONALIDAD, NOMINACIONES, PREMIOS FROM director WHERE NOMBRE = ?";   
+
     
     public DirectorDAO(Connection conn){
         this.conn = conn; 
@@ -122,9 +124,11 @@ public class DirectorDAO implements DAO<Director>{
         try{
             stat = conn.prepareStatement(DELETE);
             stat.setInt(1, id);
+            
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que no se haya actualizado la base de datos correctamente");
             }
+            
         }catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{
@@ -146,6 +150,41 @@ public class DirectorDAO implements DAO<Director>{
         try{
             stat = conn.prepareStatement(GET);
             stat.setInt(1, id);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                director = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado ese actor");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        
+        return director;
+    }
+    
+    public Director get(String name) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Director director = null; 
+        try{
+            stat = conn.prepareStatement(GET_BY_NAME);
+            stat.setString(1, name);
             rs = stat.executeQuery();
             if(rs.next()){
                 director = convertir(rs);

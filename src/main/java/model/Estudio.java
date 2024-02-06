@@ -77,4 +77,16 @@ public class Estudio {
     public void setPatrimonio(int patrimonio) {
         this.patrimonio = patrimonio;
     }
+    
+    @Override
+    public String toString() {
+        return "Estudio{" +
+                "estudio_id=" + estudio_id +
+                ", nombre='" + nombre + '\'' +
+                ", fecha_Fundacion=" + fecha_Fundacion +
+                ", propietario='" + propietario + '\'' +
+                ", sedes='" + sedes + '\'' +
+                ", patrimonio=" + patrimonio +
+                '}';
+    }
 }

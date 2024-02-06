@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import model.Estudio;
 import view.BorrarEstudioWindow;
 
 /**
@@ -23,6 +24,7 @@ public class BorrarEstudioController implements ActionListener {
     private final BorrarEstudioWindow borrarEstudioWindow;
     private final EstudioDAO dao;
     public String id;
+    private String nombre;
     
     public BorrarEstudioController (BorrarEstudioWindow borrarEstudioWindow) {
         this.borrarEstudioWindow = borrarEstudioWindow;
@@ -32,6 +34,7 @@ public class BorrarEstudioController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         id = borrarEstudioWindow.jTextField1.getText().trim();
+        nombre = borrarEstudioWindow.jTextField2.getText().trim();
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
             if (botonClicado.equals(borrarEstudioWindow.jButton_BuscarID)){
@@ -43,6 +46,14 @@ public class BorrarEstudioController implements ActionListener {
             } else if (botonClicado.equals(borrarEstudioWindow.jButton2)){
                 try {
                     botonBorrar();
+                } catch (DAOException ex) {
+                    Logger.getLogger(BorrarEstudioController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (botonClicado.equals(borrarEstudioWindow.jButton_BuscarNombre)){
+                        System.out.println("prueba 2");
+
+                try {
+                    botonNombre();
                 } catch (DAOException ex) {
                     Logger.getLogger(BorrarEstudioController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -76,6 +87,22 @@ public class BorrarEstudioController implements ActionListener {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+        }
+    }
+    
+    public void botonNombre() throws DAOException {
+        System.out.println("prueba 1");
+        
+        try{
+            if (!"".equals(nombre)) {
+                Estudio estudio;
+                estudio = dao.get(nombre);
+                String datos = estudio.toString();
+                borrarEstudioWindow.jTextField1.setText(Integer.toString(estudio.getEstudio_id()));
+                borrarEstudioWindow.jTextArea1.setText(datos);
+            }
+        } catch(DAOException e){
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar un actor con ese nombre en la base de datos.",  "Actor no encontrado", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

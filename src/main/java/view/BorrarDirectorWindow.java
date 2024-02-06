@@ -26,7 +26,8 @@ public class BorrarDirectorWindow extends javax.swing.JFrame {
         
         BorrarDirectorController ctr = new BorrarDirectorController(this);
         jButton_BuscarID.addActionListener(ctr);
-        jButton2.addActionListener(ctr);
+        jButton_Borrar.addActionListener(ctr);
+        jButton_BuscarNombre.addActionListener(ctr);
     }
     
      @Override
@@ -52,7 +53,7 @@ public class BorrarDirectorWindow extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        jButton_Borrar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton_BuscarNombre = new javax.swing.JButton();
@@ -96,11 +97,11 @@ public class BorrarDirectorWindow extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 360, 150));
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
-        jButton2.setText("BORRAR");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 200, -1));
+        jButton_Borrar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton_Borrar.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jButton_Borrar.setText("BORRAR");
+        jButton_Borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 200, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -175,7 +176,7 @@ public class BorrarDirectorWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton_Borrar;
     public javax.swing.JButton jButton_BuscarID;
     public javax.swing.JButton jButton_BuscarNombre;
     private javax.swing.JLabel jLabel1;

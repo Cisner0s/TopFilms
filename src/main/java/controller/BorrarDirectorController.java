@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import model.Director;
 import view.BorrarDirectorWindow;
 
 /**
@@ -23,6 +24,7 @@ public class BorrarDirectorController implements ActionListener {
     private final BorrarDirectorWindow borrarDirectorWindow;
     private final DirectorDAO dao;
     public String id;
+    private String nombre;
     
     public BorrarDirectorController (BorrarDirectorWindow borrarDirectorWindow) {
         this.borrarDirectorWindow = borrarDirectorWindow;
@@ -32,6 +34,8 @@ public class BorrarDirectorController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         id = borrarDirectorWindow.jTextField1.getText().trim();
+        nombre = borrarDirectorWindow.jTextField2.getText().trim();
+        
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
             if (botonClicado.equals(borrarDirectorWindow.jButton_BuscarID)){
@@ -40,9 +44,15 @@ public class BorrarDirectorController implements ActionListener {
                 } catch (DAOException ex) {
                     Logger.getLogger(BorrarDirectorController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (botonClicado.equals(borrarDirectorWindow.jButton2)){
+            } else if (botonClicado.equals(borrarDirectorWindow.jButton_Borrar)){
                 try {
                     botonBorrar();
+                } catch (DAOException ex) {
+                    Logger.getLogger(BorrarDirectorController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (botonClicado.equals(borrarDirectorWindow.jButton_BuscarNombre)){
+                try {
+                    botonNombre();
                 } catch (DAOException ex) {
                     Logger.getLogger(BorrarDirectorController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -65,10 +75,9 @@ public class BorrarDirectorController implements ActionListener {
     }
     
     public void botonBorrar() throws DAOException {
-        int idInt;
         if (!"".equals(id)) {
             try {
-                idInt = Integer.parseInt(id);
+                int idInt = Integer.parseInt(id);
                 dao.delete(idInt);
                 JOptionPane.showMessageDialog(null, "El director se ha borrado correctamente.");
             } catch (NumberFormatException e) {
@@ -76,6 +85,20 @@ public class BorrarDirectorController implements ActionListener {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+        }
+    }
+    
+      public void botonNombre() throws DAOException {
+          try{
+            if (!"".equals(nombre)) {
+                Director director;
+                director = dao.get(nombre);
+                String datos = director.toString();
+                borrarDirectorWindow.jTextField1.setText(Integer.toString(director.getDirector_id()));
+                borrarDirectorWindow.jTextArea1.setText(datos);
+            }
+        } catch(DAOException e){
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar un actor con ese nombre en la base de datos.",  "Actor no encontrado", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

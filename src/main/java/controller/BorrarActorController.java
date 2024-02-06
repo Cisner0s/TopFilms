@@ -76,8 +76,6 @@ public class BorrarActorController implements ActionListener {
     }
     
     public void botonNombre() throws DAOException {
-        System.out.println("Nombre: " + nombre );
-        
         try{
             if (!"".equals(nombre)) {
                 Actor actor;
