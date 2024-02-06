@@ -38,7 +38,7 @@ public class GestionUsuariosController implements ActionListener {
     public RolUsuarios roleS;
     public int role;
     public EstatusUsuarios statusS;
-    public String status;
+    public int status;
     
     public GestionUsuariosController(GestionUsuariosWindow gestionUsuariosWindow) {
         this.gestionUsuariosWindow = gestionUsuariosWindow;
@@ -52,13 +52,20 @@ public class GestionUsuariosController implements ActionListener {
         u = gestionUsuariosWindow.jTextField21.getText().trim();
         pswd = gestionUsuariosWindow.jTextField34.getText().trim();
         name = gestionUsuariosWindow.jTextField35.getText();
-        status = gestionUsuariosWindow.jTextField38.getText().trim();
+        status = gestionUsuariosWindow.jComboBox_Estatus.getSelectedIndex();
         role = gestionUsuariosWindow.jComboBox_Rol.getSelectedIndex();
         
         switch (role) {
                 case 0 -> roleS = USUARIO;
                 case 1 -> roleS = CRITICO;
                 case 2 -> roleS = ADMIN;
+                default -> {
+            }
+        }
+        
+         switch (status) {
+                case 0 -> statusS = ACTIVO
+;                case 1 -> statusS = INACTIVO;
                 default -> {
             }
         }
@@ -101,19 +108,9 @@ public class GestionUsuariosController implements ActionListener {
     
     public void botonCrear() throws DAOException {
         if (!"".equals(u) && !"".equals(pswd) && !"".equals(u) && !"".equals(status)) {
-            if ("Activo".equals(status)){
-                statusS = ACTIVO;
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
                 dao.create(user);
                 JOptionPane.showMessageDialog(null, "El usuario se ha creado correctamente.");
-            } else if ("Inactivo".equals(status)) {
-                statusS = INACTIVO;
-                Usuario user = new Usuario(u, pswd, name, roleS, statusS);
-                dao.create(user);
-                JOptionPane.showMessageDialog(null, "El usuario se ha creado correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
-            }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
         }
@@ -126,36 +123,26 @@ public class GestionUsuariosController implements ActionListener {
             gestionUsuariosWindow.jTextField34.setText(user.getContraseña());
             gestionUsuariosWindow.jTextField35.setText(user.getNombreCompleto());
             if (user.getEstatus().equals(ACTIVO)){
-                gestionUsuariosWindow.jTextField38.setText("Activo");
+                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
             } else if (user.getEstatus().equals(INACTIVO)) {
-                gestionUsuariosWindow.jTextField38.setText("Inactivo");
+                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(1);
             }
         
-            if (user.getRol().equals(0)){ 
-                gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
-            } else if (user.getRol().equals(1)) {
-                gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
-            } else if (user.getRol().equals(2)) {
-                gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
+            switch (user.getRol()) {
+                case USUARIO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
+                case CRITICO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
+                case ADMIN -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
+                default -> {
+                }
             }
         }
     }
     
     public void botonEditar() throws DAOException {
         if (!"".equals(u) && !"".equals(pswd) && !"".equals(u) && !"".equals(status)) {
-            if ("Activo".equals(status)){
-                statusS = ACTIVO;
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
                 dao.update(user);
                 JOptionPane.showMessageDialog(null, "El usuario se ha editado correctamente.");
-            } else if ("Inactivo".equals(status)) {
-                statusS = INACTIVO;
-                Usuario user = new Usuario(u, pswd, name, roleS, statusS);
-                dao.update(user);
-                JOptionPane.showMessageDialog(null, "El usuario se ha editado correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
-            }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
         }
@@ -187,18 +174,18 @@ public class GestionUsuariosController implements ActionListener {
                 gestionUsuariosWindow.jTextField34.setText(user.getContraseña());
                 gestionUsuariosWindow.jTextField35.setText(user.getNombreCompleto());
                 if (user.getEstatus().equals(ACTIVO)){
-                    gestionUsuariosWindow.jTextField38.setText("Activo");
+                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(0);
                 } else if (user.getEstatus().equals(INACTIVO)) {
-                    gestionUsuariosWindow.jTextField38.setText("Inactivo");
+                    gestionUsuariosWindow.jComboBox_Estatus.setSelectedIndex(1);
                 }
         
-                if (user.getRol().equals(0)){ 
-                    gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
-                } else if (user.getRol().equals(1)) {
-                    gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
-                } else if (user.getRol().equals(2)) {
-                    gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
+                switch (user.getRol()) {
+                case USUARIO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(0);
+                case CRITICO -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(1);
+                case ADMIN -> gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
+                default -> {
                 }
+            }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
             }

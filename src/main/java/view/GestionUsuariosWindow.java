@@ -56,7 +56,6 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jTextField35 = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jTextField38 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
@@ -67,6 +66,7 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jTextField23 = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
+        jComboBox_Estatus = new javax.swing.JComboBox<>();
         jComboBox_Rol = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
@@ -107,10 +107,6 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel51.setText("Estatus");
         jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
-
-        jTextField38.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField38.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 180, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel1.setText("Gestionar Usuarios");
@@ -156,6 +152,10 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jButton8.setText("OK");
         jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 180, -1));
+
+        jComboBox_Estatus.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jComboBox_Estatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jPanel1.add(jComboBox_Estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 180, -1));
 
         jComboBox_Rol.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBox_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Critico (Especial)", "Administrador (Especial)" }));
@@ -225,6 +225,7 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
     public javax.swing.JButton jButton6;
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButton8;
+    public javax.swing.JComboBox<String> jComboBox_Estatus;
     public javax.swing.JComboBox<String> jComboBox_Rol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -241,6 +242,5 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField23;
     public javax.swing.JTextField jTextField34;
     public javax.swing.JTextField jTextField35;
-    public javax.swing.JTextField jTextField38;
     // End of variables declaration//GEN-END:variables
 }
