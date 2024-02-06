@@ -68,6 +68,7 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jButton_BuscarPorID = new javax.swing.JButton();
         jComboBox_Estatus = new javax.swing.JComboBox<>();
         jComboBox_Rol = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -77,91 +78,112 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel45.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Nombre de Usuario");
         jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
-        jTextField_NombreUsuario.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_NombreUsuario.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_NombreUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 180, -1));
 
         jLabel47.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Contraseña");
         jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, 20));
 
-        jTextField_Contraseña.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Contraseña.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_Contraseña.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 180, 20));
 
         jLabel48.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Nombre Completo");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
 
-        jTextField_NombreCompleto.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_NombreCompleto.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_NombreCompleto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_NombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 180, -1));
 
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("Rol");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
 
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Estatus");
         jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gestionar Usuarios");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel55.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setText("Username");
         jPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
-        jTextField_Username.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Username.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 180, -1));
 
+        jButton_Crear.setBackground(new java.awt.Color(51, 255, 102));
         jButton_Crear.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton_Crear.setText("CREAR");
         jButton_Crear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 180, -1));
 
         jButton_BuscarPorUsername.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton_BuscarPorUsername.setText("OK");
+        jButton_BuscarPorUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton_BuscarPorUsername.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton_BuscarPorUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 180, -1));
+        jButton_BuscarPorUsername.setBorderPainted(false);
+        jButton_BuscarPorUsername.setContentAreaFilled(false);
+        jPanel1.add(jButton_BuscarPorUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 180, 70));
 
+        jButton_Editar.setBackground(new java.awt.Color(255, 153, 51));
         jButton_Editar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton_Editar.setText("EDITAR");
         jButton_Editar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 180, -1));
 
+        jButton_Borrar.setBackground(new java.awt.Color(255, 51, 51));
         jButton_Borrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton_Borrar.setText("BORRAR");
         jButton_Borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 180, -1));
 
-        jTextField_UsuarioID.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_UsuarioID.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_UsuarioID.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField_UsuarioID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 180, -1));
+        jPanel1.add(jTextField_UsuarioID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 180, -1));
 
         jLabel56.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(255, 255, 255));
         jLabel56.setText("Usuario_ID");
-        jPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jPanel1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         jButton_BuscarPorID.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton_BuscarPorID.setText("OK");
+        jButton_BuscarPorID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton_BuscarPorID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton_BuscarPorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 180, -1));
+        jButton_BuscarPorID.setBorderPainted(false);
+        jButton_BuscarPorID.setContentAreaFilled(false);
+        jPanel1.add(jButton_BuscarPorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 180, 70));
 
+        jComboBox_Estatus.setBackground(new java.awt.Color(204, 153, 255));
         jComboBox_Estatus.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBox_Estatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
         jPanel1.add(jComboBox_Estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 180, -1));
 
+        jComboBox_Rol.setBackground(new java.awt.Color(204, 153, 255));
         jComboBox_Rol.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBox_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Critico (Especial)", "Administrador (Especial)" }));
         jPanel1.add(jComboBox_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 180, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 490, 540));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,6 +251,7 @@ public class GestionUsuariosWindow extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jComboBox_Rol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;

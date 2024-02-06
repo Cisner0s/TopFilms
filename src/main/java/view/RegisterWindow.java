@@ -86,6 +86,7 @@ public class RegisterWindow extends javax.swing.JFrame {
         jPasswordField_ContraseñaRol = new javax.swing.JPasswordField();
         jButton_Registrarme = new javax.swing.JButton();
         jButton_Atras = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,63 +94,72 @@ public class RegisterWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_Titulo.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
+        jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Titulo.setText("REGISTRO");
-        jPanel1.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 58));
+        jPanel1.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 58));
         jPanel1.add(jLabel_ImagenRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 64, 58));
 
         jLabel_Username.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Username.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Username.setText("Nombre de Usuario");
-        jPanel1.add(jLabel_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        jPanel1.add(jLabel_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
-        jTextField_Username.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField_Username.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField_Username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField_UsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, -1));
+        jPanel1.add(jTextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
 
         jLabel_Contraseña.setBackground(new java.awt.Color(255, 255, 255));
         jLabel_Contraseña.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Contraseña.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Contraseña.setText("Contraseña");
-        jPanel1.add(jLabel_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel1.add(jLabel_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
-        jPasswordField_Contraseña.setBackground(new java.awt.Color(204, 204, 204));
+        jPasswordField_Contraseña.setBackground(new java.awt.Color(204, 153, 255));
         jPasswordField_Contraseña.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jPasswordField_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 180, -1));
+        jPanel1.add(jPasswordField_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 180, -1));
 
         jLabel_Username2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Username2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Username2.setText("Nombre Completo");
-        jPanel1.add(jLabel_Username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        jPanel1.add(jLabel_Username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
-        jTextField_NombreCompleto.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField_NombreCompleto.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_NombreCompleto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField_NombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
+        jPanel1.add(jTextField_NombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 180, -1));
 
         jLabel_Rol.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jLabel_Rol.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Rol.setText("Rol");
-        jPanel1.add(jLabel_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+        jPanel1.add(jLabel_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
+        jComboBox_Rol.setBackground(new java.awt.Color(204, 153, 255));
         jComboBox_Rol.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBox_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Critico (Especial)", "Administrador (Especial)" }));
         jComboBox_Rol.setBorder(null);
         jComboBox_Rol.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jComboBox_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, -1));
+        jPanel1.add(jComboBox_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
 
         jLabel_ContraseñaRol.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel_ContraseñaRol.setText("Contraseña Rol Especial");
         jLabel_ContraseñaRol.setEnabled(false);
-        jPanel1.add(jLabel_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+        jPanel1.add(jLabel_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
-        jPasswordField_ContraseñaRol.setBackground(new java.awt.Color(204, 204, 204));
+        jPasswordField_ContraseñaRol.setBackground(new java.awt.Color(204, 153, 255));
         jPasswordField_ContraseñaRol.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField_ContraseñaRol.setEnabled(false);
-        jPanel1.add(jPasswordField_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 180, -1));
+        jPanel1.add(jPasswordField_ContraseñaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, -1));
 
         jButton_Registrarme.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jButton_Registrarme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton_Registrarme.setText("Registrarme");
-        jPanel1.add(jButton_Registrarme, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 180, -1));
+        jButton_Registrarme.setBorderPainted(false);
+        jButton_Registrarme.setContentAreaFilled(false);
+        jPanel1.add(jButton_Registrarme, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 70));
 
         jButton_Atras.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jButton_Atras.setText("Atrás");
@@ -158,9 +168,13 @@ public class RegisterWindow extends javax.swing.JFrame {
                 jButton_AtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
+        jPanel1.add(jButton_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 470, 80, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoRegistro.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 350, 510));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 410, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,6 +243,7 @@ public class RegisterWindow extends javax.swing.JFrame {
     public javax.swing.JButton jButton_Registrarme;
     public javax.swing.JComboBox<String> jComboBox_Rol;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_Contraseña;
     public javax.swing.JLabel jLabel_ContraseñaRol;
     private javax.swing.JLabel jLabel_ImagenRegistro;

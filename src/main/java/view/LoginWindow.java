@@ -92,6 +92,8 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_user = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
         jButton_Acceder = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel_Footer = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -103,7 +105,7 @@ public class LoginWindow extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_Blanco.png"))); // NOI18N
-        getContentPane().add(jLabel_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 270, 270));
+        getContentPane().add(jLabel_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 270, 270));
 
         txt_user.setBackground(new java.awt.Color(204, 204, 204));
         txt_user.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
@@ -115,7 +117,7 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, -1));
+        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 210, -1));
 
         jButton_Acceder.setBackground(new java.awt.Color(204, 204, 204));
         jButton_Acceder.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
@@ -124,6 +126,16 @@ public class LoginWindow extends javax.swing.JFrame {
         jButton_Acceder.setBorderPainted(false);
         jButton_Acceder.setContentAreaFilled(false);
         getContentPane().add(jButton_Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 80, 70));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Contraseña");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Nombre de usuario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
         jLabel_Footer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_Footer.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,6 +157,8 @@ public class LoginWindow extends javax.swing.JFrame {
     public javax.swing.JButton jButton_Acceder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel_Footer;
     private javax.swing.JLabel jLabel_Logo;
     private javax.swing.JPanel jPanel1;

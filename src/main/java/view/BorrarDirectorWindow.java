@@ -70,6 +70,8 @@ public class BorrarDirectorWindow extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Director_ID");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, 20));
+
+        jTextField1.setBackground(new java.awt.Color(204, 153, 255));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 120, -1));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
