@@ -26,6 +26,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         setIconImage(getIconImage());
         
         AnadirActorController ctr = new AnadirActorController(this);
+        jButton_anadir.addActionListener(ctr);
                 
     }
 
@@ -44,8 +45,6 @@ public class AnadirActorWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel_nombre = new javax.swing.JLabel();
         jTextField_sexo = new javax.swing.JTextField();
@@ -54,7 +53,6 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jTextField_lugarNac = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         jTextField_nacionalidad = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
@@ -64,13 +62,9 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jList_peliculas = new javax.swing.JList<>();
         jTextField_nombre = new javax.swing.JTextField();
-        jTextField_lugarNac1 = new javax.swing.JTextField();
+        jTextField_lugarNac = new javax.swing.JTextField();
         jLabel55 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,15 +99,6 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jLabel48.setText("Peliculas en las que ha actuado");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
-        jTextField_lugarNac.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField_lugarNac.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField_lugarNac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_lugarNacActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField_lugarNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
-
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel49.setText("Nacionalidad");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
@@ -147,14 +132,14 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextField_nombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
 
-        jTextField_lugarNac1.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField_lugarNac1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField_lugarNac1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_lugarNac.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_lugarNac.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextField_lugarNac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_lugarNac1ActionPerformed(evt);
+                jTextField_lugarNacActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField_lugarNac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
+        jPanel1.add(jTextField_lugarNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
 
         jLabel55.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel55.setText("Lugar de nacimiento");
@@ -168,13 +153,18 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public boolean camposCompletos(){
+        return !"".equals(jTextField_nombre.getText().trim()) &&
+               !"".equals(jTextField_sexo.getText().trim()) &&
+               !"".equals(jTextField_nacionalidad.getText().trim()) &&
+               !"".equals(jTextField_lugarNac.getText().trim()) &&
+               !"".equals(jTextField_lugarNac.getText().trim()) &&
+               jDateChooser_fechaNac.getDate() != null;
+    }
+    
     private void jTextField_lugarNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_lugarNacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_lugarNacActionPerformed
-
-    private void jTextField_lugarNac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_lugarNac1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_lugarNac1ActionPerformed
 
     
     public static void main(String args[]) {
@@ -225,12 +215,9 @@ public class AnadirActorWindow extends javax.swing.JFrame {
     public javax.swing.JList<String> jList_peliculas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField_lugarNac;
-    private javax.swing.JTextField jTextField_lugarNac1;
     private javax.swing.JTextField jTextField_nacionalidad;
     private javax.swing.JTextField jTextField_nombre;
     private javax.swing.JTextField jTextField_sexo;

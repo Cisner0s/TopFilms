@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultBoundedRangeModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import model.Pelicula;
 import view.AnadirActorWindow;
 
@@ -50,8 +51,14 @@ public class AnadirActorController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if(view.camposCompletos()){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos obligatorios. El campo de premios puede dejarse vacío si el actor no ha recibido ningún premio.");
+        }
     }
+    
+    
             
     
             
