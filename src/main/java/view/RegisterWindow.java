@@ -80,11 +80,6 @@ public class RegisterWindow extends javax.swing.JFrame {
 
         jTextField_Username.setBackground(new java.awt.Color(204, 153, 255));
         jTextField_Username.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField_Username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_UsernameActionPerformed(evt);
-            }
-        });
         jPanel1.add(jTextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
 
         jLabel_Contraseña.setBackground(new java.awt.Color(255, 255, 255));
@@ -138,11 +133,6 @@ public class RegisterWindow extends javax.swing.JFrame {
 
         jButton_Atras.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jButton_Atras.setText("Atrás");
-        jButton_Atras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_AtrasActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 470, 80, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
@@ -167,15 +157,6 @@ public class RegisterWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton_AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AtrasActionPerformed
-        dispose();
-        new LoginWindow().setVisible(true);
-    }//GEN-LAST:event_jButton_AtrasActionPerformed
-
-    private void jTextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_UsernameActionPerformed
 
     /**
      * @param args the command line arguments
