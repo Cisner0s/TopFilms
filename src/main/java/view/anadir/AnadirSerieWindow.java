@@ -4,7 +4,7 @@
  */
 package view.anadir;
 
-import controller.AnadirSerieController;
+import controller.anadir.AnadirSerieController;
 import java.awt.Image;
 import java.awt.Toolkit;
 

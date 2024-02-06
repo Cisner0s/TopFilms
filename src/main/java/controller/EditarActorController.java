@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import view.EditarActorWindow;
+import view.editar.EditarActorWindow;
 import view.GestionUsuariosWindow;
 
 /**
