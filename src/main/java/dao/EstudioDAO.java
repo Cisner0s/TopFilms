@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Estudio;
@@ -120,8 +121,12 @@ public class EstudioDAO implements DAO<Estudio>{
         try{
             stat = conn.prepareStatement(DELETE);
             stat.setInt(1, id);
-            if(stat.executeUpdate() == 0){
-                throw new DAOException("Puede que no se haya actualizado la base de datos correctamente");
+            try{
+                if(stat.executeUpdate() == 0){
+                   throw new DAOException("Puede que no se haya actualizado la base de datos correctamente");
+                }
+            } catch(SQLIntegrityConstraintViolationException e){
+                    throw new DAOException("El contenido que se trata de borrar viola la integridad de la base de datos.");
             }
         }catch(SQLException e){
             throw new DAOException("Error en SQL", e);

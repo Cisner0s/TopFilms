@@ -28,7 +28,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
     final String READ = "SELECT * FROM pelicula"; 
     final String UPDATE = "UPDATE pelicula SET TITULO = ?, DURACION = ?, SINOPSIS = ?, GENERO = ?, FECHA_ESTRENO = ?, PRESUPUESTO = ?, GANANCIAS = ?, IMAGEN = ?, director_id = ?, ESTUDIO_ESTUDIO_ID = ? WHERE PELICULA_ID = ?"; 
     final String DELETE = "DELETE FROM pelicula WHERE PELICULA_ID = ?";
-    final String GET_ID = "SELECT TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE PELICULA_ID = ?";  
+    final String GET_ID = "SELECT PELICULA_ID, TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE PELICULA_ID = ?";  
     final String GET_TITULO = "SELECT * FROM pelicula WHERE TITULO = ?"; 
     
     public PeliculaDAO(Connection conn){

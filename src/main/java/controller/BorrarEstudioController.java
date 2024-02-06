@@ -50,8 +50,6 @@ public class BorrarEstudioController implements ActionListener {
                     Logger.getLogger(BorrarEstudioController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else if (botonClicado.equals(borrarEstudioWindow.jButton_BuscarNombre)){
-                        System.out.println("prueba 2");
-
                 try {
                     botonNombre();
                 } catch (DAOException ex) {
@@ -84,6 +82,8 @@ public class BorrarEstudioController implements ActionListener {
                 JOptionPane.showMessageDialog(null, "El estudio se ha borrado correctamente.");
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
+            } catch (DAOException e){
+                JOptionPane.showMessageDialog(null, e,  "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
