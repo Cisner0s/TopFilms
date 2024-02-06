@@ -6,6 +6,7 @@ package controller;
 
 import dao.Conexion;
 import dao.DAOException;
+import dao.SerieDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -20,17 +21,17 @@ import view.BorrarSerieWindow;
  */
 public class BorrarSerieController implements ActionListener {
     private final BorrarSerieWindow borrarSerieWindow;
-    //private final SerieDAO dao;
+    private final SerieDAO dao;
     public String id;
     
     public BorrarSerieController (BorrarSerieWindow borrarSerieWindow) {
         this.borrarSerieWindow = borrarSerieWindow;
-        //this.dao = new SerieDAO(Conexion.conectar());
+        this.dao = new SerieDAO(Conexion.conectar());
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*id = borrarSerieWindow.jTextField1.getText().trim();
+        id = borrarSerieWindow.jTextField1.getText().trim();
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
             if (botonClicado.equals(borrarSerieWindow.jButton1)){
@@ -75,6 +76,6 @@ public class BorrarSerieController implements ActionListener {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
-        }*/
+        }
     }
 }
