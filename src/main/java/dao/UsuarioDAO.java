@@ -25,7 +25,7 @@ public class UsuarioDAO implements DAO<Usuario>{
     final String INSERT = "INSERT INTO usuario(NICK, CONTRASENA, NOMBRE, ROL, ESTATUS) VALUES(?, ?, ?, ?, ?)";
     final String READ = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario"; 
     final String UPDATE = "UPDATE usuario SET NICK = ?, CONTRASENA = ?, NOMBRE = ?, ROL= ?, ESTATUS= ? WHERE USUARIO_ID = ?"; 
-    final String DELETE = "DELETE FROM usuario WHERE ESTUDIO_ID = ?";
+    final String DELETE = "DELETE FROM usuario WHERE USUARIO_ID = ?";
     final String GET_ID = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE USUARIO_ID = ?"; 
     final String GET_NICK = "SELECT USUARIO_ID, NICK, CONTRASENA, NOMBRE, ROL, ESTATUS FROM usuario WHERE NICK = ?";
     final String LOGIN = "SELECT COUNT(*) FROM usuario WHERE NICK = ? AND CONTRASENA = ?"; 
