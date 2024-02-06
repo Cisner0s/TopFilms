@@ -106,6 +106,8 @@ public class UsuarioDAO implements DAO<Usuario>{
             stat.setString(5, a.getEstatus().name());
             stat.setInt(6, a.getUsuario_id());
             
+             stat.executeUpdate();
+             
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{
