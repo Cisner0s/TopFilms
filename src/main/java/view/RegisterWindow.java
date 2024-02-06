@@ -5,22 +5,7 @@
 package view;
 
 import controller.RegisterController;
-import dao.Conexion;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.imageio.ImageIO;
-
-import javax.swing.*;
-import view.LoginWindow;
-
 
 /**
  *
@@ -39,26 +24,17 @@ public class RegisterWindow extends javax.swing.JFrame {
         jButton_Atras.addActionListener(ctr);
         jButton_Registrarme.addActionListener(ctr);
         jComboBox_Rol.addActionListener(ctr);
-    
-    try {
-            BufferedImage wallpaperImage = ImageIO.read(getClass().getResource("/images/Registro.png"));
-            ImageIcon wallpaper = new ImageIcon(wallpaperImage.getScaledInstance(
-                    jLabel_ImagenRegistro.getWidth(), jLabel_ImagenRegistro.getHeight(), Image.SCALE_DEFAULT));
-            jLabel_ImagenRegistro.setIcon(wallpaper);
-        } catch (IOException e) {
-            e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
-        }
     }
 
     @Override
-    public Image getIconImage() {
+    public final Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
         return retValue;
     }
     
     public boolean camposCompletos(){
-        return !jTextField_Username.getText().trim().equals("") && 
-               !jPasswordField_Contraseña.getPassword().toString().equals("") &&
+        return !jPasswordField_Contraseña.getPassword().toString().equals("") && 
+                !jTextField_Username.getText().trim().equals("") &&
                !jTextField_NombreCompleto.getText().trim().equals(""); 
     }
     

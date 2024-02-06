@@ -84,7 +84,7 @@ public class UsuarioDAO implements DAO<Usuario>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
@@ -111,7 +111,7 @@ public class UsuarioDAO implements DAO<Usuario>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
@@ -133,7 +133,7 @@ public class UsuarioDAO implements DAO<Usuario>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
