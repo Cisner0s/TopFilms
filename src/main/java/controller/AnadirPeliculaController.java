@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 import model.Pelicula;
-import view.AnadirPeliculaWindow;
+import view.anadir.AnadirPeliculaWindow;
 
 /**
  *

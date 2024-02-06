@@ -10,8 +10,8 @@ import javax.swing.JButton;
 import model.Usuario;
 import view.AjustesUsuarioWindow;
 import view.BusquedaWindow;
-import view.FilmMenuWindow;
-import view.SerieMenuWindow;
+import view.menu.FilmMenuWindow;
+import view.menu.SerieMenuWindow;
 import view.UserWindow;
 
 /**

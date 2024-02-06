@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.BusquedaController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,9 @@ public class BusquedaWindow extends javax.swing.JFrame {
         setTitle("Menu Busqueda Avanzada");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
+        
+        BusquedaController ctr = new BusquedaController(this);
+        jButton_aceptar.addMouseListener(ctr);
     }
 
      @Override
@@ -40,11 +44,9 @@ public class BusquedaWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox_tipo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox_Nombre = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jButton_aceptar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -52,44 +54,20 @@ public class BusquedaWindow extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pelicula", "Serie", "Actor", "Director", "Estudio" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 290, -1));
+        jComboBox_tipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBox_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Actor", "Director", "Estudio" }));
+        jPanel2.add(jComboBox_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 290, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione el tipo de contenido");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
-        jCheckBox_Nombre.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
-        jCheckBox_Nombre.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox_Nombre.setText("Nombre");
-        jCheckBox_Nombre.setEnabled(false);
-        jCheckBox_Nombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox_NombreMouseClicked(evt);
-            }
-        });
-        jPanel2.add(jCheckBox_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
-
-        jButton1.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 70));
-
-        jTextField1.setEnabled(false);
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 260, -1));
+        jButton_aceptar.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jButton_aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton_aceptar.setBorderPainted(false);
+        jButton_aceptar.setContentAreaFilled(false);
+        jPanel2.add(jButton_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 70));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
@@ -112,69 +90,6 @@ public class BusquedaWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String selectedAction = (String) jComboBox1.getSelectedItem();
-        if(null != selectedAction)switch (selectedAction) {
-            case "..." -> {
-                jCheckBox_Nombre.setEnabled(false); 
-                jCheckBox_Nombre.setSelected(false); 
-                jTextField1.setEnabled(false);
-            }
-            case "Pelicula" -> {
-                jCheckBox_Nombre.setEnabled(true);
-            }
-            case "Serie" -> {
-                jCheckBox_Nombre.setEnabled(true);
-            }
-            case "Actor" -> {
-                jCheckBox_Nombre.setEnabled(true);
-            }
-            case "Director" -> {
-                jCheckBox_Nombre.setEnabled(true);
-            }
-            case "Estudio" -> {
-                jCheckBox_Nombre.setEnabled(true);
-            }
-            default -> {
-            }
-        }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jCheckBox_NombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox_NombreMouseClicked
-        if(jCheckBox_Nombre.isSelected()){
-            jTextField1.setEnabled(true);
-        } else {
-            jTextField1.setEnabled(false);
-        }
-    }//GEN-LAST:event_jCheckBox_NombreMouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String selectedAction = (String) jComboBox1.getSelectedItem();
-        
-        if(null != selectedAction)switch (selectedAction) {
-            case "..." -> {
-
-            }
-            case "Pelicula" -> {
-             
-            }
-            case "Serie" -> {
-           
-            }
-            case "Actor" -> {
-        
-            }
-            case "Director" -> {
-   
-            }
-            case "Estudio" -> {
-     
-            }
-            default -> {
-            }}
-
-    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -212,13 +127,11 @@ public class BusquedaWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox_Nombre;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JButton jButton_aceptar;
+    public javax.swing.JComboBox<String> jComboBox_tipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

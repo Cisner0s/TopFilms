@@ -9,8 +9,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import model.Usuario;
 import view.BusquedaWindow;
-import view.FilmMenuWindow;
-import view.SerieMenuWindow;
+import view.menu.FilmMenuWindow;
+import view.menu.SerieMenuWindow;
 
 /**
  *
