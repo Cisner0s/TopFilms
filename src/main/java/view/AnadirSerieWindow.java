@@ -140,7 +140,7 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
 
         jLabel50.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel50.setText("Imagen");
+        jLabel50.setText("Género");
         jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
 
         jTextField37.setBackground(new java.awt.Color(204, 153, 255));
@@ -242,8 +242,8 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public javax.swing.JButton jButton3;
+    public com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -258,14 +258,14 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
-    private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField40;
-    private javax.swing.JTextField jTextField41;
+    public javax.swing.JTextField jTextField21;
+    public javax.swing.JTextField jTextField34;
+    public javax.swing.JTextField jTextField35;
+    public javax.swing.JTextField jTextField36;
+    public javax.swing.JTextField jTextField37;
+    public javax.swing.JTextField jTextField38;
+    public javax.swing.JTextField jTextField39;
+    public javax.swing.JTextField jTextField40;
+    public javax.swing.JTextField jTextField41;
     // End of variables declaration//GEN-END:variables
 }
