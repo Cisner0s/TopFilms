@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.BorrarActorController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,10 @@ public class BorrarActorWindow extends javax.swing.JFrame {
         setTitle("Borrar Actor.");
         setLocationRelativeTo(null); 
         setIconImage(getIconImage());
+        
+        BorrarActorController ctr = new BorrarActorController(this);
+        jButton1.addActionListener(ctr);
+        jButton2.addActionListener(ctr);
     }
     
      @Override
@@ -50,7 +55,6 @@ public class BorrarActorWindow extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 500));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 500));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 500));
@@ -136,14 +140,14 @@ public class BorrarActorWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

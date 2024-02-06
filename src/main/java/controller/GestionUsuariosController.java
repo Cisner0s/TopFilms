@@ -169,7 +169,7 @@ public class GestionUsuariosController implements ActionListener {
                 dao.delete(idInt);
                 JOptionPane.showMessageDialog(null, "El usuario se ha borrado correctamente.");
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+                JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
@@ -200,7 +200,7 @@ public class GestionUsuariosController implements ActionListener {
                     gestionUsuariosWindow.jComboBox_Rol.setSelectedIndex(2);
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+                JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
