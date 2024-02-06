@@ -48,6 +48,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel_nombre = new javax.swing.JLabel();
         jTextField_sexo = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
         jLabel_sexo = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea_premios = new javax.swing.JTextArea();
@@ -55,6 +56,8 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jTextField_nacionalidad = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList_series = new javax.swing.JList<>();
         jLabel51 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton_anadir = new javax.swing.JButton();
@@ -83,6 +86,11 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextField_sexo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 180, -1));
 
+        jLabel50.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setText("Series en las que ha actuado");
+        jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
+
         jLabel_sexo.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel_sexo.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_sexo.setText("Sexo");
@@ -92,7 +100,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextArea_premios.setRows(5);
         jScrollPane4.setViewportView(jTextArea_premios);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 300, 140));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 220, 140));
 
         jLabel47.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,7 +110,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Peliculas en las que ha actuado");
-        jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
+        jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,10 +121,14 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextField_nacionalidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField_nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, -1));
 
+        jScrollPane1.setViewportView(jList_series);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 300, 150));
+
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Premios");
-        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
+        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +138,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jButton_anadir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton_anadir.setText("OK");
         jButton_anadir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton_anadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 180, -1));
+        jPanel1.add(jButton_anadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 580, 180, -1));
 
         jDateChooser_fechaNac.setBackground(new java.awt.Color(204, 255, 255));
         jDateChooser_fechaNac.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -134,7 +146,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jList_peliculas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 300, 200));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 300, 160));
 
         jTextField_nombre.setBackground(new java.awt.Color(204, 255, 255));
         jTextField_nombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -221,12 +233,15 @@ public class AnadirActorWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel_nombre;
     private javax.swing.JLabel jLabel_sexo;
     public javax.swing.JList<String> jList_peliculas;
+    public javax.swing.JList<String> jList_series;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JTextArea jTextArea_premios;

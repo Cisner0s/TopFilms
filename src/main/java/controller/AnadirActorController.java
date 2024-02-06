@@ -8,6 +8,7 @@ import dao.ActorDAO;
 import dao.Conexion;
 import dao.DAOException;
 import dao.PeliculaDAO;
+import dao.SerieDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -19,6 +20,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import model.Actor;
 import model.Pelicula;
+import model.Serie;
 import view.AnadirActorWindow;
 
 /**
@@ -29,21 +31,24 @@ public class AnadirActorController implements ActionListener{
     
     private final AnadirActorWindow view; 
     private final PeliculaDAO filmDao; 
+    private final SerieDAO serieDao;
     private final ActorDAO actorDao; 
     
     public AnadirActorController(AnadirActorWindow view) {
         this.view = view; 
         this.filmDao = new PeliculaDAO(Conexion.conectar());
+        this.serieDao = new SerieDAO(Conexion.conectar());
         this.actorDao = new ActorDAO(Conexion.conectar());
         try {
             initPeliculas();
+            initSeries();
         } catch (DAOException ex) {
             System.out.println("Error PeliculaDAO");
         }
                 
     }
     
-    public void initPeliculas() throws DAOException{
+    private void initPeliculas() throws DAOException{
         List<Pelicula> peliculas = filmDao.read();
         DefaultListModel<String> listModel = new DefaultListModel<>();
         view.jList_peliculas.setModel(listModel);
@@ -52,6 +57,16 @@ public class AnadirActorController implements ActionListener{
             listModel.addElement(pel.getTitulo());
         }
         
+    }
+    
+    private void initSeries() throws DAOException{
+        List<Serie> series = serieDao.read();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        view.jList_series.setModel(listModel);
+      
+        for(Serie serie : series){
+            listModel.addElement(serie.getTitulo());
+        }
     }
 
     @Override

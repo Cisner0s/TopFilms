@@ -95,6 +95,9 @@ public class ActorDAO implements DAO<Actor>{
             stat.setString(4, a.getLugarNacimiento());
             stat.setString(5, a.getNacionalidad());
             stat.setString(6, a.getPremios());
+            if(stat.executeUpdate() == 0){
+                throw new DAOException("Puede que el actor no se haya actualizado");
+            }
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{
