@@ -52,6 +52,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jTextField53 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -59,6 +60,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel69.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
         jLabel69.setText("Nombre");
         jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, 20));
 
@@ -67,6 +69,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 180, 20));
 
         jLabel70.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(255, 255, 255));
         jLabel70.setText("Propietario");
         jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 20));
 
@@ -75,6 +78,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 20));
 
         jLabel71.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(255, 255, 255));
         jLabel71.setText("Fecha de fundacion");
         jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
 
@@ -83,6 +87,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 20));
 
         jLabel72.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(255, 255, 255));
         jLabel72.setText("Patrimonio");
         jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, 20));
 
@@ -91,6 +96,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 20));
 
         jLabel73.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel73.setForeground(new java.awt.Color(255, 255, 255));
         jLabel73.setText("Sedes");
         jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, 20));
 
@@ -99,16 +105,23 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 180, 20));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Añadir Estudio");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 180, -1));
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 180, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 400, 700));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 280, 540));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 400, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,9 +131,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -166,6 +177,7 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;

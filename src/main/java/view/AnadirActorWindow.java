@@ -64,6 +64,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jTextField_nombre = new javax.swing.JTextField();
         jTextField_lugarNac = new javax.swing.JTextField();
         jLabel55 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -74,6 +75,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_nombre.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel_nombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_nombre.setText("Nombre");
         jPanel1.add(jLabel_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
@@ -82,6 +84,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 180, -1));
 
         jLabel_sexo.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel_sexo.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_sexo.setText("Sexo");
         jPanel1.add(jLabel_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
@@ -92,14 +95,17 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 300, 140));
 
         jLabel47.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Fecha de nacimiento");
         jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
         jLabel48.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Peliculas en las que ha actuado");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("Nacionalidad");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
@@ -108,12 +114,14 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField_nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, -1));
 
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Premios");
         jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Añadir Actor");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
         jButton_anadir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton_anadir.setText("OK");
@@ -142,13 +150,17 @@ public class AnadirActorWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField_lugarNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
 
         jLabel55.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setText("Lugar de nacimiento");
         jPanel1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 950, 760));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_1.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 610, 600));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 700));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 670));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,6 +217,7 @@ public class AnadirActorWindow extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser_fechaNac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;

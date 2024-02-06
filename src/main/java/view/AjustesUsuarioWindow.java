@@ -55,6 +55,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jTextField39 = new javax.swing.JTextField();
         jLabel52 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -64,6 +65,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel45.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Nombre de Usuario");
         jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
@@ -72,6 +74,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 180, -1));
 
         jLabel47.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Contraseña");
         jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, 20));
 
@@ -80,6 +83,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 180, 20));
 
         jLabel48.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Nombre Completo");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
 
@@ -88,6 +92,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 180, -1));
 
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("Rol");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
@@ -96,6 +101,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 180, -1));
 
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Contraseña Rol");
         jLabel51.setEnabled(false);
         jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
@@ -106,6 +112,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 180, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ajustes Perfil");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
@@ -124,10 +131,15 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
         jPanel1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 180, -1));
 
         jLabel52.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("Estatus");
         jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 300, 510));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,6 +198,7 @@ public class AjustesUsuarioWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;

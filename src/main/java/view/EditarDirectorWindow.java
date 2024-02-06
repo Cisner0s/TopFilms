@@ -62,6 +62,7 @@ public class EditarDirectorWindow extends javax.swing.JFrame {
         jLabel69 = new javax.swing.JLabel();
         jTextField49 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,97 +71,115 @@ public class EditarDirectorWindow extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField46.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField46.setBackground(new java.awt.Color(204, 153, 255));
         jTextField46.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 180, -1));
 
         jLabel62.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
         jLabel62.setText("Nombre");
         jPanel1.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
         jLabel63.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
         jLabel63.setText("Sexo");
         jPanel1.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         jLabel64.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(255, 255, 255));
         jLabel64.setText("Fecha de Nacimiento");
         jPanel1.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
         jLabel65.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setText("Lugar de Nacimiento");
         jPanel1.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
-        jTextField47.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField47.setBackground(new java.awt.Color(204, 153, 255));
         jTextField47.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 180, -1));
 
         jLabel66.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(255, 255, 255));
         jLabel66.setText("Nacionalidad");
         jPanel1.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
-        jTextField48.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField48.setBackground(new java.awt.Color(204, 153, 255));
         jTextField48.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 180, -1));
 
         jLabel67.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setText("Nominaciones");
-        jPanel1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, -1));
+        jPanel1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
 
-        jTextArea7.setBackground(new java.awt.Color(204, 255, 255));
+        jTextArea7.setBackground(new java.awt.Color(204, 153, 255));
         jTextArea7.setColumns(20);
         jTextArea7.setRows(5);
         jTextArea7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane7.setViewportView(jTextArea7);
 
-        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
+        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 410, 170, -1));
 
         jLabel68.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(255, 255, 255));
         jLabel68.setText("Premios");
-        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, -1, -1));
+        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, -1));
 
-        jTextArea8.setBackground(new java.awt.Color(204, 255, 255));
+        jTextArea8.setBackground(new java.awt.Color(204, 153, 255));
         jTextArea8.setColumns(20);
         jTextArea8.setRows(5);
         jTextArea8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane8.setViewportView(jTextArea8);
 
-        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, -1, -1));
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 530, 170, -1));
 
-        jDateChooser1.setBackground(new java.awt.Color(204, 255, 255));
+        jDateChooser1.setBackground(new java.awt.Color(204, 153, 255));
         jDateChooser1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 180, -1));
 
         jRadioButton1.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Masculino");
         jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
         jRadioButton2.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Femenino");
         jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Editar Director");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 280, 60));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 180, -1));
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 180, 70));
 
         jLabel69.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
         jLabel69.setText("Director_ID");
         jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        jTextField49.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField49.setBackground(new java.awt.Color(204, 153, 255));
         jTextField49.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 180, -1));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setText("EDITAR");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 180, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 630, 170, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 510, 650));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,6 +237,7 @@ public class EditarDirectorWindow extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
