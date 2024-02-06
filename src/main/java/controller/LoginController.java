@@ -57,7 +57,7 @@ public class LoginController implements ActionListener, FocusListener, MouseList
                     switch (user.getRol()) {
                         case USUARIO:
                             loginWindow.dispose();
-                            new UserWindow().setVisible(true);
+                            new UserWindow(user).setVisible(true);
                             break;
                         case CRITICO:
                             loginWindow.dispose();

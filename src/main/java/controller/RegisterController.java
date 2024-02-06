@@ -78,7 +78,7 @@ public class RegisterController implements ActionListener{
                switch(newUser.getRol()){
                     case USUARIO: 
                         regWindow.dispose();
-                        new UserWindow().setVisible(true);
+                        new UserWindow(newUser).setVisible(true);
                         break;
                     case CRITICO: 
                         regWindow.dispose();
