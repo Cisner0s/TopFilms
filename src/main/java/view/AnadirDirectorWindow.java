@@ -63,49 +63,56 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 700));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 730));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField46.setBackground(new java.awt.Color(204, 255, 255));
         jTextField46.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
+        jPanel1.add(jTextField46, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, -1));
 
         jLabel62.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
         jLabel62.setText("Nombre");
         jPanel1.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
         jLabel63.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
         jLabel63.setText("Sexo");
         jPanel1.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
 
         jLabel64.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(255, 255, 255));
         jLabel64.setText("Fecha de Nacimiento");
         jPanel1.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, -1));
 
         jLabel65.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setText("Lugar de Nacimiento");
         jPanel1.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
         jTextField47.setBackground(new java.awt.Color(204, 255, 255));
         jTextField47.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, -1));
+        jPanel1.add(jTextField47, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 200, -1));
 
         jLabel66.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(255, 255, 255));
         jLabel66.setText("Nacionalidad");
         jPanel1.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
         jTextField48.setBackground(new java.awt.Color(204, 255, 255));
         jTextField48.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, -1));
+        jPanel1.add(jTextField48, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 200, -1));
 
         jLabel67.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setText("Nominaciones");
-        jPanel1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        jPanel1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
 
         jTextArea7.setBackground(new java.awt.Color(204, 255, 255));
         jTextArea7.setColumns(20);
@@ -113,11 +120,12 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jTextArea7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane7.setViewportView(jTextArea7);
 
-        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
+        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
 
         jLabel68.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(255, 255, 255));
         jLabel68.setText("Premios");
-        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
+        jPanel1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, -1, -1));
 
         jTextArea8.setBackground(new java.awt.Color(204, 255, 255));
         jTextArea8.setColumns(20);
@@ -125,31 +133,39 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
         jTextArea8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane8.setViewportView(jTextArea8);
 
-        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
 
         jDateChooser1.setBackground(new java.awt.Color(204, 255, 255));
         jDateChooser1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 200, -1));
 
         jRadioButton1.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Masculino");
         jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         jRadioButton2.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Femenino");
         jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Añadir Director");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 280, 60));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 650, 180, -1));
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 630, 80, 80));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 400, 700));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 320, 680));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 400, 740));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,6 +226,7 @@ public class AnadirDirectorWindow extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;

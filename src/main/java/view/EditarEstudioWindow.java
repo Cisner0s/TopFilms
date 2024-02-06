@@ -55,6 +55,7 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
         jLabel74 = new javax.swing.JLabel();
         jTextField54 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -62,68 +63,82 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel69.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
         jLabel69.setText("Nombre");
         jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, 20));
 
-        jTextField49.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField49.setBackground(new java.awt.Color(204, 153, 255));
         jTextField49.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 180, 20));
 
         jLabel70.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(255, 255, 255));
         jLabel70.setText("Propietario");
         jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, -1, 20));
 
-        jTextField50.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField50.setBackground(new java.awt.Color(204, 153, 255));
         jTextField50.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 180, 20));
 
         jLabel71.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(255, 255, 255));
         jLabel71.setText("Fecha de fundacion");
         jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 20));
 
-        jTextField51.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField51.setBackground(new java.awt.Color(204, 153, 255));
         jTextField51.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 180, 20));
 
         jLabel72.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(255, 255, 255));
         jLabel72.setText("Patrimonio");
         jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, 20));
 
-        jTextField52.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField52.setBackground(new java.awt.Color(204, 153, 255));
         jTextField52.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 180, 20));
 
         jLabel73.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel73.setForeground(new java.awt.Color(255, 255, 255));
         jLabel73.setText("Sedes");
         jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, 20));
 
-        jTextField53.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField53.setBackground(new java.awt.Color(204, 153, 255));
         jTextField53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 180, 20));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Editar Estudio");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 180, -1));
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 180, 70));
 
         jLabel74.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(255, 255, 255));
         jLabel74.setText("Estudio_ID");
         jPanel1.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 20));
 
-        jTextField54.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField54.setBackground(new java.awt.Color(204, 153, 255));
         jTextField54.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 180, 20));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setText("EDITAR");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 180, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 490, 560));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 600, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,6 +197,7 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;

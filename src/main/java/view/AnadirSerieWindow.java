@@ -64,6 +64,7 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -79,97 +80,114 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel45.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Titulo");
         jPanel1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
-        jTextField21.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField21.setBackground(new java.awt.Color(204, 153, 255));
         jTextField21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
 
         jLabel46.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("Fecha Estreno");
         jPanel1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         jLabel47.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Numero de Episodios");
         jPanel1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
 
-        jTextField34.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField34.setBackground(new java.awt.Color(204, 153, 255));
         jTextField34.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 180, -1));
 
         jLabel48.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Duracion media por Episodio");
         jPanel1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
-        jTextField35.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField35.setBackground(new java.awt.Color(204, 153, 255));
         jTextField35.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 180, -1));
 
         jLabel49.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("Numero de Temporadas");
         jPanel1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
-        jTextField36.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField36.setBackground(new java.awt.Color(204, 153, 255));
         jTextField36.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, -1));
 
         jLabel51.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Presupuesto");
         jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
 
-        jTextField38.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField38.setBackground(new java.awt.Color(204, 153, 255));
         jTextField38.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField38, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 180, -1));
 
         jLabel52.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("Ganancias");
         jPanel1.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
 
-        jTextField39.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField39.setBackground(new java.awt.Color(204, 153, 255));
         jTextField39.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField39, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 180, -1));
 
         jLabel50.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
         jLabel50.setText("Imagen");
         jPanel1.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
 
-        jTextField37.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField37.setBackground(new java.awt.Color(204, 153, 255));
         jTextField37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 180, -1));
 
         jLabel53.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("Nombre Director");
         jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, -1, -1));
 
-        jTextField40.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField40.setBackground(new java.awt.Color(204, 153, 255));
         jTextField40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField40, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, 180, -1));
 
         jLabel54.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setText("Nombre Estudio");
         jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, -1, -1));
 
-        jTextField41.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField41.setBackground(new java.awt.Color(204, 153, 255));
         jTextField41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTextField41, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, 180, -1));
 
-        jDateChooser1.setBackground(new java.awt.Color(204, 255, 255));
+        jDateChooser1.setBackground(new java.awt.Color(204, 153, 255));
         jDateChooser1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 180, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Añadir Serie");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setText("OK");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 650, 180, -1));
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 630, 180, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 300, 690));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 400, 700));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 400, 740));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,7 +197,7 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -228,6 +246,7 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;

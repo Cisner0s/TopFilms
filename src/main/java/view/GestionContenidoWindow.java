@@ -46,6 +46,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jCheckBox_Anadir = new javax.swing.JCheckBox();
         jCheckBox_Borrar = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -62,10 +63,12 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 290, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione el tipo de contenido");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         jCheckBox_Editar.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jCheckBox_Editar.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox_Editar.setText("Editar");
         jCheckBox_Editar.setEnabled(false);
         jCheckBox_Editar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,6 +79,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jPanel2.add(jCheckBox_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         jCheckBox_Anadir.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jCheckBox_Anadir.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox_Anadir.setText("Añadir");
         jCheckBox_Anadir.setEnabled(false);
         jCheckBox_Anadir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,6 +90,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jPanel2.add(jCheckBox_Anadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, 20));
 
         jCheckBox_Borrar.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
+        jCheckBox_Borrar.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox_Borrar.setText("Borrar");
         jCheckBox_Borrar.setEnabled(false);
         jCheckBox_Borrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,16 +101,22 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         jPanel2.add(jCheckBox_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Cambria", 0, 16)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 80));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/photo-1557683311-eac922347aa1.jpg"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 510, 210));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 450, 200));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoDegradadoVerdeVioleta.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 510, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,7 +126,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -322,6 +333,7 @@ public class GestionContenidoWindow extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
