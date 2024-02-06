@@ -54,8 +54,13 @@ public class BorrarPeliculaController implements ActionListener {
         if (!"".equals(id)){
             try {
                 int idInt = Integer.parseInt(id);
+                try{
                 String datos = dao.get(idInt).toString();
                 borrarPeliculaWindow.jTextArea1.setText(datos);
+                } catch (DAOException e){
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar una pelicula con ese ID en la base de datos.",  "Pelicula no encontrada", JOptionPane.ERROR_MESSAGE);
+
+                }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "El campo ID debe contener un número.");
             }

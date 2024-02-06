@@ -89,14 +89,61 @@ public class PeliculaDAO implements DAO<Pelicula>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
     public void delete(int a) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement stat = null; 
+        try{
+            stat = conn.prepareStatement(DELETE);
+            stat.setInt(1, a);
+            if(stat.executeUpdate() == 0){
+                throw new DAOException("Puede que no se haya actualizado la base de datos correctamente");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL", e);
+        }finally{
+            if(stat != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
     }
 
     @Override
     public Pelicula get(int id) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Pelicula pelicula = null; 
+        try{
+            stat = conn.prepareStatement(GET);
+            stat.setInt(1, id);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                pelicula = (Pelicula) rs;
+            }else{
+                throw new DAOException("No se ha encontrado la pelicula");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        
+        return pelicula;
     }
     
     public Pelicula convertir(ResultSet rs) throws SQLException{
