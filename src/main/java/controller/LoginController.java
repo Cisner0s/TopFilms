@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.EstatusUsuarios;
+import model.RolUsuarios;
 import model.Usuario;
 import view.AdminWindow;
 import view.LoginWindow;
@@ -24,6 +25,7 @@ public class LoginController implements ActionListener, FocusListener, MouseList
 
     private final LoginWindow loginWindow;
     private final UsuarioDAO dao;
+    boolean blockDuplicateWindow = false;
 
     public LoginController(LoginWindow loginWindow) {
         this.loginWindow = loginWindow;
@@ -37,36 +39,30 @@ public class LoginController implements ActionListener, FocusListener, MouseList
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            login();
+            if (!blockDuplicateWindow) { // Verifica si no existe una instancia de AdminWindow
+                loginAction();
+            } 
         } catch (DAOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void login() throws DAOException {
+    public void loginAction() throws DAOException {
         String nickName = loginWindow.getNickName();
         String password = loginWindow.getPassword();
 
         if (!"Nombre de usuario".equals(nickName) && !"Contraseña".equals(password)) {
-
             if (dao.login(nickName, password)) {
-
                 Usuario user = dao.get(nickName);
-
                 if (user.getEstatus() != EstatusUsuarios.INACTIVO) {
-                    switch (user.getRol()) {
-                        case USUARIO:
-                            loginWindow.dispose();
-                            new UserWindow(user).setVisible(true);
-                            break;
-                        case CRITICO:
-                            loginWindow.dispose();
-                            new UserWindow(user).setVisible(true);
-                            break;
-                        case ADMIN:
-                            loginWindow.dispose();
-                            new AdminWindow().setVisible(true);
-                            break;
+                    if (RolUsuarios.CRITICO == user.getRol() || RolUsuarios.USUARIO == user.getRol()) {
+                        loginWindow.dispose();
+                        new UserWindow(user).setVisible(true);
+                        blockDuplicateWindow = true;
+                    } else if (user.getRol() == RolUsuarios.ADMIN) {
+                        loginWindow.dispose();
+                        new AdminWindow().setVisible(true);
+                        blockDuplicateWindow = true;
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Su cuenta de usuario"

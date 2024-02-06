@@ -8,11 +8,7 @@ package view;
 import controller.LoginController;
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 /**
  *
  * @author Cisneros
@@ -37,25 +33,6 @@ public class LoginWindow extends javax.swing.JFrame {
         txt_password.addFocusListener(loginCtr);
         txt_user.addFocusListener(loginCtr);
         
-        
-       /* try {
-            BufferedImage wallpaperImage = ImageIO.read(getClass().getResource("/images/wallpaperPrincipal.jpg"));
-            ImageIcon wallpaper = new ImageIcon(wallpaperImage.getScaledInstance(
-                    jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
-            jLabel_Wallpaper.setIcon(wallpaper);
-        } catch (IOException e) {
-            e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
-        }
-
-        try {
-            BufferedImage logoImage = ImageIO.read(getClass().getResource("/images/logo.jpg"));;
-            ImageIcon logo = new ImageIcon(logoImage.getScaledInstance(
-                    jLabel_Logo.getWidth(), jLabel_Logo.getHeight(), Image.SCALE_DEFAULT));
-            jLabel_Logo.setIcon(logo);
-        } catch (IOException e) {
-            e.printStackTrace(); // Manejo adecuado de errores, por ejemplo, loggear el error.
-        }
-*/
         txt_user.setText("Nombre de usuario");
         txt_user.setForeground(Color.gray);
         txt_password.setText("Contraseña");
