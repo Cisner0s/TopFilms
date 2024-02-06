@@ -80,13 +80,11 @@ public class Estudio {
     
     @Override
     public String toString() {
-        return "Estudio{" +
-                "estudio_id=" + estudio_id +
-                ", nombre='" + nombre + '\'' +
-                ", fecha_Fundacion=" + fecha_Fundacion +
-                ", propietario='" + propietario + '\'' +
-                ", sedes='" + sedes + '\'' +
-                ", patrimonio=" + patrimonio +
-                '}';
+        return "Estudio ID: " + estudio_id + "\n" +
+                "Nombre: " + nombre + "\n" +
+                "Fecha de Fundación: " + fecha_Fundacion + "\n" +
+                "Propietario: " + propietario + "\n" +
+                "Sedes: " + sedes + "\n" +
+                "Patrimonio: " + patrimonio;
     }
 }

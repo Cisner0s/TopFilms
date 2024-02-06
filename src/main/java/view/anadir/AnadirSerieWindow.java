@@ -4,6 +4,7 @@
  */
 package view.anadir;
 
+import controller.AnadirSerieController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,9 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
         setTitle("Añadir Serie");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
+        
+        AnadirSerieController ctr = new AnadirSerieController(this);
+        jButton3.addActionListener(ctr);
     }
 
      @Override

@@ -148,21 +148,18 @@ public class Pelicula {
     
     @Override
     public String toString() {
-        return "Pelicula{" +
-            "pelicula_id=" + pelicula_id +
-            ", titulo='" + titulo + '\'' +
-            ", fecha_Estreno='" + fecha_Estreno + '\'' +
-            ", genero='" + genero + '\'' +
-            ", presupuesto=" + presupuesto +
-            ", ganancias=" + ganancias +
-            ", sinopsis='" + sinopsis + '\'' +
-            ", imagen='" + imagen + '\'' +
-            ", director=" + director_id +
-            ", estudio=" + estudio_id +
-            ", actores=" + actores +
-            ", resenas=" + resenas +
-            ", criticas=" + criticas +
-            '}';
-}
-
+        return "Pelicula ID: " + pelicula_id + "\n" +
+                "Título: " + titulo + "\n" +
+                "Fecha de Estreno: " + fecha_Estreno + "\n" +
+                "Género: " + genero + "\n" +
+                "Presupuesto: " + presupuesto + "\n" +
+                "Ganancias: " + ganancias + "\n" +
+                "Sinopsis: " + sinopsis + "\n" +
+                "Imagen: " + imagen + "\n" +
+                "Director: " + director_id + "\n" +
+                "Estudio: " + estudio_id + "\n" +
+                "Actores: " + actores + "\n" +
+                "Reseñas: " + resenas + "\n" +
+                "Críticas: " + criticas;
+    }
 }

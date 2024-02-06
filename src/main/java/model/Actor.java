@@ -87,14 +87,13 @@ public class Actor {
 
     @Override
     public String toString() {
-        return "Actor{" +
-            "id=" + id +
-            ", nombre='" + nombre + '\'' +
-            ", sexo='" + sexo + '\'' +
-            ", fechaNacimiento=" + fechaNacimiento +
-            ", lugarNacimiento='" + lugarNacimiento + '\'' +
-            ", nacionalidad='" + nacionalidad + '\'' +
-            ", premios='" + premios + '\'' +
-            '}';
+        return "Actor ID: " + id + "\n" +
+               "Nombre: " + nombre + "\n" +
+               "Sexo: " + sexo + "\n" +
+               "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
+               "Lugar de Nacimiento: " + lugarNacimiento + "\n" +
+               "Nacionalidad: " + nacionalidad + "\n" +
+               "Premios: " + premios + "\n";
     }
+
 }

@@ -118,15 +118,13 @@ public class Director {
     
     @Override
     public String toString() {
-        return "Director{" +
-                "director_id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", fecha_Nacimiento='" + fecha_Nacimiento + '\'' +
-                ", sexo='" + sexo + '\'' +
-                ", lugar_nacimiento='" + lugar_nacimiento + '\'' +
-                ", nacionalidad='" + nacionalidad + '\'' +
-                ", premios='" + premios + '\'' +
-                ", nominaciones='" + nominaciones + '\'' +
-                '}';
+        return "Director ID = " + id + "\n" +
+                "Nombre = " + nombre + "\n" +
+                "Fecha Nacimiento = " + fecha_Nacimiento + "\n" +
+                "Sexo = " + sexo + "\n" +
+                "Lugar Nacimiento = " + lugar_nacimiento + "\n" +
+                "Nacionalidad = " + nacionalidad + "\n" +
+                "Premios = " + premios + "\n" +
+                "Nominaciones = " + nominaciones + "\n";             
     }
 }
