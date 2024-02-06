@@ -27,6 +27,7 @@ public class BorrarSerieWindow extends javax.swing.JFrame {
         BorrarSerieController ctr = new BorrarSerieController(this);
         jButton_BuscarID.addActionListener(ctr);
         jButton2.addActionListener(ctr);
+        jButton_BuscarTitulo.addActionListener(ctr);
     }
     
      @Override

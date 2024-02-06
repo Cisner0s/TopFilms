@@ -27,6 +27,9 @@ public class SerieDAO implements DAO<Serie>{
     private final String READ = "SELECT * FROM serie ";
     private final String UPDATE = "UPDATE serie SET TITULO = ?, FECHA_ESTRENO = ?, GENERO = ?, N_EPISODIOS = ?, DURACION_MED_EPISODIO = ?, N_TEMPORADAS = ?, PRESUPUESTO = ?, GANANCIAS = ?, director_id = ?, estudio_id = ? WHERE SERIE_ID = ?";
     private final String DELETE = "DELETE FROM serie WHERE SERIE_ID = ?";
+    private final String GET_BY_ID = "SELECT SERIE_ID, TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANACIAS, director_id, estudio_id FROM serie WHERE SERIE_ID = ?";  
+    private final String GET_BY_TITULO = "SELECT SERIE_ID, TITULO, FECHA_ESTRENO, GENERO, N_EPISODIOS, DURACION_MED_EPISODIO, N_TEMPORADAS, PRESUPUESTO, GANACIAS, director_id, estudio_id FROM serie WHERE TITULO = ?";  
+
     
     public SerieDAO(Connection conn){
         this.conn = conn;
@@ -53,7 +56,7 @@ public class SerieDAO implements DAO<Serie>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException ex) {
                     throw new DAOException("Error en SQL");
                 }
@@ -77,7 +80,7 @@ public class SerieDAO implements DAO<Serie>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
@@ -109,7 +112,7 @@ public class SerieDAO implements DAO<Serie>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException ex) {
                     throw new DAOException("Error en SQL");
                 }
@@ -131,7 +134,7 @@ public class SerieDAO implements DAO<Serie>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException ex) {
                     throw new DAOException("Error en SQL");
                 }
@@ -139,8 +142,7 @@ public class SerieDAO implements DAO<Serie>{
         }
     }
 
-    @Override
-    public Serie get(int id) throws DAOException {
+    public Serie read(int id) throws DAOException {
         PreparedStatement stat = null; 
         ResultSet rs = null; 
         Serie serie = null; 
@@ -157,7 +159,62 @@ public class SerieDAO implements DAO<Serie>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
+        return serie; 
+    }
+    
+    @Override
+     public Serie get(int id) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Serie serie = null; 
+        try {
+            stat = conn.prepareStatement(GET_BY_ID);
+            stat.setInt(1, id);
+            rs = stat.executeQuery(); 
+            if(rs.next()){
+                serie = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado esa serie.");
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL");
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
+        return serie; 
+    }
+     
+    public Serie get(String titulo) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs; 
+        Serie serie = null; 
+        try {
+            stat = conn.prepareStatement(GET_BY_TITULO);
+            stat.setString(1, titulo);
+            rs = stat.executeQuery(); 
+            if(rs.next()){
+                serie = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado esa serie.");
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL");
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
@@ -167,20 +224,19 @@ public class SerieDAO implements DAO<Serie>{
     }
     
     private Serie convertir(ResultSet rs) throws SQLException{
-        int id = rs.getInt(1);
-        String titulo = rs.getString(2);
-        Date fechaEst = rs.getDate(3);
-        String genero = rs.getString(4);
-        int n_ep = rs.getInt(5);
-        double dur_med = rs.getDouble(6);
-        int n_temp = rs.getInt(7);
-        long presupuesto = rs.getLong(8);
-        long ganancias = rs.getLong(9);
-        int director_id = rs.getInt(10);
-        int estudio_id = rs.getInt(11);
+        int id = rs.getInt("SERIE_ID");
+        String titulo = rs.getString("TITULO");
+        Date fechaEst = rs.getDate("FECHA_ESTRENO");
+        String genero = rs.getString("GENERO");
+        int n_ep = rs.getInt("N_EPISODIOS");
+        double dur_med = rs.getDouble("DURACION_MED_EPISODIO");
+        int n_temp = rs.getInt("N_TEMPORADAS");
+        int presupuesto = rs.getInt("PRESUPUESTO");
+        int ganancias = rs.getInt("GANANCIAS");
+        int director_id = rs.getInt("director_id");
+        int estudio_id = rs.getInt("estudio_id");
         Serie serie = new Serie(titulo, fechaEst, genero, n_ep, dur_med, n_temp, presupuesto, ganancias, director_id, estudio_id);
         serie.setSerie_id(id);
         return serie; 
     }
-
 }
