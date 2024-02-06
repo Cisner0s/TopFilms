@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import model.Pelicula;
 import view.BorrarPeliculaWindow;
 
 /**
@@ -23,6 +24,7 @@ public class BorrarPeliculaController implements ActionListener {
     private final BorrarPeliculaWindow borrarPeliculaWindow;
     private final PeliculaDAO dao;
     public String id;
+    private String titulo;
     
     public BorrarPeliculaController (BorrarPeliculaWindow borrarPeliculaWindow) {
         this.borrarPeliculaWindow = borrarPeliculaWindow;
@@ -32,6 +34,8 @@ public class BorrarPeliculaController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         id = borrarPeliculaWindow.jTextField1.getText().trim();
+        titulo = borrarPeliculaWindow.jTextField2.getText().trim();
+
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
             if (botonClicado.equals(borrarPeliculaWindow.jButton_BuscarID)){
@@ -43,6 +47,12 @@ public class BorrarPeliculaController implements ActionListener {
             } else if (botonClicado.equals(borrarPeliculaWindow.jButton2)){
                 try {
                     botonBorrar();
+                } catch (DAOException ex) {
+                    Logger.getLogger(BorrarPeliculaController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (botonClicado.equals(borrarPeliculaWindow.jButton_BuscarTitulo)){
+                try {
+                    botonTitulo();
                 } catch (DAOException ex) {
                     Logger.getLogger(BorrarPeliculaController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -66,6 +76,20 @@ public class BorrarPeliculaController implements ActionListener {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Rellena el campo Pelicula_ID.");
+        }
+    }
+    
+    public void botonTitulo() throws DAOException {
+        try{
+            if (!"".equals(titulo)) {
+                Pelicula pelicula;
+                pelicula = dao.get(titulo);
+                String datos = pelicula.toString();
+                borrarPeliculaWindow.jTextField1.setText(Integer.toString(pelicula.getPelicula_id()));
+                borrarPeliculaWindow.jTextArea1.setText(datos);
+            }
+        } catch(DAOException e){
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar un actor con ese nombre en la base de datos.",  "Actor no encontrado", JOptionPane.ERROR_MESSAGE);
         }
     }
     

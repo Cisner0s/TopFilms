@@ -29,6 +29,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
     final String UPDATE = "UPDATE pelicula SET TITULO = ?, DURACION = ?, SINOPSIS = ?, GENERO = ?, FECHA_ESTRENO = ?, PRESUPUESTO = ?, GANANCIAS = ?, IMAGEN = ?, director_id = ?, ESTUDIO_ESTUDIO_ID = ? WHERE PELICULA_ID = ?"; 
     final String DELETE = "DELETE FROM pelicula WHERE PELICULA_ID = ?";
     final String GET_ID = "SELECT PELICULA_ID, TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE PELICULA_ID = ?";  
+    final String GET_BY_TITULO = "SELECT PELICULA_ID, TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE TITULO = ?";  
     final String GET_TITULO = "SELECT * FROM pelicula WHERE TITULO = ?"; 
     
     public PeliculaDAO(Connection conn){
@@ -133,7 +134,42 @@ public class PeliculaDAO implements DAO<Pelicula>{
             stat.setInt(1, id);
             rs = stat.executeQuery();
             if(rs.next()){
-                pelicula = (Pelicula) rs;
+                pelicula = convertir(rs);
+            }else{
+                throw new DAOException("No se ha encontrado la pelicula");
+            }
+        }catch(SQLException e){
+            throw new DAOException("Error en SQL.", e);
+        }finally{
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        
+        return pelicula;
+    }
+    
+    public Pelicula get(String titulo) throws DAOException {
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        Pelicula pelicula = null; 
+        try{
+            stat = conn.prepareStatement(GET_BY_TITULO);
+            stat.setString(1, titulo);
+            rs = stat.executeQuery();
+            if(rs.next()){
+                pelicula = convertir(rs);
             }else{
                 throw new DAOException("No se ha encontrado la pelicula");
             }
@@ -194,17 +230,17 @@ public class PeliculaDAO implements DAO<Pelicula>{
     }
     
     public Pelicula convertir(ResultSet rs) throws SQLException{
-        int id = rs.getInt(1);
-        int duracion = rs.getInt(2);
-        String titulo = rs.getString(3);
-        String sinopsis = rs.getString(4);
-        String genero = rs.getString(5);
-        Date fechaEstreno = rs.getDate(6);
-        long presupuesto = rs.getLong(7);
-        long ganancias = rs.getLong(8);
-        String imagen = rs.getString(9);
-        int id_director = rs.getInt(10);
-        int id_estudio = rs.getInt(11);
+        int id = rs.getInt("PELICULA_ID");
+        int duracion = rs.getInt("DURACION");
+        String titulo = rs.getString("TITULO");
+        String sinopsis = rs.getString("SINOPSIS");
+        String genero = rs.getString("GENERO");
+        Date fechaEstreno = rs.getDate("FECHA_ESTRENO");
+        long presupuesto = rs.getLong("PRESUPUESTO");
+        long ganancias = rs.getLong("GANANCIAS");
+        String imagen = rs.getString("IMAGEN");
+        int id_director = rs.getInt("director_id");
+        int id_estudio = rs.getInt("ESTUDIO_ESTUDIO_ID");
         Pelicula pelicula = new Pelicula(titulo, duracion, sinopsis, genero, fechaEstreno, presupuesto, ganancias, imagen, id_director, id_estudio);
         pelicula.setPelicula_id(id);
         return pelicula;

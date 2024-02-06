@@ -88,8 +88,8 @@ public class BorrarDirectorController implements ActionListener {
         }
     }
     
-      public void botonNombre() throws DAOException {
-          try{
+    public void botonNombre() throws DAOException {
+        try{
             if (!"".equals(nombre)) {
                 Director director;
                 director = dao.get(nombre);

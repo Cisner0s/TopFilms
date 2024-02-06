@@ -27,6 +27,7 @@ public class BorrarPeliculaWindow extends javax.swing.JFrame {
         BorrarPeliculaController ctr = new BorrarPeliculaController(this);
         jButton_BuscarID.addActionListener(ctr);
         jButton2.addActionListener(ctr);
+        jButton_BuscarTitulo.addActionListener(ctr);
     }
     
      @Override
