@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import model.Usuario;
 import view.AjustesUsuarioWindow;
 import view.BusquedaWindow;
-import view.FilmWindow;
+import view.FilmMenuWindow;
 import view.ShowWindow;
 import view.UserWindow;
 
@@ -32,7 +32,7 @@ public class UserController implements ActionListener {
         if (e.getSource() instanceof JButton) {
             JButton botonClicado = (JButton) e.getSource();
             if (botonClicado.equals(userWindow.jButton_Peliculas)){
-                new FilmWindow().setVisible(true);
+                new FilmMenuWindow().setVisible(true);
             } else if (botonClicado.equals(userWindow.jButton_Shows)){
                 new ShowWindow().setVisible(true);
             } else if (botonClicado.equals(userWindow.jButton_Ajustes)) {

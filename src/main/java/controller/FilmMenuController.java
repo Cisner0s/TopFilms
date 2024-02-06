@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Pelicula;
-import view.FilmWindow;
+import view.FilmMenuWindow;
 
 /**
  *
@@ -27,10 +27,10 @@ import view.FilmWindow;
  */
 public class FilmMenuController implements MouseListener{
     
-    private final FilmWindow view; 
+    private final FilmMenuWindow view; 
     private final PeliculaDAO dao; 
     
-    public FilmMenuController(FilmWindow view){
+    public FilmMenuController(FilmMenuWindow view){
         this.view = view; 
         this.dao = new PeliculaDAO(Conexion.conectar());
         
