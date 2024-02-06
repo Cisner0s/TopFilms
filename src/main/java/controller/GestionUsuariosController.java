@@ -105,10 +105,12 @@ public class GestionUsuariosController implements ActionListener {
                 statusS = ACTIVO;
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
                 dao.create(user);
+                JOptionPane.showMessageDialog(null, "El usuario se ha creado correctamente.");
             } else if ("Inactivo".equals(status)) {
                 statusS = INACTIVO;
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
                 dao.create(user);
+                JOptionPane.showMessageDialog(null, "El usuario se ha creado correctamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
             }
@@ -145,10 +147,12 @@ public class GestionUsuariosController implements ActionListener {
                 statusS = ACTIVO;
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
                 dao.update(user);
+                JOptionPane.showMessageDialog(null, "El usuario se ha editado correctamente.");
             } else if ("Inactivo".equals(status)) {
                 statusS = INACTIVO;
                 Usuario user = new Usuario(u, pswd, name, roleS, statusS);
                 dao.update(user);
+                JOptionPane.showMessageDialog(null, "El usuario se ha editado correctamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "El estado debe ser 'Activo' o 'Inactivo'.");
             }
@@ -163,6 +167,7 @@ public class GestionUsuariosController implements ActionListener {
             try {
                 idInt = Integer.parseInt(id);
                 dao.delete(idInt);
+                JOptionPane.showMessageDialog(null, "El usuario se ha borrado correctamente.");
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
             }
