@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,7 +84,16 @@ public class AnadirActorController implements ActionListener{
             String nombre = view.jTextField_nombre.getText().trim();
             String sexo = view.jTextField_sexo.getText().trim();
             java.util.Date fechaNacUtil = view.jDateChooser_fechaNac.getDate();
-            Date fechaNac = new Date(fechaNacUtil.getTime());
+            // Obtener la fecha sin la hora
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(fechaNacUtil);
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+
+            Date fechaNac = new Date(calendar.getTimeInMillis());
+
             String lugarNac = view.jTextField_lugarNac.getText();
             String nacionalidad = view.jTextField_nacionalidad.getText();
             String premios = view.jTextArea_premios.getText();
