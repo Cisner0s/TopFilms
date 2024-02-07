@@ -110,8 +110,35 @@ public class PeliculaDAO implements DAO<Pelicula>{
 
     @Override
     public void update(Pelicula a) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+         PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(UPDATE);
+            stat.setString(1, a.getTitulo());
+            stat.setInt(2, a.getDuracion()); 
+            stat.setString(3, a.getSinopsis());
+            stat.setString(4, a.getGenero());
+            stat.setDate(5, a.getFecha_Estreno());
+            stat.setLong(6, a.getPresupuesto());
+            stat.setLong(7, a.getGanancias());
+            stat.setString(8, a.getImagen());
+            stat.setInt(9, a.getDirector());
+            stat.setInt(10, a.getEstudio());
+            stat.setInt(11, a.getPelicula_id()); 
+
+            stat.executeUpdate();
+
+        } catch(SQLException e){
+            throw new DAOException("Error en SQL", e);
+        }finally{
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL.", e);
+                }
+            }
+        }
+    }  
 
     @Override
     public void delete(int a) throws DAOException {
