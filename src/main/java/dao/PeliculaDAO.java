@@ -35,6 +35,10 @@ public class PeliculaDAO implements DAO<Pelicula>{
                                 "FROM pelicula p " + 
                                 "JOIN director d ON p.director_id = d.DIRECTOR_ID " + 
                                 "WHERE d.DIRECTOR_ID = ?";
+    final String GET_ESTUDIO = "SELECT p.* " + 
+                                "FROM pelicula p " + 
+                                "JOIN estudio e ON p.ESTUDIO_ESTUDIO_ID = e.ESTUDIO_ID " + 
+                                "WHERE e.ESTUDIO_ID = ?";
     
     public PeliculaDAO(Connection conn){
         this.conn = conn;
@@ -241,6 +245,38 @@ public class PeliculaDAO implements DAO<Pelicula>{
         List<Pelicula> peliculas = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GET_DIRECTOR);
+            stat.setInt(1, id);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                peliculas.add(convertir(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
+                }
+            }
+        }
+        return peliculas; 
+    }
+    
+    public List<Pelicula> getPeliculasEstudio(int id) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Pelicula> peliculas = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(GET_ESTUDIO);
             stat.setInt(1, id);
             rs = stat.executeQuery();
             while(rs.next()){
