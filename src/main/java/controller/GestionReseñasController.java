@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
 package controller;
 
-import controller.details.ActorDetailsController;
-import dao.ActorDAO;
 import dao.Conexion;
 import dao.DAOException;
 import java.awt.event.MouseEvent;
@@ -14,17 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Actor;
 import model.Critica;
-import model.Resena;
 import view.GestionReseñasWindow;
-import view.details.ActorDetailsWindow;
-import view.menu.ActorMenuWindow;
 
 /**
  *
  * @author DCM
  */
+/*
 public class GestionReseñasController implements MouseListener{
     private final GestionReseñasWindow view; 
     private final ResenasDAO dao; 
@@ -76,20 +72,15 @@ public class GestionReseñasController implements MouseListener{
             if(filaActSelect != 1){
                 String titulo = (String) view.jTable.getModel().getValueAt(filaActSelect, 0); 
                 System.out.println(titulo);
-                try {
-                    Critica critSelect = dao.get(titulo);
-                    Object[] opciones = {"Borrar", "Cancelar"};
-                    int seleccion = JOptionPane.showOptionDialog(null, "¿Qué deseas hacer?", "Opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+                Critica critSelect = dao.get(titulo);
+                Object[] opciones = {"Borrar", "Cancelar"};
+                int seleccion = JOptionPane.showOptionDialog(null, "¿Qué deseas hacer?", "Opciones", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+                if (seleccion == 0) {
                     
-                    if (seleccion == 0) {
-          
-                    } else if (seleccion == 1) {
-                 
-                    } else {
-                      
-                    }
-                } catch (DAOException ex) {
-                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar al actor seleccionado.");
+                } else if (seleccion == 1) {
+                    
+                } else {
+                    
                 }
                 
             }
@@ -112,3 +103,4 @@ public class GestionReseñasController implements MouseListener{
     public void mouseExited(MouseEvent e) {
     }
 }
+*/

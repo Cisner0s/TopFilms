@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
 package controller;
 
 import dao.DAO;
@@ -23,7 +24,7 @@ import model.Critica;
 
 // COPIADO EL DAO DE ACTOR HACE FALTA CAMBIAR TODO
 
-
+/*
 
 class ResenasDAO implements DAO<Critica>{
 
@@ -292,3 +293,4 @@ class ResenasDAO implements DAO<Critica>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
+*/

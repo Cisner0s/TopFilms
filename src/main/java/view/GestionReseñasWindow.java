@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.GestionReseñasController;
+//import controller.GestionReseñasController;
 
 /**
  *
@@ -21,9 +21,8 @@ public class GestionReseñasWindow extends javax.swing.JFrame {
         setTitle("Gestion de Reseñas");
         setLocationRelativeTo(null);
         
-        GestionReseñasController ctrl = new GestionReseñasController(this);
-        
-        jTable.addMouseListener(ctrl);
+        //GestionReseñasController ctrl = new GestionReseñasController(this);
+        //jTable.addMouseListener(ctrl);
     }
 
     /**
