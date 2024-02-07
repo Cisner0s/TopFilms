@@ -24,11 +24,11 @@ public class CriticaDAO implements DAO<Critica>{
     private final String READ = "SELECT * FROM critica";
     private final String GET_PELICULA = "SELECT critica.* " +
                                         "FROM critica " + 
-                                        "INNER JOIN usuario ON critica.USUARIO_ID = critica.USUARIO_ID " + 
+                                        "INNER JOIN usuario ON critica.USUARIO_ID = usuario.USUARIO_ID " + 
                                         "WHERE critica.PELICULA_ID = ?"; 
     private final String GET_SERIE = "SELECT critica.* " +
                                         "FROM critica " + 
-                                        "INNER JOIN usuario ON critica.USUARIO_ID = critica.USUARIO_ID " + 
+                                        "INNER JOIN usuario ON critica.USUARIO_ID = usuario.USUARIO_ID " + 
                                         "WHERE critica.SERIE_ID = ?"; 
     
     

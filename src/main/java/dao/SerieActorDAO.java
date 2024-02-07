@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Actor;
 import model.PeliculaActor;
 import model.Serie;
 import model.SerieActor;
@@ -28,6 +29,16 @@ public class SerieActorDAO implements DAO<SerieActor>{
                                              "INNER JOIN serie_actor sa ON s.SERIE_ID = sa.serie_id " + 
                                              "INNER JOIN actor a ON sa.actor_id = a.ACTOR_ID " + 
                                              "WHERE a.ACTOR_ID = ?"; 
+    private final String OBTENER_PELICULAS = "SELECT serie.* " + 
+                                             "FROM serie " + 
+                                             "JOIN serie_actor ON serie.SERIE_ID = serie_actor.serie_id " + 
+                                             "WHERE serie_actor.actor_id = ?"; 
+    
+    
+    private final String OBTENER_ACTORES = "SELECT actor.* " + 
+                                           "FROM actor " + 
+                                           "JOIN serie_actor ON actor.ACTOR_ID = serie_actor.actor_id " + 
+                                           "WHERE serie_actor.serie_id = ?";  
     
     public SerieActorDAO(Connection conn){
         this.conn = conn; 
@@ -109,6 +120,38 @@ public class SerieActorDAO implements DAO<SerieActor>{
         return series; 
     }
     
+    public List<Actor> obtenerActores(int idSerie) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Actor> actores = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(OBTENER_ACTORES);
+            stat.setInt(1, idSerie);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                actores.add(convertirActores(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+        }
+        return actores; 
+    }
+    
     private Serie convertirSeries(ResultSet rs) throws SQLException{
         int id = rs.getInt("SERIE_ID");
         String titulo = rs.getString("TITULO");
@@ -124,6 +167,19 @@ public class SerieActorDAO implements DAO<SerieActor>{
         Serie serie = new Serie(titulo, fechaEst, genero, n_ep, dur_med, n_temp, presupuesto, ganancias, director_id, estudio_id);
         serie.setSerie_id(id);
         return serie; 
+    }
+    
+    private Actor convertirActores(ResultSet rs) throws SQLException{
+        int id = rs.getInt("ACTOR_ID");
+        String nombre = rs.getString("NOMBRE");
+        String sexo = rs.getString("SEXO");
+        Date fechaNac = rs.getDate("FECHA_NACIMIENTO");
+        String lugarNac = rs.getString("LUGAR_NACIMIENTO");
+        String nacionalidad = rs.getString("NACIONALIDAD");
+        String premios = rs.getString("PREMIOS");
+        Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios);
+        actor.setId(id);
+        return actor;
     }
     
 }

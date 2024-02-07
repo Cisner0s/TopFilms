@@ -25,6 +25,7 @@ public class SerieMenuWindow extends javax.swing.JFrame {
         setIconImage(getIconImage());
         
         SerieMenuController ctr = new SerieMenuController(this);
+        jTable.addMouseListener(ctr);
     }
 
      @Override
