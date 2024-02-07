@@ -45,7 +45,6 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel_fechaEst = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -75,6 +74,8 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton_anadirResena = new javax.swing.JButton();
         jButton_refrescar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -82,101 +83,121 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_fechaEst.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_fechaEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 160, 20));
+        jLabel_fechaEst.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_fechaEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 160, 20));
 
-        jLabel7.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
-        jLabel7.setText("Título: ");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 60, 20));
-
-        jLabel4.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha de estreno: ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 140, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 130, 20));
 
-        jLabel5.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Género: ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 60, 20));
 
-        jLabel6.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Número de episodios: ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 170, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 160, 20));
 
-        jLabel15.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Duración media de episodio: ");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 220, 20));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 190, 20));
 
-        jLabel_titulo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 20));
+        jLabel_titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 240, 40));
 
-        jLabel9.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Críticas");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 210, 20));
 
         jLabel_estudio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_estudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 160, 20));
+        jLabel_estudio.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_estudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 160, 20));
 
         jLabel_director.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 160, 20));
+        jLabel_director.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 160, 20));
 
         jLabel_ganancias.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_ganancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 160, 20));
+        jLabel_ganancias.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_ganancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 160, 20));
 
         jLabel_presupuesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 160, 20));
+        jLabel_presupuesto.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 160, 20));
 
         jLabel_n_temp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_n_temp, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 160, 20));
+        jLabel_n_temp.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_n_temp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 160, 20));
 
         jLabel_durmed.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_durmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 160, 20));
+        jLabel_durmed.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_durmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 160, 20));
 
         jLabel_n_ep.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_n_ep, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 160, 20));
+        jLabel_n_ep.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_n_ep, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 160, 20));
 
         jLabel_genero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(jLabel_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 160, 20));
+        jLabel_genero.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 160, 20));
 
+        jList_criticas.setBackground(new java.awt.Color(204, 153, 255));
         jScrollPane1.setViewportView(jList_criticas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 210, 300));
 
-        jLabel10.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Estudio: ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 70, 20));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 70, 20));
 
-        jLabel11.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Número de temporadas: ");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 190, 20));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 160, 20));
 
-        jLabel12.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Presupuesto:  ");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 110, 20));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 110, 20));
 
+        jList_actores.setBackground(new java.awt.Color(204, 153, 255));
         jScrollPane2.setViewportView(jList_actores);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 210, 300));
 
-        jLabel13.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Actores ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 210, 20));
 
-        jLabel14.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Reseñas");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 210, 20));
 
+        jList_resenas.setBackground(new java.awt.Color(204, 153, 255));
         jScrollPane3.setViewportView(jList_resenas);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 210, 300));
 
-        jLabel17.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Director: ");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 70, 20));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 70, 20));
 
-        jLabel16.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Ganancias: ");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 90, 20));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 90, 20));
 
-        jButton_anadirResena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_anadirResena.setText("AÑADIR");
+        jButton_anadirResena.setText("Añadir reseña");
         jButton_anadirResena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_anadirResenaActionPerformed(evt);
@@ -184,18 +205,27 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
         });
         jPanel1.add(jButton_anadirResena, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, 140, 40));
 
-        jButton_refrescar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_refrescar.setText("REFRESCAR");
-        jPanel1.add(jButton_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, 110, 30));
+        jButton_refrescar.setText("refrescar");
+        jPanel1.add(jButton_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoDegradadoVerdeVioleta.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 520));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 680, 490));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
+        jLabel3.setText("jLabel2");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 260, 490));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,10 +349,11 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabel_director;
     public javax.swing.JLabel jLabel_durmed;
