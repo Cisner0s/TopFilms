@@ -26,6 +26,7 @@ public class LoginController implements ActionListener, FocusListener, MouseList
     private final LoginWindow loginWindow;
     private final UsuarioDAO dao;
     boolean blockDuplicateWindow = false;
+    boolean blockDuplicateRegister = false;
 
     public LoginController(LoginWindow loginWindow) {
         this.loginWindow = loginWindow;
@@ -116,8 +117,11 @@ public class LoginController implements ActionListener, FocusListener, MouseList
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        loginWindow.dispose();
-        new RegisterWindow().setVisible(true);
+        if (!blockDuplicateRegister) {
+            loginWindow.dispose();
+            new RegisterWindow().setVisible(true);
+            blockDuplicateRegister = true;
+        }
     }
 
     @Override
