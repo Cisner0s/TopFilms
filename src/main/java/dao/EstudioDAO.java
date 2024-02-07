@@ -113,6 +113,9 @@ public class EstudioDAO implements DAO<Estudio>{
             stat.setDate(3, a.getFecha_Fundacion());
             stat.setLong(4, a.getPatrimonio());
             stat.setString(5, a.getSedes());
+            stat.setInt(6, a.getEstudio_id());
+            stat.executeUpdate();
+
         } catch(SQLException e){
             throw new DAOException("Error en SQL", e);
         }finally{

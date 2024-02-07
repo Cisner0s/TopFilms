@@ -4,6 +4,7 @@
  */
 package view.editar;
 
+import controller.editar.EditarEstudioController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,10 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
         setTitle("Editar Estudio.");
         setLocationRelativeTo(null); 
         setIconImage(getIconImage());
+        
+        EditarEstudioController ctrl = new EditarEstudioController(this);
+        jButton_Buscar.addActionListener(ctrl);
+        jButton_Editar.addActionListener(ctrl);
     }
     
      @Override
@@ -41,20 +46,20 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel69 = new javax.swing.JLabel();
-        jTextField49 = new javax.swing.JTextField();
+        jTextField_Nombre = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        jTextField50 = new javax.swing.JTextField();
+        jTextField_Propietario = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
-        jTextField51 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
-        jTextField52 = new javax.swing.JTextField();
+        jTextField_Patrimonio = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
-        jTextField53 = new javax.swing.JTextField();
+        jTextField_Sedes = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_Buscar = new javax.swing.JButton();
         jLabel74 = new javax.swing.JLabel();
-        jTextField54 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jTextField_BuscarEstudioID = new javax.swing.JTextField();
+        jButton_Editar = new javax.swing.JButton();
+        jDateChooser_FechaFundacion = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -67,72 +72,69 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
         jLabel69.setText("Nombre");
         jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, 20));
 
-        jTextField49.setBackground(new java.awt.Color(204, 153, 255));
-        jTextField49.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 180, 20));
+        jTextField_Nombre.setBackground(new java.awt.Color(204, 153, 255));
+        jTextField_Nombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 180, 20));
 
         jLabel70.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel70.setForeground(new java.awt.Color(255, 255, 255));
         jLabel70.setText("Propietario");
         jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, -1, 20));
 
-        jTextField50.setBackground(new java.awt.Color(204, 153, 255));
-        jTextField50.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 180, 20));
+        jTextField_Propietario.setBackground(new java.awt.Color(204, 153, 255));
+        jTextField_Propietario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 180, 20));
 
         jLabel71.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(255, 255, 255));
         jLabel71.setText("Fecha de fundacion");
         jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 20));
 
-        jTextField51.setBackground(new java.awt.Color(204, 153, 255));
-        jTextField51.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 180, 20));
-
         jLabel72.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(255, 255, 255));
         jLabel72.setText("Patrimonio");
         jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, 20));
 
-        jTextField52.setBackground(new java.awt.Color(204, 153, 255));
-        jTextField52.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 180, 20));
+        jTextField_Patrimonio.setBackground(new java.awt.Color(204, 153, 255));
+        jTextField_Patrimonio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Patrimonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 180, 20));
 
         jLabel73.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel73.setForeground(new java.awt.Color(255, 255, 255));
         jLabel73.setText("Sedes");
         jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, 20));
 
-        jTextField53.setBackground(new java.awt.Color(204, 153, 255));
-        jTextField53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 180, 20));
+        jTextField_Sedes.setBackground(new java.awt.Color(204, 153, 255));
+        jTextField_Sedes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Sedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 180, 20));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Editar Estudio");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 180, 70));
+        jButton_Buscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton_Buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Buscar.setBorderPainted(false);
+        jButton_Buscar.setContentAreaFilled(false);
+        jPanel1.add(jButton_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 180, 70));
 
         jLabel74.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel74.setForeground(new java.awt.Color(255, 255, 255));
         jLabel74.setText("Estudio_ID");
         jPanel1.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 20));
 
-        jTextField54.setBackground(new java.awt.Color(204, 153, 255));
-        jTextField54.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 180, 20));
+        jTextField_BuscarEstudioID.setBackground(new java.awt.Color(204, 153, 255));
+        jTextField_BuscarEstudioID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_BuscarEstudioID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 180, 20));
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 0));
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("EDITAR");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 180, -1));
+        jButton_Editar.setBackground(new java.awt.Color(255, 153, 0));
+        jButton_Editar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton_Editar.setText("EDITAR");
+        jButton_Editar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 180, -1));
+        jPanel1.add(jDateChooser_FechaFundacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 180, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -193,8 +195,9 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton_Buscar;
+    public javax.swing.JButton jButton_Editar;
+    public com.toedter.calendar.JDateChooser jDateChooser_FechaFundacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -205,11 +208,10 @@ public class EditarEstudioWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField50;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
+    public javax.swing.JTextField jTextField_BuscarEstudioID;
+    public javax.swing.JTextField jTextField_Nombre;
+    public javax.swing.JTextField jTextField_Patrimonio;
+    public javax.swing.JTextField jTextField_Propietario;
+    public javax.swing.JTextField jTextField_Sedes;
     // End of variables declaration//GEN-END:variables
 }
