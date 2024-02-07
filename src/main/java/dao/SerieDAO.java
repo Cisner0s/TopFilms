@@ -109,6 +109,10 @@ public class SerieDAO implements DAO<Serie>{
             stat.setLong(8, a.getGanacias());
             stat.setInt(9, a.getDirector());
             stat.setInt(10, a.getEstudio());
+            stat.setInt(11, a.getSerie_id());
+            
+            stat.executeUpdate();
+
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que la serie no se haya guardado");
             }
