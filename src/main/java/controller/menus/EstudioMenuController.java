@@ -4,6 +4,7 @@
  */
 package controller.menus;
 
+import controller.details.EstudioDetailsController;
 import dao.Conexion;
 import dao.DAOException;
 import dao.EstudioDAO;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Estudio;
+import view.details.EstudioDetailsWindow;
 import view.menu.EstudioMenuWindow;
 
 /**
@@ -70,7 +72,23 @@ public class EstudioMenuController implements MouseListener{
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+        if(e.getClickCount() == 2){
+            int filaEstSelect = view.jTable.getSelectedRow();
+            if(filaEstSelect != 1){
+                String nombre = (String) view.jTable.getModel().getValueAt(filaEstSelect, 0); 
+                System.out.println(nombre);
+                try {
+                    Estudio estSelect = dao.get(nombre);
+                    EstudioDetailsWindow detailsView = new EstudioDetailsWindow();
+                    EstudioDetailsController ctr = new EstudioDetailsController(detailsView, estSelect); 
+                    detailsView.setVisible(true);
+                } catch (DAOException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar al actor seleccionado.");
+                }
+                
+            }
+        }
     }
 
     @Override

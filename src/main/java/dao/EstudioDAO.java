@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Estudio;
 
 /**
@@ -70,7 +72,7 @@ public class EstudioDAO implements DAO<Estudio>{
     @Override
     public List<Estudio> read() throws DAOException {
         PreparedStatement stat = null; 
-        ResultSet rs; 
+        ResultSet rs = null; 
         List<Estudio> estudios = new ArrayList<>(); 
         try {
             stat = conn.prepareStatement(READ);
@@ -84,9 +86,16 @@ public class EstudioDAO implements DAO<Estudio>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
                 }
             }
         }
@@ -109,7 +118,7 @@ public class EstudioDAO implements DAO<Estudio>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
