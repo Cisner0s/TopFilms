@@ -22,7 +22,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
     
     private final Connection conn;
     
-    final String INSERT = "INSERT INTO pelicula(DURACION, TITULO, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    final String INSERT = "INSERT INTO pelicula(DURACION, TITULO, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     final String READ = "SELECT * FROM pelicula"; 
     final String UPDATE = "UPDATE pelicula SET TITULO = ?, DURACION = ?, SINOPSIS = ?, GENERO = ?, FECHA_ESTRENO = ?, PRESUPUESTO = ?, GANANCIAS = ?, IMAGEN = ?, director_id = ?, ESTUDIO_ESTUDIO_ID = ? WHERE PELICULA_ID = ?"; 
     final String DELETE = "DELETE FROM pelicula WHERE PELICULA_ID = ?";
@@ -39,15 +39,16 @@ public class PeliculaDAO implements DAO<Pelicula>{
         PreparedStatement stat = null; 
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setString(2, a.getTitulo());
             stat.setInt(1, a.getDuracion());
+            stat.setString(2, a.getTitulo());
             stat.setString(3, a.getSinopsis());
             stat.setString(4, a.getGenero());
             stat.setDate(5, a.getFecha_Estreno());
             stat.setLong(6, a.getPresupuesto());
             stat.setLong(7, a.getGanancias());
             stat.setString(8, a.getImagen());
-            stat.setLong(9, a.getGanancias());
+            stat.setInt(9, a.getDirector());
+            stat.setInt(10, a.getEstudio());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que la pelicula no se haya creado correctamente.");
             }
@@ -57,7 +58,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
         } finally {
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException ex) {
                     throw new DAOException("Error en SQL");
                 }
