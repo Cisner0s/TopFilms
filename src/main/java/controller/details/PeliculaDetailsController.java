@@ -5,6 +5,7 @@
 package controller.details;
 
 import controller.SessionDataSingleton;
+import controller.anadir.AnadirResenaController;
 import dao.Conexion;
 import dao.DAOException;
 import dao.DirectorDAO;
@@ -25,7 +26,7 @@ import model.Resena;
 import model.RolUsuarios;
 import model.Usuario;
 import view.details.PeliculaDetailsWindow;
-import view.resena.AnadirResenaWindow;
+import view.anadir.AnadirResenaWindow;
 
 /**
  *
@@ -122,6 +123,8 @@ public class PeliculaDetailsController implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(user.getRol() == RolUsuarios.USUARIO){
+            AnadirResenaWindow resenaView = new AnadirResenaWindow();
+            AnadirResenaController ctr = new AnadirResenaController(resenaView, pelicula, null);
             new AnadirResenaWindow().setVisible(true);
         }
         if(user.getRol() == RolUsuarios.CRITICO){
