@@ -4,6 +4,7 @@
  */
 package controller.menus;
 
+import controller.details.PeliculaDetailsController;
 import dao.Conexion;
 import dao.DAOException;
 import dao.PeliculaDAO;
@@ -19,6 +20,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Pelicula;
+import view.details.PeliculaDetailsWindow;
 import view.menu.FilmMenuWindow;
 
 /**
@@ -65,7 +67,9 @@ public class FilmMenuController implements MouseListener{
                 String titulo = (String) view.jTable.getModel().getValueAt(filaPelSelect, 0); 
                 try {
                     Pelicula pelSelect = dao.peliculaPorTitulo(titulo);
-                    JOptionPane.showMessageDialog(null, "OK");
+                    PeliculaDetailsWindow detailsView = new PeliculaDetailsWindow();
+                    PeliculaDetailsController ctr = new PeliculaDetailsController(detailsView, pelSelect);
+                    detailsView.setVisible(true);
                 } catch (DAOException ex) {
                     JOptionPane.showMessageDialog(null, "No se ha podido encontrar la pelicula seleccionada.");
                 }

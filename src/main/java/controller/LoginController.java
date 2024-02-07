@@ -56,6 +56,7 @@ public class LoginController implements ActionListener, FocusListener, MouseList
             if (dao.login(nickName, password)) {
                 Usuario user = dao.get(nickName);
                 if (user.getEstatus() != EstatusUsuarios.INACTIVO) {
+                    SessionDataSingleton.getInstance().setRolUsuario(user);
                     if (RolUsuarios.CRITICO == user.getRol() || RolUsuarios.USUARIO == user.getRol()) {
                         loginWindow.dispose();
                         new UserWindow(user).setVisible(true);
