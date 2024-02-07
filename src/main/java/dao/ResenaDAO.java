@@ -24,6 +24,15 @@ public class ResenaDAO implements DAO<Resena>{
     
     private final String CREATE = "INSERT INTO resena(TITULO, TEXTO, USUARIO_ID, PELICULA_ID, SERIE_ID) VALUES(?, ?, ?, ?, ?)";
     private final String READ = "SELECT * FROM renesa";
+    private final String GET_PELICULA = "SELECT resena.* " +
+                                        "FROM resena " + 
+                                        "INNER JOIN usuario ON resena.USUARIO_ID = usuario.USUARIO_ID " + 
+                                        "WHERE resena.PELICULA_ID = ?"; 
+    private final String GET_SERIE = "SELECT resena.* " +
+                                        "FROM resena " + 
+                                        "INNER JOIN usuario ON resena.USUARIO_ID = usuario.USUARIO_ID " + 
+                                        "WHERE resena.SERIE_ID = ?"; 
+    
     
     public ResenaDAO(Connection conn){
         this.conn = conn; 
@@ -98,6 +107,70 @@ public class ResenaDAO implements DAO<Resena>{
     @Override
     public Resena get(int id) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public List<Resena> getResenasPeliculas(int peliculaId) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Resena> resenas = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(GET_PELICULA);
+            stat.setInt(1, peliculaId);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                resenas.add(convertir(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Erro en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
+                }
+            }
+        }
+        return resenas; 
+    }
+    
+    public List<Resena> getResenasSeries(int serieId) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Resena> resenas = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(GET_SERIE);
+            stat.setInt(1, serieId);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                resenas.add(convertir(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Erro en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
+                }
+            }
+        }
+        return resenas; 
     }
     
     private Resena convertir(ResultSet rs) throws SQLException{

@@ -10,6 +10,10 @@ import dao.DAOException;
 import dao.DirectorDAO;
 import dao.EstudioDAO;
 import dao.PeliculaActorDAO;
+import dao.ResenaDAO;
+import dao.UsuarioDAO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,15 +21,17 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import model.Actor;
 import model.Pelicula;
+import model.Resena;
 import model.RolUsuarios;
 import model.Usuario;
 import view.details.PeliculaDetailsWindow;
+import view.resena.AnadirResenaWindow;
 
 /**
  *
  * @author jorge
  */
-public class PeliculaDetailsController {
+public class PeliculaDetailsController implements ActionListener{
     
     private PeliculaDetailsWindow view; 
     private Pelicula pelicula; 
@@ -33,6 +39,8 @@ public class PeliculaDetailsController {
     private final PeliculaActorDAO pelActDao; 
     private final EstudioDAO estudioDao; 
     private final DirectorDAO directorDao;
+    private final ResenaDAO resenaDao;
+    private final UsuarioDAO userDao; 
     
     public PeliculaDetailsController(PeliculaDetailsWindow view, Pelicula pelicula){
         this.view = view; 
@@ -41,6 +49,8 @@ public class PeliculaDetailsController {
         this.pelActDao = new PeliculaActorDAO(Conexion.conectar());
         this.estudioDao = new EstudioDAO(Conexion.conectar());
         this.directorDao = new DirectorDAO(Conexion.conectar()); 
+        this.resenaDao = new ResenaDAO(Conexion.conectar());
+        this.userDao = new UsuarioDAO(Conexion.conectar());
         
         iniciarTextoBoton();
         try {
@@ -83,7 +93,7 @@ public class PeliculaDetailsController {
             JOptionPane.showMessageDialog(null, "No se ha podido encontar al estudio de la pelicula seleccionada.");
         }
         
-        
+        //Mostrar lista de actores
         List<Actor> actores = pelActDao.obtenerActores(pelicula.getPelicula_id());
         DefaultListModel<String> listModel = new DefaultListModel<>();
         view.jList_actores.setModel(listModel);
@@ -91,7 +101,32 @@ public class PeliculaDetailsController {
             listModel.addElement(actor.getNombre());
         }
         
+        //Mostrar lista de resenas
+        List<Resena> resenas = resenaDao.getResenasPeliculas(pelicula.getPelicula_id());
+        listModel = new DefaultListModel<>();
+        view.jList_resenas.setModel(listModel);
+        for(Resena resena : resenas){
+            String nick = getNick(resena);
+            listModel.addElement(resena.getTituloResena() + " - " + nick + "\n" + 
+                                 resena.getTextoResena());
+        }
+        
                 
+    }
+    
+    private String getNick(Resena resena) throws DAOException{
+        String nick = userDao.get(resena.getUsuario()).getNickName();
+        return nick; 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(user.getRol() == RolUsuarios.USUARIO){
+            new AnadirResenaWindow().setVisible(true);
+        }
+        if(user.getRol() == RolUsuarios.CRITICO){
+            
+        }
     }
     
 }

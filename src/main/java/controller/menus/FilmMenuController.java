@@ -69,6 +69,7 @@ public class FilmMenuController implements MouseListener{
                     Pelicula pelSelect = dao.peliculaPorTitulo(titulo);
                     PeliculaDetailsWindow detailsView = new PeliculaDetailsWindow();
                     PeliculaDetailsController ctr = new PeliculaDetailsController(detailsView, pelSelect);
+                    detailsView.jButton_anadirResena.addActionListener(ctr);
                     detailsView.setVisible(true);
                 } catch (DAOException ex) {
                     JOptionPane.showMessageDialog(null, "No se ha podido encontrar la pelicula seleccionada.");
