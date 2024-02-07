@@ -12,17 +12,20 @@ public class Critica {
     private int critica_id;
     private String titulo;
     private String texto;
-    private Pelicula pelicula;
-    private Serie serie;
-    private Critico critico;
+    private Integer pelicula_id;
+    private Integer serie_id;
+    private Integer usuario_id;
     
     public Critica() {
         // Constructor vacío
     }
     
-    public Critica(String titulo,String texto) {
+    public Critica(String titulo,String texto, Integer pelicula_id, Integer serie_id, Integer usuario_id) {
         this.titulo = titulo;
         this.texto=texto;
+        this.pelicula_id = pelicula_id; 
+        this.serie_id = serie_id; 
+        this.usuario_id = usuario_id; 
     }
 
     public int getCritica_id() {
@@ -37,12 +40,12 @@ public class Critica {
         return titulo;
     }
 
-    public Critico getCritico() {
-        return critico;
+    public Integer getUsuario_id() {
+        return usuario_id;
     }
 
-    public void setCritico(Critico critico) {
-        this.critico = critico;
+    public void setUsuario_id(Integer usuario_id) {
+        this.usuario_id = usuario_id;
     }
 
     public void setTitulo(String titulo) {
@@ -57,19 +60,19 @@ public class Critica {
         this.texto = texto;
     }
 
-    public Serie getSerie() {
-        return serie;
+    public Integer getSerie_id() {
+        return serie_id;
     }
 
-    public void setSerie(Serie serie) {
-        this.serie = serie;
+    public void setSerie_id(Integer serie_id) {
+        this.serie_id = serie_id;
     }
     
-    public Pelicula getPelicula() {
-        return pelicula;
+    public Integer getPelicula_id() {
+        return pelicula_id;
     }
 
-    public void setPelicula(Pelicula pelicula) {
-        this.pelicula = pelicula;
+    public void setPelicula_id(Integer pelicula_id) {
+        this.pelicula_id = pelicula_id;
     }
 }

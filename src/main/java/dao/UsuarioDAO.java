@@ -157,7 +157,7 @@ public class UsuarioDAO implements DAO<Usuario>{
             if(rs.next()){
                 usuario = convertir(rs);
             }else{
-                throw new DAOException("No se ha encontrado ese actor");
+                throw new DAOException("No se ha encontrado ese usuario");
             }
         }catch(SQLException e){
             throw new DAOException("Error en SQL.", e);

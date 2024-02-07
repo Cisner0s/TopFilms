@@ -14,12 +14,12 @@ import java.awt.Toolkit;
  *
  * @author DCM
  */
-public class AnadirResenaWindow extends javax.swing.JFrame {
+public class AnadirCriticaWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form ShowWindow
      */
-    public AnadirResenaWindow() {
+    public AnadirCriticaWindow() {
         initComponents();
         setResizable(false);
         setTitle("Menu Series");
@@ -60,7 +60,7 @@ public class AnadirResenaWindow extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 500, -1));
 
-        jButton_anadir.setText(" Añadir reseña");
+        jButton_anadir.setText(" Añadir crítica");
         jPanel1.add(jButton_anadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 210, 40));
 
         jTextArea1.setColumns(20);
@@ -103,14 +103,30 @@ public class AnadirResenaWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AnadirResenaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirCriticaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AnadirResenaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirCriticaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AnadirResenaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirCriticaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AnadirResenaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirCriticaWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -131,7 +147,7 @@ public class AnadirResenaWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AnadirResenaWindow().setVisible(true);
+                new AnadirCriticaWindow().setVisible(true);
             }
         });
     }

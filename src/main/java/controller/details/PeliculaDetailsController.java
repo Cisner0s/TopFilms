@@ -5,8 +5,10 @@
 package controller.details;
 
 import controller.SessionDataSingleton;
+import controller.anadir.AnadirCriticaController;
 import controller.anadir.AnadirResenaController;
 import dao.Conexion;
+import dao.CriticaDAO;
 import dao.DAOException;
 import dao.DirectorDAO;
 import dao.EstudioDAO;
@@ -21,10 +23,12 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import model.Actor;
+import model.Critica;
 import model.Pelicula;
 import model.Resena;
 import model.RolUsuarios;
 import model.Usuario;
+import view.anadir.AnadirCriticaWindow;
 import view.details.PeliculaDetailsWindow;
 import view.anadir.AnadirResenaWindow;
 
@@ -41,6 +45,7 @@ public class PeliculaDetailsController implements ActionListener{
     private final EstudioDAO estudioDao; 
     private final DirectorDAO directorDao;
     private final ResenaDAO resenaDao;
+    private final CriticaDAO criticaDao; 
     private final UsuarioDAO userDao; 
     
     public PeliculaDetailsController(PeliculaDetailsWindow view, Pelicula pelicula){
@@ -51,14 +56,12 @@ public class PeliculaDetailsController implements ActionListener{
         this.estudioDao = new EstudioDAO(Conexion.conectar());
         this.directorDao = new DirectorDAO(Conexion.conectar()); 
         this.resenaDao = new ResenaDAO(Conexion.conectar());
+        this.criticaDao = new CriticaDAO(Conexion.conectar());
         this.userDao = new UsuarioDAO(Conexion.conectar());
         
         iniciarTextoBoton();
-        try {
-            mostrarInformacion();
-        } catch (DAOException ex) {
-            JOptionPane.showMessageDialog(null, "No se ha podido encontrar a los actres de la pelicula seleccionada");
-        }
+        mostrarInformacion();
+        
     }
     
     private void iniciarTextoBoton(){
@@ -71,7 +74,7 @@ public class PeliculaDetailsController implements ActionListener{
         }
     }
     
-    private void mostrarInformacion() throws DAOException{
+    private void mostrarInformacion() {
         view.jLabel_titulo.setText(pelicula.getTitulo());
         view.jLabel_genero.setText(pelicula.getGenero());
         view.jLabel_fechaEstreno.setText(pelicula.getFecha_Estreno().toString());
@@ -95,28 +98,61 @@ public class PeliculaDetailsController implements ActionListener{
         }
         
         //Mostrar lista de actores
-        List<Actor> actores = pelActDao.obtenerActores(pelicula.getPelicula_id());
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-        view.jList_actores.setModel(listModel);
-        for(Actor actor : actores){
-            listModel.addElement(actor.getNombre());
+        List<Actor> actores;
+        try {
+            actores = pelActDao.obtenerActores(pelicula.getPelicula_id());
+            DefaultListModel<String> listModel = new DefaultListModel<>();
+            view.jList_actores.setModel(listModel);
+            for(Actor actor : actores){
+                listModel.addElement(actor.getNombre());
+            }
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se pudo listar a los actores");
         }
+        
+        
         
         //Mostrar lista de resenas
-        List<Resena> resenas = resenaDao.getResenasPeliculas(pelicula.getPelicula_id());
-        listModel = new DefaultListModel<>();
-        view.jList_resenas.setModel(listModel);
-        for(Resena resena : resenas){
-            String nick = getNick(resena);
-            listModel.addElement(resena.getTituloResena() + " - " + nick + "\n" + 
-                                 resena.getTextoResena());
+        List<Resena> resenas;
+        try {
+            resenas = resenaDao.getResenasPeliculas(pelicula.getPelicula_id());
+            DefaultListModel listModel = new DefaultListModel<>();
+            view.jList_resenas.setModel(listModel);
+            for(Resena resena : resenas){
+                String nick = getNick(resena);
+                listModel.addElement("<html>" + resena.getTituloResena() + " - " + nick + "<br>" + 
+                                     resena.getTextoResena());
+            }
+        } catch (DAOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se puedieron listar las reseñas");
         }
         
+        List<Critica> criticas; 
+        try {
+            criticas = criticaDao.getResenasPeliculas(pelicula.getPelicula_id());
+            DefaultListModel listModel = new DefaultListModel<>();
+            view.jList_criticas.setModel(listModel);
+            for(Critica critica : criticas){
+                String nick = getNick(critica);
+                listModel.addElement("<html>" + critica.getTitulo()+ " - " + nick + "<br>" + 
+                                     critica.getTexto());
+            }
+        } catch (DAOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se pudieron listar las críticas.");
+        }
                 
     }
     
     private String getNick(Resena resena) throws DAOException{
         String nick = userDao.get(resena.getUsuario()).getNickName();
+        return nick; 
+    }
+    
+    private String getNick(Critica critica) throws DAOException{
+        String nick = userDao.get(critica.getUsuario_id()).getNickName();
         return nick; 
     }
 
@@ -125,10 +161,14 @@ public class PeliculaDetailsController implements ActionListener{
         if(user.getRol() == RolUsuarios.USUARIO){
             AnadirResenaWindow resenaView = new AnadirResenaWindow();
             AnadirResenaController ctr = new AnadirResenaController(resenaView, pelicula, null);
-            new AnadirResenaWindow().setVisible(true);
+            resenaView.jButton_anadir.addActionListener(ctr);
+            resenaView.setVisible(true);
         }
         if(user.getRol() == RolUsuarios.CRITICO){
-            
+            AnadirCriticaWindow criticaView = new AnadirCriticaWindow();
+            AnadirCriticaController ctr = new AnadirCriticaController(criticaView, pelicula, null);
+            criticaView.jButton_anadir.addActionListener(ctr);
+            criticaView.setVisible(true);
         }
     }
     
