@@ -4,6 +4,7 @@
  */
 package controller.menus;
 
+import controller.details.DirectorDetailsController;
 import dao.Conexion;
 import dao.DAOException;
 import dao.DirectorDAO;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Director;
+import view.details.DirectorDetailsWindow;
 import view.menu.DirectorMenuWindow;
 
 /**
@@ -70,6 +72,23 @@ public class DirectorMenuController implements MouseListener{
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(e.getClickCount() == 2){
+            int filaDirSelect = view.jTable.getSelectedRow();
+            if(filaDirSelect != 1){
+                String nombre = (String) view.jTable.getModel().getValueAt(filaDirSelect, 0); 
+                System.out.println(nombre);
+                try {
+                    Director dirSelect = dao.get(nombre);
+                    DirectorDetailsWindow detailsView = new DirectorDetailsWindow();
+                    DirectorDetailsController ctr = new DirectorDetailsController(detailsView, dirSelect); 
+                    detailsView.setVisible(true);
+                } catch (DAOException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "No se ha podido encontrar al actor seleccionado.");
+                }
+                
+            }
+        }
     }
 
     @Override
