@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Pelicula;
 
 /**
@@ -29,6 +31,10 @@ public class PeliculaDAO implements DAO<Pelicula>{
     final String GET_ID = "SELECT PELICULA_ID, TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE PELICULA_ID = ?";  
     final String GET_BY_TITULO = "SELECT PELICULA_ID, TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID FROM pelicula WHERE TITULO = ?";  
     final String GET_TITULO = "SELECT * FROM pelicula WHERE TITULO = ?"; 
+    final String GET_DIRECTOR = "SELECT p.* " + 
+                                "FROM pelicula p " + 
+                                "JOIN director d ON p.director_id = d.DIRECTOR_ID " + 
+                                "WHERE d.DIRECTOR_ID = ?";
     
     public PeliculaDAO(Connection conn){
         this.conn = conn;
@@ -227,6 +233,38 @@ public class PeliculaDAO implements DAO<Pelicula>{
             } 
         }
         return pelicula; 
+    }
+    
+    public List<Pelicula> getPeliculasDirector(int id) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Pelicula> peliculas = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(GET_DIRECTOR);
+            stat.setInt(1, id);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                peliculas.add(convertir(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
+                }
+            }
+        }
+        return peliculas; 
     }
     
     private Pelicula convertir(ResultSet rs) throws SQLException{
