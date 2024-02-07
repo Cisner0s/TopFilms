@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Actor;
 import model.Pelicula;
 import model.PeliculaActor;
 
@@ -25,10 +26,16 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
     private final Connection conn; 
 
     private final String CREATE = "INSERT INTO pelicula_actor(pelicula_id, actor_id) VALUES(?, ?)"; 
-    private final String OBTENER_PELICULAS = "SELECT p.* FROM pelicula p " + 
-                                             "INNER JOIN pelicula_actor pa ON p.PELICULA_ID = pa.pelicula_id " + 
-                                             "INNER JOIN actor a ON pa.actor_id = a.ACTOR_ID " + 
-                                             "WHERE a.ACTOR_ID = ?"; 
+    private final String OBTENER_PELICULAS = "SELECT pelicula.* " + 
+                                             "FROM pelicula " + 
+                                             "JOIN pelicula_actor ON pelicula.PELICULA_ID = pelicula_actor.pelicula_id " + 
+                                             "WHERE pelicula_actor.actor_id = ?"; 
+    
+    
+    private final String OBTENER_ACTORES = "SELECT actor.* " + 
+                                           "FROM actor " + 
+                                           "JOIN pelicula_actor ON actor.ACTOR_ID = pelicula_actor.actor_id " + 
+                                           "WHERE pelicula_actor.pelicula_id = ?";  
     
     public PeliculaActorDAO(Connection conn){
         this.conn = conn; 
@@ -109,6 +116,38 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
         return peliculas; 
     }
     
+    public List<Actor> obtenerActores(int idPelicula) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Actor> actores = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(OBTENER_ACTORES);
+            stat.setInt(1, idPelicula);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                actores.add(convertirActores(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+        }
+        return actores; 
+    }
+    
     private PeliculaActor convertir(ResultSet rs){
         return null; 
     }
@@ -128,6 +167,19 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
         Pelicula pelicula = new Pelicula(titulo, duracion, sinopsis, genero, fechaEstreno, presupuesto, ganancias, imagen, id_director, id_estudio);
         pelicula.setPelicula_id(id);
         return pelicula;
+    }
+    
+    private Actor convertirActores(ResultSet rs) throws SQLException{
+        int id = rs.getInt("ACTOR_ID");
+        String nombre = rs.getString("NOMBRE");
+        String sexo = rs.getString("SEXO");
+        Date fechaNac = rs.getDate("FECHA_NACIMIENTO");
+        String lugarNac = rs.getString("LUGAR_NACIMIENTO");
+        String nacionalidad = rs.getString("NACIONALIDAD");
+        String premios = rs.getString("PREMIOS");
+        Actor actor = new Actor(nombre, sexo, fechaNac, lugarNac, nacionalidad, premios);
+        actor.setId(id);
+        return actor;
     }
     
 }

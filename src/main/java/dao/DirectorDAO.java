@@ -119,7 +119,7 @@ public class DirectorDAO implements DAO<Director>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
@@ -143,7 +143,7 @@ public class DirectorDAO implements DAO<Director>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
