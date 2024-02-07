@@ -30,7 +30,7 @@ public class SessionDataSingleton {
         return usuario;
     }
 
-    public void setRolUsuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 }

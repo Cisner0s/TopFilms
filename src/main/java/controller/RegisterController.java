@@ -74,7 +74,7 @@ public class RegisterController implements ActionListener{
            if(dao.register(nickName)){
                Usuario newUser = new Usuario(nickName, pass, fullname, rol, EstatusUsuarios.ACTIVO); 
                dao.create(newUser);
-               
+               SessionDataSingleton.getInstance().setUsuario(newUser);
                switch(newUser.getRol()){
                     case USUARIO: 
                         regWindow.dispose();

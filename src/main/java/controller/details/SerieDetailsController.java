@@ -114,7 +114,24 @@ public class SerieDetailsController implements ActionListener{
         
         
         
-        //Mostrar lista de resenas
+        listarCriticas();
+        listarResenas();
+        
+        
+                
+    }
+    
+    private String getNick(Resena resena) throws DAOException{
+        String nick = userDao.get(resena.getUsuario()).getNickName();
+        return nick; 
+    }
+    
+    private String getNick(Critica critica) throws DAOException{
+        String nick = userDao.get(critica.getUsuario_id()).getNickName();
+        return nick; 
+    }
+    
+    public void listarResenas(){
         List<Resena> resenas;
         try {
             resenas = resenaDao.getResenasSeries(serie.getSerie_id());
@@ -129,7 +146,9 @@ public class SerieDetailsController implements ActionListener{
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "No se puedieron listar las reseñas");
         }
-        
+    }
+    
+    public void listarCriticas(){
         List<Critica> criticas; 
         try {
             criticas = criticaDao.getCriticasSeries(serie.getSerie_id());
@@ -144,32 +163,28 @@ public class SerieDetailsController implements ActionListener{
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "No se pudieron listar las críticas.");
         }
-                
-    }
-    
-    private String getNick(Resena resena) throws DAOException{
-        String nick = userDao.get(resena.getUsuario()).getNickName();
-        return nick; 
-    }
-    
-    private String getNick(Critica critica) throws DAOException{
-        String nick = userDao.get(critica.getUsuario_id()).getNickName();
-        return nick; 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(user.getRol() == RolUsuarios.USUARIO){
-            AnadirResenaWindow resenaView = new AnadirResenaWindow();
-            AnadirResenaController ctr = new AnadirResenaController(resenaView, null, serie);
-            resenaView.jButton_anadir.addActionListener(ctr);
-            resenaView.setVisible(true);
+        if(e.getSource() == view.jButton_anadirResena){
+            if(user.getRol() == RolUsuarios.USUARIO){
+                AnadirResenaWindow resenaView = new AnadirResenaWindow();
+                AnadirResenaController ctr = new AnadirResenaController(resenaView, null, serie);
+                resenaView.jButton_anadir.addActionListener(ctr);
+                resenaView.setVisible(true);
+            }
+            if(user.getRol() == RolUsuarios.CRITICO){
+                AnadirCriticaWindow criticaView = new AnadirCriticaWindow();
+                AnadirCriticaController ctr = new AnadirCriticaController(criticaView, null, serie);
+                criticaView.jButton_anadir.addActionListener(ctr);
+                criticaView.setVisible(true);
+            }
         }
-        if(user.getRol() == RolUsuarios.CRITICO){
-            AnadirCriticaWindow criticaView = new AnadirCriticaWindow();
-            AnadirCriticaController ctr = new AnadirCriticaController(criticaView, null, serie);
-            criticaView.jButton_anadir.addActionListener(ctr);
-            criticaView.setVisible(true);
+        if(e.getSource() == view.jButton_refrescar){
+            listarCriticas();
+            listarResenas();
         }
+        
     }
 }

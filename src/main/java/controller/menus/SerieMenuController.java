@@ -68,6 +68,7 @@ public class SerieMenuController implements MouseListener{
                     SerieDetailsWindow detailsView = new SerieDetailsWindow(); 
                     SerieDetailsController ctr = new SerieDetailsController(detailsView, pelSelect);
                     detailsView.jButton_anadirResena.addActionListener(ctr);
+                    detailsView.jButton_refrescar.addActionListener(ctr);
                     detailsView.setVisible(true);
                 } catch (DAOException ex) {
                     JOptionPane.showMessageDialog(null, "No se ha podido encontrar la serie seleccionada.");

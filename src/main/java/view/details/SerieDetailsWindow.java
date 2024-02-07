@@ -74,6 +74,7 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton_anadirResena = new javax.swing.JButton();
+        jButton_refrescar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -180,6 +181,9 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton_anadirResena, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, 140, 40));
+
+        jButton_refrescar.setText("refrescar");
+        jPanel1.add(jButton_refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoDegradadoVerdeVioleta.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 520));
@@ -304,6 +308,7 @@ public class SerieDetailsWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_anadirResena;
+    public javax.swing.JButton jButton_refrescar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
