@@ -53,9 +53,9 @@ public class AnadirDirectorController implements ActionListener{
             String sexo = null;
             
             if(masculino){
-                sexo = "masculino";
+                sexo = "Masculino";
             } else if(femenino){
-                sexo = "femenino";
+                sexo = "Femenino";
             }
             
             try {

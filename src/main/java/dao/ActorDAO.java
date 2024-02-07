@@ -106,6 +106,8 @@ public class ActorDAO implements DAO<Actor>{
             stat.setString(4, a.getLugarNacimiento());
             stat.setString(5, a.getNacionalidad());
             stat.setString(6, a.getPremios());
+            stat.setString(7, null);
+            stat.setInt(8, a.getId());
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que el actor no se haya actualizado");
             }
@@ -114,7 +116,7 @@ public class ActorDAO implements DAO<Actor>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
                 }
@@ -167,6 +169,7 @@ public class ActorDAO implements DAO<Actor>{
                 throw new DAOException("No se ha encontrado ese actor");
             }
         }catch(SQLException e){
+            e.printStackTrace();
             throw new DAOException("Error en SQL.", e);
         }finally{
             if(rs != null){

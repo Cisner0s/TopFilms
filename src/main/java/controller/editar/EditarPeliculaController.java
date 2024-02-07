@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author fran
+ * @author DCM
  */
 public class EditarPeliculaController  implements ActionListener{
 

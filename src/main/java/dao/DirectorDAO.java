@@ -114,7 +114,10 @@ public class DirectorDAO implements DAO<Director>{
             stat.setString(5, a.getNacionalidad());
             stat.setString(6, a.getNominaciones());
             stat.setString(7, a.getPremios());
+            stat.setInt(8, a.getDirector_id());
+            stat.executeUpdate();
         } catch(SQLException e){
+            e.printStackTrace();
             throw new DAOException("Error en SQL", e);
         }finally{
             if(stat != null){
