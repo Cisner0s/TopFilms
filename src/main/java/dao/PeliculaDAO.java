@@ -103,9 +103,14 @@ public class PeliculaDAO implements DAO<Pelicula>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    @Override
     public void delete(int a) throws DAOException {
         PreparedStatement stat = null; 
         try{
+            PreparedStatement deletePeliculaActorStmt = conn.prepareStatement("DELETE FROM pelicula_actor WHERE pelicula_id = ?");
+            deletePeliculaActorStmt.setInt(1, a);
+            deletePeliculaActorStmt.executeUpdate();
+            
             stat = conn.prepareStatement(DELETE);
             stat.setInt(1, a);
             if(stat.executeUpdate() == 0){

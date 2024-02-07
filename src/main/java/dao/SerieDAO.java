@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Serie;
 
 /**
@@ -131,7 +129,11 @@ public class SerieDAO implements DAO<Serie>{
     public void delete(int id) throws DAOException {
         PreparedStatement stat = null; 
         try {
+            PreparedStatement deletePeliculaActorStmt = conn.prepareStatement("DELETE FROM serie_actor WHERE serie_id = ?");
+            deletePeliculaActorStmt.setInt(1, id);
+            deletePeliculaActorStmt.executeUpdate();
             stat = conn.prepareStatement(DELETE);
+            
             stat.setInt(1, id);
             if(stat.executeUpdate() == 0){
                 throw new DAOException("Puede que la serie no se haya borrado correctamente.");
