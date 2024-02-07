@@ -4,6 +4,7 @@
  */
 package view.anadir;
 
+import controller.anadir.AnadirEstudioController;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,6 +23,9 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         setTitle("Añadir Estudio");
         setLocationRelativeTo(null);
         setIconImage(getIconImage());
+        
+        AnadirEstudioController ctr = new AnadirEstudioController(this);
+        jButton_AnadirEstudio.addActionListener(ctr);
     }
 
      @Override
@@ -29,7 +33,13 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.jpg"));
         return retValue;
     }
-
+    public boolean camposCompletos(){
+        return !"".equals(jTextField_Nombre.getText().trim()) &&
+               !"".equals(jTextField_Patrimonio.getText().trim()) &&
+               !"".equals(jTextField_Propietario.getText().trim()) &&
+               !"".equals(jTextField_Sedes.getText().trim()) &&
+               jDateChooser_FechaFundacion.getDate() != null;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,17 +51,17 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel69 = new javax.swing.JLabel();
-        jTextField49 = new javax.swing.JTextField();
+        jTextField_Nombre = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        jTextField50 = new javax.swing.JTextField();
+        jTextField_Propietario = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
-        jTextField51 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
-        jTextField52 = new javax.swing.JTextField();
+        jTextField_Patrimonio = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
-        jTextField53 = new javax.swing.JTextField();
+        jTextField_Sedes = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_AnadirEstudio = new javax.swing.JButton();
+        jDateChooser_FechaFundacion = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -64,57 +74,58 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
         jLabel69.setText("Nombre");
         jPanel1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, 20));
 
-        jTextField49.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField49.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField49, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 180, 20));
+        jTextField_Nombre.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Nombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 180, 20));
 
         jLabel70.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel70.setForeground(new java.awt.Color(255, 255, 255));
         jLabel70.setText("Propietario");
         jPanel1.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 20));
 
-        jTextField50.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField50.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField50, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 20));
+        jTextField_Propietario.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Propietario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 20));
 
         jLabel71.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(255, 255, 255));
         jLabel71.setText("Fecha de fundacion");
         jPanel1.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 20));
 
-        jTextField51.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField51.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, 20));
-
         jLabel72.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(255, 255, 255));
         jLabel72.setText("Patrimonio");
         jPanel1.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, 20));
 
-        jTextField52.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField52.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 20));
+        jTextField_Patrimonio.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Patrimonio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Patrimonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 180, 20));
 
         jLabel73.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel73.setForeground(new java.awt.Color(255, 255, 255));
         jLabel73.setText("Sedes");
         jPanel1.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, 20));
 
-        jTextField53.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 180, 20));
+        jTextField_Sedes.setBackground(new java.awt.Color(204, 255, 255));
+        jTextField_Sedes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jTextField_Sedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 180, 20));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Añadir Estudio");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 180, 80));
+        jButton_AnadirEstudio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton_AnadirEstudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ir_1.png"))); // NOI18N
+        jButton_AnadirEstudio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_AnadirEstudio.setBorderPainted(false);
+        jButton_AnadirEstudio.setContentAreaFilled(false);
+        jPanel1.add(jButton_AnadirEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 180, 80));
+
+        jDateChooser_FechaFundacion.setBackground(new java.awt.Color(153, 255, 255));
+        jDateChooser_FechaFundacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jDateChooser_FechaFundacion.setForeground(new java.awt.Color(102, 255, 255));
+        jPanel1.add(jDateChooser_FechaFundacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 180, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Negro_Trans_2.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -174,7 +185,8 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_AnadirEstudio;
+    public com.toedter.calendar.JDateChooser jDateChooser_FechaFundacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -184,10 +196,9 @@ public class AnadirEstudioWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField49;
-    private javax.swing.JTextField jTextField50;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
+    public javax.swing.JTextField jTextField_Nombre;
+    public javax.swing.JTextField jTextField_Patrimonio;
+    public javax.swing.JTextField jTextField_Propietario;
+    public javax.swing.JTextField jTextField_Sedes;
     // End of variables declaration//GEN-END:variables
 }
