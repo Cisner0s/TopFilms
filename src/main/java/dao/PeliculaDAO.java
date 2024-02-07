@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Pelicula;
 
 /**
@@ -24,7 +22,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
     
     private final Connection conn;
     
-    final String INSERT = "INSERT INTO pelicula(TITULO, DURACION, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    final String INSERT = "INSERT INTO pelicula(DURACION, TITULO, SINOPSIS, GENERO, FECHA_ESTRENO, PRESUPUESTO, GANANCIAS, IMAGEN, director_id, ESTUDIO_ESTUDIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     final String READ = "SELECT * FROM pelicula"; 
     final String UPDATE = "UPDATE pelicula SET TITULO = ?, DURACION = ?, SINOPSIS = ?, GENERO = ?, FECHA_ESTRENO = ?, PRESUPUESTO = ?, GANANCIAS = ?, IMAGEN = ?, director_id = ?, ESTUDIO_ESTUDIO_ID = ? WHERE PELICULA_ID = ?"; 
     final String DELETE = "DELETE FROM pelicula WHERE PELICULA_ID = ?";
@@ -41,8 +39,8 @@ public class PeliculaDAO implements DAO<Pelicula>{
         PreparedStatement stat = null; 
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setString(1, a.getTitulo());
-            stat.setInt(2, a.getDuracion());
+            stat.setString(2, a.getTitulo());
+            stat.setInt(1, a.getDuracion());
             stat.setString(3, a.getSinopsis());
             stat.setString(4, a.getGenero());
             stat.setDate(5, a.getFecha_Estreno());
@@ -54,6 +52,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
                 throw new DAOException("Puede que la pelicula no se haya creado correctamente.");
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new DAOException("Error en SQL");
         } finally {
             if(stat != null){

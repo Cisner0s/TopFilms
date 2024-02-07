@@ -153,7 +153,7 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
 
         jLabel53.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel53.setText("Nombre Director");
+        jLabel53.setText("Director ID");
         jPanel1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, -1, -1));
 
         jTextField_NombreDirector.setBackground(new java.awt.Color(204, 153, 255));
@@ -162,7 +162,7 @@ public class AnadirSerieWindow extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
         jLabel54.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel54.setText("Nombre Estudio");
+        jLabel54.setText("Estudio ID");
         jPanel1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, -1, -1));
 
         jTextField_NombreEstudio.setBackground(new java.awt.Color(204, 153, 255));
