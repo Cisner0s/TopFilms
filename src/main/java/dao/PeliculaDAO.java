@@ -229,7 +229,7 @@ public class PeliculaDAO implements DAO<Pelicula>{
         return pelicula; 
     }
     
-    public Pelicula convertir(ResultSet rs) throws SQLException{
+    private Pelicula convertir(ResultSet rs) throws SQLException{
         int id = rs.getInt("PELICULA_ID");
         int duracion = rs.getInt("DURACION");
         String titulo = rs.getString("TITULO");
