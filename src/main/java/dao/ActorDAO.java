@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Actor;
 
 public class ActorDAO implements DAO<Actor>{
@@ -64,7 +66,7 @@ public class ActorDAO implements DAO<Actor>{
     @Override
     public List<Actor> read() throws DAOException {
         PreparedStatement stat = null; 
-        ResultSet rs; 
+        ResultSet rs = null; 
         List<Actor> actores = new ArrayList<>(); 
         try {
             stat = conn.prepareStatement(READ);
@@ -77,9 +79,16 @@ public class ActorDAO implements DAO<Actor>{
         }finally{
             if(stat != null){
                 try {
-                    conn.close();
+                    stat.close();
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL.", e);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL", ex);
                 }
             }
         }
@@ -185,6 +194,7 @@ public class ActorDAO implements DAO<Actor>{
                 throw new DAOException("No se ha encontrado ese actor");
             }
         }catch(SQLException e){
+            System.out.println(e);
             throw new DAOException("Error en SQL.", e);
         }finally{
             if(rs != null){

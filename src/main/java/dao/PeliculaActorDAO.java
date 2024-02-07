@@ -5,12 +5,15 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Pelicula;
 import model.PeliculaActor;
 
 /**
@@ -22,6 +25,10 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
     private final Connection conn; 
 
     private final String CREATE = "INSERT INTO pelicula_actor(pelicula_id, actor_id) VALUES(?, ?)"; 
+    private final String OBTENER_PELICULAS = "SELECT p.* FROM pelicula p " + 
+                                             "INNER JOIN pelicula_actor pa ON p.PELICULA_ID = pa.pelicula_id " + 
+                                             "INNER JOIN actor a ON pa.actor_id = a.ACTOR_ID " + 
+                                             "WHERE a.ACTOR_ID = ?"; 
     
     public PeliculaActorDAO(Connection conn){
         this.conn = conn; 
@@ -70,8 +77,57 @@ public class PeliculaActorDAO implements DAO<PeliculaActor>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public List<Pelicula> obtenerPeliculas(int idActor) throws DAOException{
+        PreparedStatement stat = null; 
+        ResultSet rs = null; 
+        List<Pelicula> peliculas = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(OBTENER_PELICULAS);
+            stat.setInt(1, idActor);
+            rs = stat.executeQuery();
+            while(rs.next()){
+                peliculas.add(convertirPeliculas(rs));
+            }
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if(stat != null){
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+            if(rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Error en SQL.", ex);
+                }
+            }
+        }
+        return peliculas; 
+    }
+    
     private PeliculaActor convertir(ResultSet rs){
         return null; 
+    }
+    
+    private Pelicula convertirPeliculas(ResultSet rs) throws SQLException{
+        int id = rs.getInt("PELICULA_ID");
+        int duracion = rs.getInt("DURACION");
+        String titulo = rs.getString("TITULO");
+        String sinopsis = rs.getString("SINOPSIS");
+        String genero = rs.getString("GENERO");
+        Date fechaEstreno = rs.getDate("FECHA_ESTRENO");
+        long presupuesto = rs.getLong("PRESUPUESTO");
+        long ganancias = rs.getLong("GANANCIAS");
+        String imagen = rs.getString("IMAGEN");
+        int id_director = rs.getInt("director_id");
+        int id_estudio = rs.getInt("ESTUDIO_ESTUDIO_ID");
+        Pelicula pelicula = new Pelicula(titulo, duracion, sinopsis, genero, fechaEstreno, presupuesto, ganancias, imagen, id_director, id_estudio);
+        pelicula.setPelicula_id(id);
+        return pelicula;
     }
     
 }

@@ -238,8 +238,8 @@ public class SerieDAO implements DAO<Serie>{
         int n_ep = rs.getInt("N_EPISODIOS");
         double dur_med = rs.getDouble("DURACION_MED_EPISODIO");
         int n_temp = rs.getInt("N_TEMPORADAS");
-        int presupuesto = rs.getInt("PRESUPUESTO");
-        int ganancias = rs.getInt("GANANCIAS");
+        long presupuesto = rs.getLong("PRESUPUESTO");
+        long ganancias = rs.getLong("GANANCIAS");
         int director_id = rs.getInt("director_id");
         int estudio_id = rs.getInt("estudio_id");
         Serie serie = new Serie(titulo, fechaEst, genero, n_ep, dur_med, n_temp, presupuesto, ganancias, director_id, estudio_id);
