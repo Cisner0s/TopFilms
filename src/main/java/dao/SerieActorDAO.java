@@ -23,7 +23,7 @@ public class SerieActorDAO implements DAO<SerieActor>{
 
     private final Connection conn; 
 
-    private final String CREATE = "INSERT INTO serie_actor(serie, actor_id) VALUES(?, ?)"; 
+    private final String CREATE = "INSERT INTO serie_actor(serie_id, actor_id) VALUES(?, ?)"; 
     private final String OBTENER_SERIES = "SELECT s.* FROM serie s " + 
                                              "INNER JOIN serie_actor sa ON s.SERIE_ID = sa.serie_id " + 
                                              "INNER JOIN actor a ON sa.actor_id = a.ACTOR_ID " + 
@@ -44,6 +44,7 @@ public class SerieActorDAO implements DAO<SerieActor>{
                 throw new DAOException("No se puedo crear la relación pelicula/actor correctamente");
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new DAOException("Error en SQL.");
         } finally {
             if(stat != null){

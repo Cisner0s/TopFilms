@@ -126,6 +126,14 @@ public class ActorDAO implements DAO<Actor>{
     public void delete(int id) throws DAOException {
         PreparedStatement stat = null; 
         try{
+            PreparedStatement deletePeliculaActorStmt = conn.prepareStatement("DELETE FROM pelicula_actor WHERE actor_id = ?");
+            deletePeliculaActorStmt.setInt(1, id);
+            deletePeliculaActorStmt.executeUpdate();
+            
+            PreparedStatement deleteSerieActorStmt = conn.prepareStatement("DELETE FROM serie_actor WHERE actor_id = ?");
+            deleteSerieActorStmt.setInt(1, id);
+            deleteSerieActorStmt.executeUpdate();
+            
             stat = conn.prepareStatement(DELETE);
             stat.setInt(1, id);
             if(stat.executeUpdate() == 0){
